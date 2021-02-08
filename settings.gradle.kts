@@ -1,3 +1,7 @@
 rootProject.name = "EasySpigotAPI"
 
-include("api", "sample")
+include(
+    "api",
+    "sample",
+    "sample:event-register"
+)
