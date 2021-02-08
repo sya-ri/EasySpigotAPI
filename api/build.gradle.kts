@@ -1,10 +1,10 @@
-val projectName = "EasySpigotAPI"
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 group = "com.github.sya-ri.spigot.api"
 version = "1.0.0-SNAPSHOT"
 
 bukkit {
-    name = projectName
+    name = "EasySpigotAPI"
     version = project.version.toString()
     description = "A library for easy use of the Spigot API."
     main = "com.github.syari.spigot.api.EasySpigotAPI"
@@ -13,6 +13,6 @@ bukkit {
     apiVersion = "1.16"
 }
 
-tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-    archiveBaseName.set(projectName)
+tasks.withType<ShadowJar> {
+    archiveBaseName.set("EasySpigotAPI")
 }
