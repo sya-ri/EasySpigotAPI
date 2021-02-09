@@ -6,9 +6,13 @@ import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 
+/**
+ * @since 1.0.0
+ */
 class Events internal constructor(val plugin: JavaPlugin) : Listener {
     /**
      * イベントを定義する
+     * @since 1.0.0
      */
     inline fun <reified T : Event> event(
         priority: EventPriority = EventPriority.NORMAL,
@@ -29,6 +33,7 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
 
     /**
      * 条件に一致した時に特定のイベントをキャンセルする
+     * @since 1.0.0
      */
     inline fun <reified T> cancelEventIf(
         priority: EventPriority = EventPriority.NORMAL,
@@ -41,6 +46,7 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
 
     /**
      * 条件に一致しなかった時に特定のイベントをキャンセルする
+     * @since 1.0.0
      */
     inline fun <reified T> cancelEventIfNot(
         priority: EventPriority = EventPriority.NORMAL,

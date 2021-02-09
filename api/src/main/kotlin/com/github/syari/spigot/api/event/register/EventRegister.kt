@@ -2,9 +2,13 @@ package com.github.syari.spigot.api.event.register
 
 import org.bukkit.plugin.java.JavaPlugin
 
+/**
+ * @since 1.0.0
+ */
 interface EventRegister {
     /**
      * この関数内でイベントの登録をする
+     * @since 1.0.0
      */
     fun Events.register()
 
@@ -16,6 +20,7 @@ interface EventRegister {
          *     registerEvents(...)
          * }
          * ```
+         * @since 1.0.0
          */
         fun JavaPlugin.registerEvents(vararg events: EventRegister) {
             val listener = Events(this)
