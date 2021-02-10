@@ -25,6 +25,9 @@ event<PlayerJoinEvent> {
 }
 ```
 
+### その他
+- [Util / UUID](sample/README.md#util--uuid)
+
 ## 導入
 
 ### EasySpigotAPI をプラグインとして導入する
