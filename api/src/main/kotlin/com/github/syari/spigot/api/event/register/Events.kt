@@ -52,7 +52,7 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
         priority: EventPriority = EventPriority.NORMAL,
         crossinline action: (T) -> Boolean
     ) where T : Event, T : Cancellable {
-        cancelEventIf<T> {
+        cancelEventIf<T>(priority) {
             action(it).not()
         }
     }
