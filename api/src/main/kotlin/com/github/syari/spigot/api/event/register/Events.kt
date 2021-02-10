@@ -7,11 +7,12 @@ import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 
 /**
+ * [EventRegister.register] で使われている。イベントの定義を行える。
  * @since 1.0.0
  */
 class Events internal constructor(val plugin: JavaPlugin) : Listener {
     /**
-     * イベントを定義する
+     * イベントを定義する。
      * @since 1.0.0
      */
     inline fun <reified T : Event> event(
@@ -32,7 +33,7 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
     }
 
     /**
-     * 条件に一致した時に特定のイベントをキャンセルする
+     * 条件に一致した時に特定のイベントをキャンセルする。
      * @since 1.0.0
      */
     inline fun <reified T> cancelEventIf(
@@ -45,7 +46,7 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
     }
 
     /**
-     * 条件に一致しなかった時に特定のイベントをキャンセルする
+     * 条件に一致しなかった時に特定のイベントをキャンセルする。
      * @since 1.0.0
      */
     inline fun <reified T> cancelEventIfNot(
