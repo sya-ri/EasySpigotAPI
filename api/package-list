@@ -1,0 +1,7 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+com.github.syari.spigot.api
+com.github.syari.spigot.api.event.register
+com.github.syari.spigot.api.util.uuid
+
