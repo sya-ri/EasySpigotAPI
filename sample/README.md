@@ -57,6 +57,25 @@ object EventListener : EventRegister {
 }
 ```
 
+## [Scheduler](scheduler)
+スケジューラを簡単に使うことができます。
+
+```kotlin
+// 10秒後に実行されます
+runTaskLater(10 * 20) {
+    // async: false ... サーバーに同期した処理です
+    server.broadcastMessage("プラグインが有効になってから10秒経ちました")
+}
+
+// 30秒毎に実行されます
+runTaskTimer(30 * 20, async = true) {
+    // async: true ... サーバーに同期していない処理です
+    server.onlinePlayers.forEach {
+        it.giveExpLevels(1)
+    }
+}
+```
+
 ## [Util / UUID](util-uuid)
 UUID 関連の便利な関数・クラスを追加します。
 

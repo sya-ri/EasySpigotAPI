@@ -80,6 +80,35 @@ event<PlayerJoinEvent> {
 }
 ```
 
+### [Scheduler](sample/README.md#scheduler)
+スケジューラを簡単に使うことができます。
+
+#### Without EasySpigotAPI
+```kotlin
+object : BukkitRunnable() {
+    override fun run() {
+        // ...
+    }
+}.runTaskTimer(plugin, 0, 30 * 20)
+
+object : BukkitRunnable() {
+    override fun run() {
+        // ...
+    }
+}.runTaskTimerAsynchronously(plugin, 0, 30 * 20)
+```
+
+#### With EasySpigotAPI
+```kotlin
+plugin.runTaskTimer(30 * 20) {
+    // ...
+}
+
+plugin.runTaskTimer(30 * 20, async = true) {
+    // ...
+}
+```
+
 ### その他
 - [Util / UUID](sample/README.md#util--uuid)
 
