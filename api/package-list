@@ -2,6 +2,10 @@ $dokka.format:html-v1
 $dokka.linkExtension:html
 
 com.github.syari.spigot.api
+com.github.syari.spigot.api.command
+com.github.syari.spigot.api.command.execute
+com.github.syari.spigot.api.command.tab
 com.github.syari.spigot.api.event.register
+com.github.syari.spigot.api.scheduler
 com.github.syari.spigot.api.util.uuid
 
