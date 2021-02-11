@@ -1,5 +1,34 @@
 # Sample
 
+## [Command](command)
+コマンドを簡単に作成することができます。`plugin.yml` にコマンドを書く必要はありません。
+
+```kotlin
+plugin.command("teleport") {
+    description = "テレポート系の処理を行う"
+    aliases = listOf("tp", "sample-teleport")
+
+    // タブ補完の設定を行える
+    tab {
+        // 引数が何も入力されていない場合の補完候補
+        argument {
+            add("here")
+            addAll(onlinePlayerNames)
+        }
+
+        // 最初の引数が here の場合の補完候補
+        argument("here **") {
+            addAll(onlinePlayerNames)
+        }
+    }
+
+    // 実行時の処理を設定できる
+    execute {
+        // ...
+    }
+}
+```
+
 ## [Event / Register](event-register)
 イベントを簡単に定義・登録することができます。
 

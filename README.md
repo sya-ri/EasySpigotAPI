@@ -7,6 +7,61 @@ A library for easy use of the Spigot API.
 
 ## サンプルコード
 
+
+### [Command](sample/README.md#command)
+コマンドを簡単に作成することができます。
+
+#### Without EasySpigotAPI
+
+```yaml
+# plugin.yml
+commands:
+  teleport:
+    # ...
+```
+
+```kotlin
+override fun onEnable() {
+    getCommand("teleport")?.setExecutor(TeleportCommand)
+}
+
+class TeleportCommand : CommandExecutor, TabExecutor {
+    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
+        // ...
+    }
+
+    override fun onTabComplete(sender: CommandSender, command: Command, alias: String, args: Array<out String>): MutableList<String> {
+        // ...
+    }
+}
+```
+
+#### With EasySpigotAPI
+`plugin.yml` にコマンドを書く必要はありません。
+
+```kotlin
+plugin.command("teleport") {
+    // タブ補完の設定を行える
+    tab {
+        // 引数が何も入力されていない場合の補完候補
+        argument {
+            add("here")
+            addAll(onlinePlayerNames)
+        }
+
+        // 最初の引数が here の場合の補完候補
+        argument("here **") {
+            addAll(onlinePlayerNames)
+        }
+    }
+
+    // 実行時の処理を設定できる
+    execute {
+        // ...
+    }
+}
+```
+
 ### [Event / Register](sample/README.md#event--register)
 イベント定義をラムダ式で書くことができます。
 
