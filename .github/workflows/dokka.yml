@@ -16,8 +16,8 @@ jobs:
       - name: Build dokkaHtml
         run: gradle dokkaHtml
       - name: Deploy To GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: api/build/dokka/html
+          branch: gh-pages
+          folder: api/build/dokka/html
+          clean-exclude: index.html
