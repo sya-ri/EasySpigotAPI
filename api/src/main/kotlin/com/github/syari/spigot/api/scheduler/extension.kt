@@ -19,9 +19,9 @@ inline fun JavaPlugin.runTask(
         override fun run() = action()
     }
     return if (async) {
-        runnable.runTask(this)
-    } else {
         runnable.runTaskAsynchronously(this)
+    } else {
+        runnable.runTask(this)
     }
 }
 
@@ -42,9 +42,9 @@ inline fun JavaPlugin.runTaskLater(
         override fun run() = action()
     }
     return if (async) {
-        runnable.runTaskLater(this, delay)
-    } else {
         runnable.runTaskLaterAsynchronously(this, delay)
+    } else {
+        runnable.runTaskLater(this, delay)
     }
 }
 
