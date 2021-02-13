@@ -114,6 +114,11 @@ plugin.runTaskTimer(30 * 20, async = true) {
 - [Util / UUID](sample/README.md#util--uuid)
 - [Plugin Using EasySpigotAPI](sample/README.md#plugin-using-easyspigotapi)
 
+## テンプレートプロジェクト
+
+- [Spigot](https://github.com/sya-ri/SpigotPluginTemplate)
+- [Paper](https://github.com/sya-ri/PaperPluginTemplate)
+
 ## 導入
 
 ### EasySpigotAPI をプラグインとして導入する
