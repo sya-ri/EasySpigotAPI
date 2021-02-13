@@ -127,4 +127,9 @@ object PlayerJoinChecker : EventRegister {
 }
 ```
 
+## Plugin Using EasySpigotAPI
+EasySpigotAPI を使用してプラグインを製作した場合は以下に追加してください。
+
+- [SecondStoryServer/SS-Plugins](https://github.com/SecondStoryServer/SS-Plugins)
+
 [<< 戻る](../README.md)
