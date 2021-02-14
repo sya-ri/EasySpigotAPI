@@ -72,6 +72,6 @@ fun JavaPlugin.configDirectory(
     output: CommandSender,
     directoryName: String,
     action: CustomConfig.() -> Unit
-) {
-    configDirectory(output, directoryName).values.onEach(action)
+): Map<String, CustomConfig> {
+    return configDirectory(output, directoryName).onEach { it.value.action() }
 }
