@@ -1,6 +1,6 @@
 on:
   push:
-    tags: 
+    tags:
       - 'v*'
 jobs:
   build-and-deploy:
@@ -16,9 +16,10 @@ jobs:
           java-version: 1.8
       - name: Build dokkaHtml
         run: gradle dokkaHtml
+      - name: Make index.html
+        run: echo "<meta http-equiv=\"refresh\" content=\"0;URL='api/index.html'\" />" >> api/build/dokka/html/index.html
       - name: Deploy To GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           branch: gh-pages
           folder: api/build/dokka/html
-          clean-exclude: index.html
