@@ -7,7 +7,7 @@ import java.io.File
 /**
  * コンフィグをロードします
  * @param output メッセージの出力先
- * @param fileName ファイル名 最後は必ず.yml
+ * @param fileName ファイル名
  * @since 1.3.0
  */
 fun JavaPlugin.config(
@@ -21,7 +21,7 @@ fun JavaPlugin.config(
 /**
  * コンフィグをロードします
  * @param output メッセージの出力先
- * @param fileName ファイル名 最後は必ず.yml
+ * @param fileName ファイル名
  * @param action コンフィグに対して実行する処理
  * @since 1.3.0
  */
