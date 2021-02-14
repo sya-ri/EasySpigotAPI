@@ -5,6 +5,11 @@ com.github.syari.spigot.api
 com.github.syari.spigot.api.command
 com.github.syari.spigot.api.command.execute
 com.github.syari.spigot.api.command.tab
+com.github.syari.spigot.api.config
+com.github.syari.spigot.api.config.type
+com.github.syari.spigot.api.config.type.data
+com.github.syari.spigot.api.config.type.data.list
+com.github.syari.spigot.api.config.type.section
 com.github.syari.spigot.api.event.register
 com.github.syari.spigot.api.scheduler
 com.github.syari.spigot.api.util.uuid
