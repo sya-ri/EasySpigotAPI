@@ -29,6 +29,27 @@ plugin.command("teleport") {
 }
 ```
 
+## [Config](config)
+コンフィグを簡単に読み込むことができます。
+
+```kotlin
+plugin.config(sender, "config.yml") {
+    val message: String? = get("message", ConfigDataType.String)
+    // ...
+}
+
+// 複数ファイルにまたがったコンフィグも扱えます。
+plugin.configDirectory(sender, "mobs") {
+    // id が指定されていなければファイル名を使用します。
+    val id: String = get("id", ConfigDataType.String, file.nameWithoutExtension)
+    section("attribute")?.forEach { name ->
+        val level = get("attribute.$name.level", ConfigDataType.Int, 1)
+        // ...
+    }
+    // ...
+}
+```
+
 ## [Event / Register](event-register)
 イベントを簡単に定義・登録することができます。
 

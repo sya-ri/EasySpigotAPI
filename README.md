@@ -63,6 +63,49 @@ plugin.command("teleport") {
 }
 ```
 
+### [Config](sample/README.md#config)
+コンフィグを簡単に読み込むことができます。
+
+#### Without EasySpigotAPI
+
+```kotlin
+val file = File(plugin.dataFolder, "config.yml")
+if (file.exists()) {
+    val config = YamlConfiguration.loadConfiguration(file)
+    val message = config.getString("message")
+    // ...
+}
+
+// 複数ファイル
+File(plugin.dataFolder, "mobs").listFiles()?.forEach {
+    val config = YamlConfiguration.loadConfiguration(it)
+    val id = config.getString("id", it.nameWithoutExtension)
+    config.getConfigurationSection("attribute")?.getKeys(false)?.forEach { name ->
+        val level = config.getInt("attribute.$name.level", 1)
+        // ...
+    }
+    // ...
+}
+```
+
+#### With EasySpigotAPI
+```kotlin
+plugin.config(sender, "config.yml") {
+    val message = get("message", ConfigDataType.String)
+    // ...
+}
+
+// 複数ファイル
+plugin.configDirectory(sender, "mobs") {
+    val id = get("id", ConfigDataType.String, file.nameWithoutExtension)
+    section("attribute")?.forEach { name ->
+        val level = get("attribute.$name.level", ConfigDataType.Int, 1)
+        // ...
+    }
+    // ...
+}
+```
+
 ### [Event / Register](sample/README.md#event--register)
 イベント定義をラムダ式で書くことができます。
 
