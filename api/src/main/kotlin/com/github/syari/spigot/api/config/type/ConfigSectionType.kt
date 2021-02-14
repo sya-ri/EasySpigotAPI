@@ -21,8 +21,16 @@ interface ConfigSectionType<T> {
      * @param value セクションキー
      * @since 1.3.0
      */
-    fun parse(config: CustomConfig, path: String, value: String): T?
+    fun parse(
+        config: CustomConfig,
+        path: String,
+        value: String
+    ): T?
 
+    /**
+     * 定義済みのコンフィグセクションタイプの一覧
+     * @since 1.3.0
+     */
     companion object {
         val Int = ConfigIntSectionType
     }

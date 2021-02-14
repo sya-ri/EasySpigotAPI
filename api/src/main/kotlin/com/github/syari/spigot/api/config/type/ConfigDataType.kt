@@ -35,7 +35,11 @@ interface ConfigDataType<T> {
      * @param notFoundError 存在しないデータの場合にエラーを出す
      * @since 1.3.0
      */
-    fun get(config: CustomConfig, path: String, notFoundError: Boolean): T?
+    fun get(
+        config: CustomConfig,
+        path: String,
+        notFoundError: Boolean
+    ): T?
 
     /**
      * @param config [CustomConfig]
@@ -44,7 +48,12 @@ interface ConfigDataType<T> {
      * @param default デフォルト値
      * @since 1.3.0
      */
-    fun get(config: CustomConfig, path: String, notFoundError: Boolean, default: T): T {
+    fun get(
+        config: CustomConfig,
+        path: String,
+        notFoundError: Boolean,
+        default: T
+    ): T {
         return get(config, path, notFoundError) ?: default
     }
 
@@ -54,8 +63,16 @@ interface ConfigDataType<T> {
      * @param value 設定する値
      * @since 1.3.0
      */
-    fun set(config: CustomConfig, path: String, value: T?)
+    fun set(
+        config: CustomConfig,
+        path: String,
+        value: T?
+    )
 
+    /**
+     * 定義済みのコンフィグデータタイプの一覧
+     * @since 1.3.0
+     */
     companion object {
         val Number = ConfigNumberDataType
         val Int = ConfigIntDataType

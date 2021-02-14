@@ -10,7 +10,11 @@ import java.io.File
  * @param fileName ファイル名 最後は必ず.yml
  * @since 1.3.0
  */
-fun JavaPlugin.config(output: CommandSender, fileName: String, default: Map<String, Any> = emptyMap()): CustomConfig {
+fun JavaPlugin.config(
+    output: CommandSender,
+    fileName: String,
+    default: Map<String, Any> = emptyMap()
+): CustomConfig {
     return CustomConfig(this, output, File(dataFolder, fileName), default)
 }
 
@@ -21,7 +25,12 @@ fun JavaPlugin.config(output: CommandSender, fileName: String, default: Map<Stri
  * @param action コンフィグに対して実行する処理
  * @since 1.3.0
  */
-fun JavaPlugin.config(output: CommandSender, fileName: String, default: Map<String, Any> = emptyMap(), action: CustomConfig.() -> Unit): CustomConfig {
+fun JavaPlugin.config(
+    output: CommandSender,
+    fileName: String,
+    default: Map<String, Any> = emptyMap(),
+    action: CustomConfig.() -> Unit
+): CustomConfig {
     return config(output, fileName, default).apply(action)
 }
 
@@ -31,7 +40,10 @@ fun JavaPlugin.config(output: CommandSender, fileName: String, default: Map<Stri
  * @param directoryName フォルダ名
  * @since 1.3.0
  */
-fun JavaPlugin.configDirectory(output: CommandSender, directoryName: String): Map<String, CustomConfig> {
+fun JavaPlugin.configDirectory(
+    output: CommandSender,
+    directoryName: String
+): Map<String, CustomConfig> {
     val directory = File(dataFolder, directoryName).apply(File::mkdirs)
     return mutableMapOf<String, CustomConfig>().apply {
         fun File.loadFiles() {
@@ -56,6 +68,10 @@ fun JavaPlugin.configDirectory(output: CommandSender, directoryName: String): Ma
  * @param action コンフィグに対して実行する処理
  * @since 1.3.0
  */
-fun JavaPlugin.configDirectory(output: CommandSender, directoryName: String, action: CustomConfig.() -> Unit) {
+fun JavaPlugin.configDirectory(
+    output: CommandSender,
+    directoryName: String,
+    action: CustomConfig.() -> Unit
+) {
     configDirectory(output, directoryName).values.onEach(action)
 }
