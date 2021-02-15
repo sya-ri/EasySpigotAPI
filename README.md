@@ -159,8 +159,8 @@ plugin.runTaskTimer(30 * 20, async = true) {
 
 ## テンプレートプロジェクト
 
-- [Spigot](https://github.com/sya-ri/SpigotPluginTemplate)
-- [Paper](https://github.com/sya-ri/PaperPluginTemplate)
+[![Spigot](https://github-readme-stats.vercel.app/api/pin/?username=sya-ri&repo=SpigotPluginTemplate)](https://github.com/sya-ri/SpigotPluginTemplate)
+[![Paper](https://github-readme-stats.vercel.app/api/pin/?username=sya-ri&repo=PaperPluginTemplate)](https://github.com/sya-ri/PaperPluginTemplate)
 
 ## 導入
 
