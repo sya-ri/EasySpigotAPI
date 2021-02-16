@@ -161,6 +161,7 @@ plugin.runTaskTimer(30 * 20, async = true) {
 
 [![Spigot](https://github-readme-stats.vercel.app/api/pin/?username=sya-ri&repo=SpigotPluginTemplate)](https://github.com/sya-ri/SpigotPluginTemplate)
 [![Paper](https://github-readme-stats.vercel.app/api/pin/?username=sya-ri&repo=PaperPluginTemplate)](https://github.com/sya-ri/PaperPluginTemplate)
+[![Purpur](https://github-readme-stats.vercel.app/api/pin/?username=sya-ri&repo=PurpurPluginTemplate)](https://github.com/sya-ri/PurpurPluginTemplate)
 
 ## 導入
 
