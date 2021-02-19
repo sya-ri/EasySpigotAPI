@@ -33,16 +33,19 @@ class CustomConfig internal constructor(
     val config: YamlConfiguration
 
     init {
-        if (file.exists().not()) {
+        val writeDefault = if (file.exists().not()) {
             try {
                 file.parentFile.mkdirs()
                 file.createNewFile()
             } catch (ex: IOException) {
                 throw IOException("$filePath の作成に失敗しました")
             }
+            default.isNotEmpty()
+        } else {
+            false
         }
         config = YamlConfiguration.loadConfiguration(file)
-        if (default.isNotEmpty()) {
+        if (writeDefault) {
             default.forEach { (key, value) ->
                 setUnsafe(key, value)
             }
