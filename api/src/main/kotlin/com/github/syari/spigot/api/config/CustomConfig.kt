@@ -33,19 +33,21 @@ class CustomConfig internal constructor(
     val config: YamlConfiguration
 
     init {
-        try {
-            file.parentFile.mkdirs()
-            file.createNewFile()
-            if (default.isNotEmpty()) {
-                default.forEach { (key, value) ->
-                    setUnsafe(key, value)
-                }
-                save()
+        if (file.exists().not()) {
+            try {
+                file.parentFile.mkdirs()
+                file.createNewFile()
+            } catch (ex: IOException) {
+                throw IOException("$filePath の作成に失敗しました")
             }
-        } catch (ex: IOException) {
-            plugin.logger.severe("$filePath の作成に失敗しました")
         }
         config = YamlConfiguration.loadConfiguration(file)
+        if (default.isNotEmpty()) {
+            default.forEach { (key, value) ->
+                setUnsafe(key, value)
+            }
+            save()
+        }
     }
 
     /**
