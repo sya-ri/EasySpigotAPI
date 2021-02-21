@@ -27,12 +27,9 @@ object ConfigWorldListDataType : ConfigDataType<List<World>> {
         path: String,
         notFoundError: Boolean
     ): List<World> {
-        return mutableListOf<World>().apply {
-            config.get(path, ConfigDataType.StringList, notFoundError)?.forEach {
-                val world = Bukkit.getWorld(it) ?: return@forEach config.nullError("$path.$it", "World")
-                add(world)
-            }
-        }
+        return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
+            Bukkit.getWorld(it) ?: config.nullError("$path.$it", "World").run { null }
+        }.orEmpty()
     }
 
     /**

@@ -26,12 +26,9 @@ object ConfigMaterialListDataType : ConfigDataType<List<Material>> {
         path: String,
         notFoundError: Boolean
     ): List<Material> {
-        return mutableListOf<Material>().apply {
-            config.get(path, ConfigDataType.StringList, notFoundError)?.forEach {
-                val material = Material.getMaterial(it.toUpperCase()) ?: return@forEach config.nullError("$path.$it", "Material")
-                add(material)
-            }
-        }
+        return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
+            Material.getMaterial(it.toUpperCase()) ?: config.nullError("$path.$it", "Material").run { null }
+        }.orEmpty()
     }
 
     /**

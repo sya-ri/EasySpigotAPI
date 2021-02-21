@@ -27,11 +27,9 @@ object ConfigLocationListDataType : ConfigDataType<List<Location>> {
         path: String,
         notFoundError: Boolean
     ): List<Location> {
-        return mutableListOf<Location>().apply {
-            config.get(path, ConfigDataType.StringList, notFoundError)?.forEach {
-                ConfigLocationDataType.stringToLocation(config, "$path.$it", it)?.let(::add)
-            }
-        }
+        return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
+            ConfigLocationDataType.stringToLocation(config, "$path.$it", it)
+        }.orEmpty()
     }
 
     /**
