@@ -245,6 +245,22 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * メッセージを出力します
+     * ```
+     * Format: "&6[$filePath|$path] &f$message"
+     * ```
+     * @param path コンフィグパス
+     * @param message 本文
+     * @since 1.3.4
+     */
+    fun sendMessage(
+        path: String,
+        message: String
+    ) {
+        output.sendMessage("§6[$filePath $path] §f$message")
+    }
+
+    /**
      * エラーを出力します
      * ```
      * Format: "&6[$filePath|$path] &c$message"
@@ -257,7 +273,7 @@ class CustomConfig internal constructor(
         path: String,
         message: String
     ) {
-        output.sendMessage("§6[$filePath $path] §c$message")
+        sendMessage(path, "§c$message")
     }
 
     /**
