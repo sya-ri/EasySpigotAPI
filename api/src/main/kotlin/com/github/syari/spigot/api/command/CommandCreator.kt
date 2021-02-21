@@ -29,6 +29,18 @@ class CommandCreator(val label: String) {
      */
     var aliases = listOf<String>()
 
+    /**
+     * コマンドの実行権限
+     * @since 1.3.4
+     */
+    var permission: String? = null
+
+    /**
+     * 実行権限がない場合のメッセージ
+     * @since 1.3.4
+     */
+    var permissionMessage: String? = null
+
     private val tabContainer = CommandTab.Container()
     private var executeAction: CommandExecuteAction.() -> Unit = {}
 
@@ -56,12 +68,19 @@ class CommandCreator(val label: String) {
      */
     fun create(): Command {
         return object : Command(label, description, usageMessage, aliases) {
+            init {
+                permission = this@CommandCreator.permission
+                permissionMessage = this@CommandCreator.permissionMessage
+            }
+
             override fun execute(
                 sender: CommandSender,
                 commandLabel: String,
                 args: Array<out String>
             ): Boolean {
-                executeAction(CommandExecuteAction(sender, commandLabel, CommandArgument(args.toList())))
+                if (testPermission(sender)) {
+                    executeAction(CommandExecuteAction(sender, commandLabel, CommandArgument(args.toList())))
+                }
                 return true
             }
 
