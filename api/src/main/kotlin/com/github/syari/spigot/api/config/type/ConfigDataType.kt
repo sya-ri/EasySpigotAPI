@@ -11,10 +11,12 @@ import com.github.syari.spigot.api.config.type.data.ConfigLongDataType
 import com.github.syari.spigot.api.config.type.data.ConfigMaterialDataType
 import com.github.syari.spigot.api.config.type.data.ConfigNumberDataType
 import com.github.syari.spigot.api.config.type.data.ConfigStringDataType
+import com.github.syari.spigot.api.config.type.data.ConfigUUIDDataType
 import com.github.syari.spigot.api.config.type.data.ConfigWorldDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigLocationListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigMaterialListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigStringListDataType
+import com.github.syari.spigot.api.config.type.data.list.ConfigUUIDListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigWorldListDataType
 
 /**
@@ -89,5 +91,7 @@ interface ConfigDataType<T> {
         val WorldList = ConfigWorldListDataType
         val Material = ConfigMaterialDataType
         val MaterialList = ConfigMaterialListDataType
+        val UUID = ConfigUUIDDataType
+        val UUIDList = ConfigUUIDListDataType
     }
 }
