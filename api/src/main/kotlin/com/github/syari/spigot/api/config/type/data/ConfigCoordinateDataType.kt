@@ -77,7 +77,7 @@ object ConfigCoordinateDataType : ConfigDataType<Coordinate> {
     }
 
     /**
-     * [Coordinate] を [Coordinate] に変換します
+     * [Coordinate] を [String] に変換します
      * @since 1.4.0
      */
     internal fun coordinateToString(value: Coordinate): String {
