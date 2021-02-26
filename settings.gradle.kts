@@ -7,5 +7,6 @@ include(
     "sample:config",
     "sample:event-register",
     "sample:scheduler",
+    "sample:util-string",
     "sample:util-uuid"
 )

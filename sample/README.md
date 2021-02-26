@@ -97,6 +97,21 @@ runTaskTimer(30 * 20, async = true) {
 }
 ```
 
+## [Util / String](util-string)
+String 関連の便利な関数を追加します。
+
+```kotlin
+/**
+ * [ChatColor.translateAlternateColorCodes] を実行する。`&` を文字コードとして認識する。
+ */
+fun String.toColor(): String
+
+/**
+ * [ChatColor.stripColor] を実行する。
+ */
+fun String.toUncolor(): String
+```
+
 ## [Util / UUID](util-uuid)
 UUID 関連の便利な関数・クラスを追加します。
 
