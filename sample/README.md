@@ -179,6 +179,17 @@ data class Coordinate(
 ) : ConfigurationSerializable
 ```
 
+```kotlin
+/**
+ * 領域を表す。
+ */
+class Region(
+    val world: World,
+    pos1: Vector,
+    pos2: Vector
+)
+```
+
 ## Plugin Using EasySpigotAPI
 EasySpigotAPI を使用してプラグインを製作した場合は以下に追加してください。
 
