@@ -26,4 +26,8 @@ subprojects {
         apiVersion = "1.16"
         depend = listOf("EasySpigotAPI")
     }
+
+    tasks.withType<ShadowJar> {
+        configurations = listOf()
+    }
 }
