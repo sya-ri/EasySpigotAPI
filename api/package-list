@@ -12,5 +12,7 @@ com.github.syari.spigot.api.config.type.data.list
 com.github.syari.spigot.api.config.type.section
 com.github.syari.spigot.api.event.register
 com.github.syari.spigot.api.scheduler
+com.github.syari.spigot.api.util.string
 com.github.syari.spigot.api.util.uuid
+com.github.syari.spigot.api.util.world
 
