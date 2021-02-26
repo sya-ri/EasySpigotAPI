@@ -163,6 +163,22 @@ object PlayerJoinChecker : EventRegister {
 }
 ```
 
+## Util / World
+World 関連の便利なクラスを追加します。
+
+```kotlin
+/**
+ * ワールドを考慮せず、座標情報のみを保持できるクラス。
+ */
+data class Coordinate(
+    var x: Double,
+    var y: Double,
+    var z: Double,
+    var yaw: Float = 0F,
+    var pitch: Float = 0F
+) : ConfigurationSerializable
+```
+
 ## Plugin Using EasySpigotAPI
 EasySpigotAPI を使用してプラグインを製作した場合は以下に追加してください。
 

@@ -2,6 +2,7 @@ package com.github.syari.spigot.api.config.type
 
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.data.ConfigBooleanDataType
+import com.github.syari.spigot.api.config.type.data.ConfigCoordinateDataType
 import com.github.syari.spigot.api.config.type.data.ConfigDateDataType
 import com.github.syari.spigot.api.config.type.data.ConfigDoubleDataType
 import com.github.syari.spigot.api.config.type.data.ConfigFloatDataType
@@ -13,6 +14,7 @@ import com.github.syari.spigot.api.config.type.data.ConfigNumberDataType
 import com.github.syari.spigot.api.config.type.data.ConfigStringDataType
 import com.github.syari.spigot.api.config.type.data.ConfigUUIDDataType
 import com.github.syari.spigot.api.config.type.data.ConfigWorldDataType
+import com.github.syari.spigot.api.config.type.data.list.ConfigCoordinateListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigLocationListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigMaterialListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigStringListDataType
@@ -85,6 +87,8 @@ interface ConfigDataType<T> {
         val String = ConfigStringDataType
         val StringList = ConfigStringListDataType
         val Date = ConfigDateDataType
+        val Coordinate = ConfigCoordinateDataType
+        val CoordinateList = ConfigCoordinateListDataType
         val Location = ConfigLocationDataType
         val LocationList = ConfigLocationListDataType
         val World = ConfigWorldDataType

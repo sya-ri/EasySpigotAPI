@@ -156,6 +156,7 @@ plugin.runTaskTimer(30 * 20, async = true) {
 ### その他
 - [Util / String](sample/README.md#util--string)
 - [Util / UUID](sample/README.md#util--uuid)
+- [Util / World](sample/README.md#util--world)
 - [Plugin Using EasySpigotAPI](sample/README.md#plugin-using-easyspigotapi)
 
 ## テンプレートプロジェクト
