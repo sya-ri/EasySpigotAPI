@@ -26,7 +26,7 @@ override fun onEnable() {
     getCommand("teleport")?.setExecutor(TeleportCommand)
 }
 
-class TeleportCommand : CommandExecutor, TabExecutor {
+object TeleportCommand : CommandExecutor, TabExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         // ...
     }
@@ -77,9 +77,9 @@ if (file.exists()) {
 }
 
 // 複数ファイル
-File(plugin.dataFolder, "mobs").listFiles()?.forEach {
-    val config = YamlConfiguration.loadConfiguration(it)
-    val id = config.getString("id", it.nameWithoutExtension)
+File(plugin.dataFolder, "mobs").listFiles()?.forEach { file ->
+    val config = YamlConfiguration.loadConfiguration(file)
+    val id = config.getString("id", file.nameWithoutExtension)
     config.getConfigurationSection("attribute")?.getKeys(false)?.forEach { name ->
         val level = config.getInt("attribute.$name.level", 1)
         // ...
@@ -119,8 +119,8 @@ fun on(e: PlayerJoinEvent) {
 
 #### With EasySpigotAPI
 ```kotlin
-event<PlayerJoinEvent> {
-    it.joinMessage = ">> Join ${it.player.displayName}"
+event<PlayerJoinEvent> { e ->
+    e.joinMessage = ">> Join ${it.player.displayName}"
 }
 ```
 
@@ -179,7 +179,7 @@ repositories {
 }
 
 dependencies {
-    api('com.github.sya-ri:EasySpigotAPI:1.3.4') {
+    api('com.github.sya-ri:EasySpigotAPI:1.4.0') {
         exclude group: 'org.spigotmc', module: 'spigot-api'
     }
 }
@@ -193,7 +193,7 @@ repositories {
 }
 
 dependencies {
-    api("com.github.sya-ri:EasySpigotAPI:1.3.4") {
+    api("com.github.sya-ri:EasySpigotAPI:1.4.0") {
         exclude(group = "org.spigotmc", module = "spigot-api")
     }
 }
@@ -219,7 +219,7 @@ configurations {
 }
 
 dependencies {
-    shadowApi('com.github.sya-ri:EasySpigotAPI:1.3.4') {
+    shadowApi('com.github.sya-ri:EasySpigotAPI:1.4.0') {
         exclude group: 'org.spigotmc', module: 'spigot-api'
     }
 }
@@ -244,7 +244,7 @@ repositories {
 }
 
 dependencies {
-    shadowApi("com.github.sya-ri:EasySpigotAPI:1.3.4") {
+    shadowApi("com.github.sya-ri:EasySpigotAPI:1.4.0") {
         exclude(group = "org.spigotmc", module = "spigot-api")
     }
 }
