@@ -97,6 +97,187 @@ runTaskTimer(30 * 20, async = true) {
 }
 ```
 
+## Util / Item
+Item 関連の便利な関数を追加します。
+
+```kotlin
+/**
+ * 表示名が存在するか取得する。
+ * @see ItemMeta.hasDisplayName
+ */
+fun ItemStack.hasDisplayName(): Boolean
+
+/**
+ * 表示名。取得する時は [hasDisplayName] が真である場合のみにする。
+ * @see ItemMeta.getDisplayName
+ * @see ItemMeta.setDisplayName
+ */
+var ItemStack.displayName: String?
+
+/**
+ * 説明文が存在するか取得する。
+ * @see ItemMeta.hasLore
+ */
+fun ItemStack.hasLore(): Boolean
+
+/**
+ * 説明文。取得する時は [hasLore] が真である場合でのみにする。
+ * @see ItemMeta.getLore
+ * @see ItemMeta.setLore
+ */
+var ItemStack.lore: List<String>
+
+/**
+ * アイテムの説明文を変更する。
+ */
+inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit)
+
+/**
+ * カスタムモデルデータが設定されているか取得する。
+ * @see ItemMeta.hasCustomModelData
+ */
+fun ItemStack.hasCustomModelData(): Boolean
+
+/**
+ * カスタムモデルデータ。取得する時は [hasCustomModelData] が真である場合でのみにする。
+ * @see ItemMeta.getCustomModelData
+ * @see ItemMeta.setCustomModelData
+ */
+var ItemStack.customModelData: Int?
+
+/**
+ * エンチャントが存在するか取得する。
+ * @see ItemMeta.hasEnchants
+ */
+fun ItemStack.hasEnchants(): Boolean
+
+/**
+ * 特定のエンチャントが存在するか取得する。
+ * @see ItemMeta.hasEnchant
+ */
+fun ItemStack.hasEnchant(enchant: Enchantment): Boolean
+
+/**
+ * 特定のエンチャントのレベルを取得する。
+ * @see ItemMeta.getEnchantLevel
+ */
+fun ItemStack.getEnchantLevel(enchant: Enchantment): Int
+
+/**
+ * 全てのエンチャントを取得する。
+ * @see ItemMeta.getEnchants
+ */
+var ItemStack.enchants: Map<Enchantment, Int>
+
+/**
+ * エンチャントを追加する。
+ * @see ItemMeta.addEnchant
+ */
+fun ItemStack.addEnchant(enchant: Enchantment, level: Int, ignoreLevelRestriction: Boolean = true)
+
+/**
+ * エンチャントを削除する。
+ * @see ItemMeta.removeEnchant
+ */
+fun ItemStack.removeEnchant(enchant: Enchantment)
+
+/**
+ * エンチャントが競合するかどうかを取得する。
+ * @see ItemMeta.hasConflictingEnchant
+ */
+fun ItemStack.hasConflictingEnchant(enchant: Enchantment): Boolean
+
+/**
+ * アイテムフラグを追加する。
+ * @see ItemMeta.addItemFlags
+ */
+fun ItemStack.addItemFlags(vararg itemFlags: ItemFlag)
+
+/**
+ * アイテムフラグを削除する。
+ * @see ItemMeta.removeItemFlags
+ */
+fun ItemStack.removeItemFlags(vararg itemFlags: ItemFlag)
+
+/**
+ * アイテムフラグ。
+ * @see ItemMeta.getItemFlags
+ */
+var ItemStack.itemFlags: Set<ItemFlag>
+
+/**
+ * 特定のアイテムフラグが存在するか取得する。
+ * @see ItemMeta.hasItemFlag
+ */
+fun ItemStack.hasItemFlag(flag: ItemFlag): Boolean
+
+/**
+ * 耐久無限。
+ */
+var ItemStack.isUnbreakable: Boolean
+
+/**
+ * [AttributeModifier] が存在するか取得する。
+ * @see ItemMeta.hasAttributeModifiers
+ */
+fun ItemStack.hasAttributeModifiers(): Boolean
+
+/**
+ * 全ての装備箇所で影響する [AttributeModifier] の一覧を取得する。
+ * @see ItemMeta.getAttributeModifiers
+ * @see ItemMeta.setAttributeModifiers
+ */
+var ItemStack.attributeModifiers: Multimap<Attribute, AttributeModifier>
+
+/**
+ * 特定の装備箇所で影響する [AttributeModifier] の一覧を取得する。
+ * @see ItemMeta.getAttributeModifiers
+ */
+fun ItemStack.getAttributeModifiers(slot: EquipmentSlot): Multimap<Attribute, AttributeModifier>
+
+/**
+ * [Attribute] に関する [AttributeModifier] の一覧を取得する。
+ * @see ItemMeta.getAttributeModifiers
+ */
+fun ItemStack.getAttributeModifiers(attribute: Attribute): Collection<AttributeModifier>
+
+/**
+ * [AttributeModifier] を追加する。
+ * @see ItemMeta.addAttributeModifier
+ */
+fun ItemStack.addAttributeModifier(attribute: Attribute, modifier: AttributeModifier): Boolean
+
+/**
+ * [AttributeModifier] を削除する。
+ * @see ItemMeta.removeAttributeModifier
+ */
+fun ItemStack.removeAttributeModifier(attribute: Attribute): Boolean
+
+/**
+ * [AttributeModifier] を削除する。
+ * @see ItemMeta.removeAttributeModifier
+ */
+fun ItemStack.removeAttributeModifier(slot: EquipmentSlot): Boolean {
+    return itemMeta?.removeAttributeModifier(slot) ?: false
+}
+
+/**
+ * [AttributeModifier] を削除する。
+ * @see ItemMeta.removeAttributeModifier
+ */
+fun ItemStack.removeAttributeModifier(attribute: Attribute, modifier: AttributeModifier): Boolean
+
+/**
+ * [ItemMeta] に対して変更を加える。
+ */
+inline fun ItemStack.editItemMeta(action: ItemMeta.() -> Unit)
+
+/**
+ * [ItemMeta] に対して変更を加える。
+ */
+inline fun <reified T : ItemMeta> ItemStack.editItemMeta(action: T.() -> Unit)
+```
+
 ## [Util / String](util-string)
 String 関連の便利な関数を追加します。
 
