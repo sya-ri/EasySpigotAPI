@@ -1,6 +1,5 @@
 package com.github.syari.spigot.api.config.type.data.list
 
-import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.Material
 
@@ -8,7 +7,7 @@ import org.bukkit.Material
  * [ConfigDataType.MaterialList]
  * @since 1.3.0
  */
-object ConfigMaterialListDataType : ConfigDataType<List<Material>> {
+object ConfigMaterialListDataType : ConfigEnumListDataType<Material> {
     /**
      * データ型の名前
      * @since 1.3.0
@@ -16,32 +15,11 @@ object ConfigMaterialListDataType : ConfigDataType<List<Material>> {
     override val typeName = "List<Material>"
 
     /**
-     * @param config [CustomConfig]
-     * @param path コンフィグパス
-     * @param notFoundError 存在しないデータの場合にエラーを出す
-     * @since 1.3.0
+     * 列挙型の要素を名前から取得する。
+     * @param name 名前
+     * @since 1.5.0
      */
-    override fun get(
-        config: CustomConfig,
-        path: String,
-        notFoundError: Boolean
-    ): List<Material> {
-        return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            Material.getMaterial(it.toUpperCase()) ?: config.nullError("$path.$it", "Material").run { null }
-        }.orEmpty()
-    }
-
-    /**
-     * @param config [CustomConfig]
-     * @param path コンフィグパス
-     * @param value 設定する値
-     * @since 1.3.0
-     */
-    override fun set(
-        config: CustomConfig,
-        path: String,
-        value: List<Material>?
-    ) {
-        config.set(path, ConfigDataType.StringList, value?.map(Material::name))
+    override fun stringToEnum(name: String): Material? {
+        return Material.getMaterial(name.toUpperCase())
     }
 }
