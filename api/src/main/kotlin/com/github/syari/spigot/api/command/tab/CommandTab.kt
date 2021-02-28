@@ -23,7 +23,16 @@ interface CommandTab {
      * @since 1.2.0
      */
     class Element(val sender: CommandSender, val args: CommandArgument) : LinkedHashSet<String>() {
+        /**
+         * @since 1.2.0
+         */
+        @Deprecated("Use addAll instead. Delete on v1.7.0", ReplaceWith("addAll(value)"))
         fun add(vararg value: String) = addAll(value)
+
+        /**
+         * @since 1.5.1
+         */
+        fun addAll(vararg value: String) = addAll(value)
     }
 
     /**
