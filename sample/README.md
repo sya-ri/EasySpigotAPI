@@ -376,5 +376,6 @@ EasySpigotAPI を使用してプラグインを製作した場合は以下に追
 
 - [SecondStoryServer/SS-Plugins](https://github.com/SecondStoryServer/SS-Plugins)
 - [sya-ri/TalkWithNearPlayer](https://github.com/sya-ri/TalkWithNearPlayer)
+- [sya-ri/WorldBorderTester](https://github.com/sya-ri/WorldBorderTester)
 
 [<< 戻る](../README.md)
