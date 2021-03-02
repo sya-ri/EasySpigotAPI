@@ -5,6 +5,15 @@ import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
 /**
+ * [BukkitRunnable] のインスタンスを生成する。
+ * @param action 実行する処理
+ * @since 1.5.1
+ */
+inline fun bukkitRunnable(crossinline action: BukkitRunnable.() -> Unit) = object : BukkitRunnable() {
+    override fun run() = action()
+}
+
+/**
  * タスクを実行する。
  * @param async 非同期か default: false
  * @param action 実行する処理
@@ -15,9 +24,7 @@ inline fun JavaPlugin.runTask(
     async: Boolean = false,
     crossinline action: BukkitRunnable.() -> Unit
 ): BukkitTask {
-    val runnable = object : BukkitRunnable() {
-        override fun run() = action()
-    }
+    val runnable = bukkitRunnable(action)
     return if (async) {
         runnable.runTaskAsynchronously(this)
     } else {
@@ -38,9 +45,7 @@ inline fun JavaPlugin.runTaskLater(
     async: Boolean = false,
     crossinline action: BukkitRunnable.() -> Unit
 ): BukkitTask {
-    val runnable = object : BukkitRunnable() {
-        override fun run() = action()
-    }
+    val runnable = bukkitRunnable(action)
     return if (async) {
         runnable.runTaskLaterAsynchronously(this, delay)
     } else {
@@ -63,9 +68,7 @@ inline fun JavaPlugin.runTaskTimer(
     async: Boolean = false,
     crossinline action: BukkitRunnable.() -> Unit
 ): BukkitTask {
-    val runnable = object : BukkitRunnable() {
-        override fun run() = action()
-    }
+    val runnable = bukkitRunnable(action)
     return if (async) {
         runnable.runTaskTimerAsynchronously(this, delay, period)
     } else {
