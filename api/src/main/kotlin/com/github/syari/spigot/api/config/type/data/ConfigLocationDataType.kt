@@ -53,7 +53,7 @@ object ConfigLocationDataType : ConfigDataType<Location> {
      * [String] を [Location] に変換します
      * @since 1.3.0
      */
-    internal fun stringToLocation(config: CustomConfig, path: String, value: String): Location? {
+    fun stringToLocation(config: CustomConfig, path: String, value: String): Location? {
         val element = value.split(",\\s*".toRegex())
         when (val size = element.size) {
             4, 6 -> {
@@ -86,7 +86,7 @@ object ConfigLocationDataType : ConfigDataType<Location> {
      * [Location] を [String] に変換します
      * @since 1.3.0
      */
-    internal fun locationToString(value: Location): String {
+    fun locationToString(value: Location): String {
         return if (value.yaw == 0F && value.pitch == 0F) {
             "${value.world?.name}, ${value.x}, ${value.y}, ${value.z}"
         } else {

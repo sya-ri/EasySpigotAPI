@@ -52,7 +52,7 @@ object ConfigCoordinateDataType : ConfigDataType<Coordinate> {
      * [String] を [Coordinate] に変換します
      * @since 1.4.0
      */
-    internal fun stringToCoordinate(config: CustomConfig, path: String, value: String): Coordinate? {
+    fun stringToCoordinate(config: CustomConfig, path: String, value: String): Coordinate? {
         val element = value.split(",\\s*".toRegex())
         when (val size = element.size) {
             3, 5 -> {
@@ -80,7 +80,7 @@ object ConfigCoordinateDataType : ConfigDataType<Coordinate> {
      * [Coordinate] を [String] に変換します
      * @since 1.4.0
      */
-    internal fun coordinateToString(value: Coordinate): String {
+    fun coordinateToString(value: Coordinate): String {
         return if (value.yaw == 0F && value.pitch == 0F) {
             "${value.x}, ${value.y}, ${value.z}"
         } else {

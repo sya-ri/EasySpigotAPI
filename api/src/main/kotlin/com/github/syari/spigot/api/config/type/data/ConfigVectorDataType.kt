@@ -52,7 +52,7 @@ object ConfigVectorDataType : ConfigDataType<Vector> {
      * [String] を [Vector] に変換します
      * @since 1.4.0
      */
-    internal fun stringToVector(config: CustomConfig, path: String, value: String): Vector? {
+    fun stringToVector(config: CustomConfig, path: String, value: String): Vector? {
         val element = value.split(",\\s*".toRegex())
         when (element.size) {
             3 -> {
@@ -77,7 +77,7 @@ object ConfigVectorDataType : ConfigDataType<Vector> {
      * [Vector] を [String] に変換します
      * @since 1.4.0
      */
-    internal fun vectorToString(value: Vector): String {
+    fun vectorToString(value: Vector): String {
         return "${value.x}, ${value.y}, ${value.z}"
     }
 }
