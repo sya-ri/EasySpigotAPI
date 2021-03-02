@@ -13,7 +13,7 @@ object ConfigSoundListDataType : ConfigEnumListDataType<Sound> {
      * データ型の名前
      * @since 1.5.0
      */
-    override val typeName = "List<Sound>"
+    override val typeName = "Sound"
 
     /**
      * 列挙型の要素を名前から取得する。

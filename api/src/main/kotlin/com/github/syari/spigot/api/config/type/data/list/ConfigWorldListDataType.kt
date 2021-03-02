@@ -14,7 +14,7 @@ object ConfigWorldListDataType : ConfigDataType<List<World>> {
      * データ型の名前
      * @since 1.3.0
      */
-    override val typeName = "List<World>"
+    override val typeName = "World"
 
     /**
      * @param config [CustomConfig]
@@ -28,7 +28,7 @@ object ConfigWorldListDataType : ConfigDataType<List<World>> {
         notFoundError: Boolean
     ): List<World> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            Bukkit.getWorld(it) ?: config.nullError("$path.$it", "World").run { null }
+            Bukkit.getWorld(it) ?: config.nullError("$path.$it", typeName).run { null }
         }.orEmpty()
     }
 

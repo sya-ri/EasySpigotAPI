@@ -26,8 +26,9 @@ object ConfigCoordinateDataType : ConfigDataType<Coordinate> {
         path: String,
         notFoundError: Boolean
     ): Coordinate? {
-        val line = config.get(path, ConfigDataType.String, notFoundError) ?: return null
-        return stringToCoordinate(config, path, line)
+        return config.get(path, ConfigDataType.String, notFoundError)?.let {
+            stringToCoordinate(config, path, it) ?: config.nullError(path, typeName).run { null }
+        }
     }
 
     /**

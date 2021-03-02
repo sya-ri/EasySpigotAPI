@@ -15,7 +15,7 @@ object ConfigLocationListDataType : ConfigDataType<List<Location>> {
      * データ型の名前
      * @since 1.3.0
      */
-    override val typeName = "List<Location>"
+    override val typeName = "Location"
 
     /**
      * @param config [CustomConfig]
@@ -29,7 +29,7 @@ object ConfigLocationListDataType : ConfigDataType<List<Location>> {
         notFoundError: Boolean
     ): List<Location> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            stringToLocation(config, "$path.$it", it)
+            stringToLocation(config, "$path.$it", it) ?: config.nullError("$path.$it", typeName).run { null }
         }.orEmpty()
     }
 

@@ -13,7 +13,7 @@ object ConfigEntityTypeListDataType : ConfigEnumListDataType<EntityType> {
      * データ型の名前
      * @since 1.5.0
      */
-    override val typeName = "List<EntityType>"
+    override val typeName = "EntityType"
 
     /**
      * 列挙型の要素を名前から取得する。

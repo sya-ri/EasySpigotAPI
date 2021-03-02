@@ -27,7 +27,7 @@ object ConfigVectorDataType : ConfigDataType<Vector> {
         notFoundError: Boolean
     ): Vector? {
         val line = config.get(path, ConfigDataType.String, notFoundError) ?: return null
-        return stringToVector(config, path, line)
+        return stringToVector(config, path, line) ?: config.nullError(path, typeName).run { null }
     }
 
     /**

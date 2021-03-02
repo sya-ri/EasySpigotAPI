@@ -27,7 +27,9 @@ object ConfigWorldDataType : ConfigDataType<World> {
         path: String,
         notFoundError: Boolean
     ): World? {
-        return config.get(path, ConfigDataType.String, notFoundError)?.let(Bukkit::getWorld)
+        return config.get(path, ConfigDataType.String, notFoundError)?.let {
+            Bukkit.getWorld(it) ?: config.nullError(path, typeName).run { null }
+        }
     }
 
     /**

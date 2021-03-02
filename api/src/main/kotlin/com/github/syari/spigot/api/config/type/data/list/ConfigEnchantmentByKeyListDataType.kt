@@ -15,7 +15,7 @@ object ConfigEnchantmentByKeyListDataType : ConfigDataType<List<Enchantment>> {
      * データ型の名前
      * @since 1.5.1
      */
-    override val typeName = "List<Enchantment(Key)>"
+    override val typeName = "Enchantment(Key)"
 
     /**
      * @param config [CustomConfig]

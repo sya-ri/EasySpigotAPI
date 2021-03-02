@@ -15,7 +15,7 @@ object ConfigPotionEffectTypeListDataType : ConfigDataType<List<PotionEffectType
      * データ型の名前
      * @since 1.5.0
      */
-    override val typeName = "List<PotionEffectType>"
+    override val typeName = "PotionEffectType"
 
     /**
      * @param config [CustomConfig]

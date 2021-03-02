@@ -15,7 +15,7 @@ object ConfigVectorListDataType : ConfigDataType<List<Vector>> {
      * データ型の名前
      * @since 1.4.0
      */
-    override val typeName = "List<Vector>"
+    override val typeName = "Vector"
 
     /**
      * @param config [CustomConfig]
@@ -29,7 +29,7 @@ object ConfigVectorListDataType : ConfigDataType<List<Vector>> {
         notFoundError: Boolean
     ): List<Vector> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            stringToVector(config, "$path.$it", it)
+            stringToVector(config, "$path.$it", it) ?: config.nullError("$path.$it", typeName).run { null }
         }.orEmpty()
     }
 

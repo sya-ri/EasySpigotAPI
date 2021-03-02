@@ -15,7 +15,7 @@ object ConfigCoordinateListDataType : ConfigDataType<List<Coordinate>> {
      * データ型の名前
      * @since 1.4.0
      */
-    override val typeName = "List<Coordinate>"
+    override val typeName = "Coordinate"
 
     /**
      * @param config [CustomConfig]
@@ -29,7 +29,7 @@ object ConfigCoordinateListDataType : ConfigDataType<List<Coordinate>> {
         notFoundError: Boolean
     ): List<Coordinate> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            stringToCoordinate(config, "$path.$it", it)
+            stringToCoordinate(config, "$path.$it", it) ?: config.nullError("$path.$it", typeName).run { null }
         }.orEmpty()
     }
 

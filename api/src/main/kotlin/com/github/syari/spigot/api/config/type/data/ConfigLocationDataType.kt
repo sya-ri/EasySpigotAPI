@@ -27,8 +27,9 @@ object ConfigLocationDataType : ConfigDataType<Location> {
         path: String,
         notFoundError: Boolean
     ): Location? {
-        val line = config.get(path, ConfigDataType.String, notFoundError) ?: return null
-        return stringToLocation(config, path, line)
+        return config.get(path, ConfigDataType.String, notFoundError)?.let {
+            stringToLocation(config, path, it) ?: config.nullError(path, typeName).run { null }
+        }
     }
 
     /**

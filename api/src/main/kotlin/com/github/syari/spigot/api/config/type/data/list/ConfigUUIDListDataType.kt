@@ -14,7 +14,7 @@ object ConfigUUIDListDataType : ConfigDataType<List<UUID>> {
      * データ型の名前
      * @since 1.3.4
      */
-    override val typeName = "List<UUID>"
+    override val typeName = "UUID"
 
     /**
      * @param config [CustomConfig]
