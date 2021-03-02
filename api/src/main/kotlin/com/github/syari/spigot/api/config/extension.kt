@@ -75,3 +75,10 @@ fun JavaPlugin.configDirectory(
 ): Map<String, CustomConfig> {
     return configDirectory(output, directoryName).onEach { it.value.action() }
 }
+
+/**
+ * ファイルが存在するか取得します
+ * @param fileName ファイル名
+ * @since 1.5.1
+ */
+fun JavaPlugin.existsConfig(fileName: String) = dataFolder.resolve(fileName).exists()
