@@ -5,6 +5,7 @@ import com.github.syari.spigot.api.config.type.data.ConfigBooleanDataType
 import com.github.syari.spigot.api.config.type.data.ConfigCoordinateDataType
 import com.github.syari.spigot.api.config.type.data.ConfigDateDataType
 import com.github.syari.spigot.api.config.type.data.ConfigDoubleDataType
+import com.github.syari.spigot.api.config.type.data.ConfigEnchantmentByNameDataType
 import com.github.syari.spigot.api.config.type.data.ConfigEntityTypeDataType
 import com.github.syari.spigot.api.config.type.data.ConfigFloatDataType
 import com.github.syari.spigot.api.config.type.data.ConfigIntDataType
@@ -20,6 +21,7 @@ import com.github.syari.spigot.api.config.type.data.ConfigUUIDDataType
 import com.github.syari.spigot.api.config.type.data.ConfigVectorDataType
 import com.github.syari.spigot.api.config.type.data.ConfigWorldDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigCoordinateListDataType
+import com.github.syari.spigot.api.config.type.data.list.ConfigEnchantmentByNameListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigEntityTypeListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigLocationListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigMaterialListDataType
@@ -109,6 +111,8 @@ interface ConfigDataType<T> {
         val MaterialList = ConfigMaterialListDataType
         val EntityType = ConfigEntityTypeDataType
         val EntityTypeList = ConfigEntityTypeListDataType
+        val EnchantmentByName = ConfigEnchantmentByNameDataType
+        val EnchantmentByNameList = ConfigEnchantmentByNameListDataType
         val PotionEffectType = ConfigPotionEffectTypeDataType
         val PotionEffectTypeList = ConfigPotionEffectTypeListDataType
         val Sound = ConfigSoundDataType
