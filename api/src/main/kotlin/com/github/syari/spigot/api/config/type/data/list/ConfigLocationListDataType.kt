@@ -2,7 +2,8 @@ package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
-import com.github.syari.spigot.api.config.type.data.ConfigLocationDataType
+import com.github.syari.spigot.api.config.type.data.ConfigLocationDataType.locationToString
+import com.github.syari.spigot.api.config.type.data.ConfigLocationDataType.stringToLocation
 import org.bukkit.Location
 
 /**
@@ -28,7 +29,7 @@ object ConfigLocationListDataType : ConfigDataType<List<Location>> {
         notFoundError: Boolean
     ): List<Location> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            ConfigLocationDataType.stringToLocation(config, "$path.$it", it)
+            stringToLocation(config, "$path.$it", it)
         }.orEmpty()
     }
 
@@ -43,6 +44,6 @@ object ConfigLocationListDataType : ConfigDataType<List<Location>> {
         path: String,
         value: List<Location>?
     ) {
-        config.set(path, ConfigDataType.StringList, value?.map(ConfigLocationDataType::locationToString))
+        config.set(path, ConfigDataType.StringList, value?.map(::locationToString))
     }
 }

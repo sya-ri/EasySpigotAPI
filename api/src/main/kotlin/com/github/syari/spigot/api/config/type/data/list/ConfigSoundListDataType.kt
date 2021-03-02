@@ -1,6 +1,7 @@
 package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.type.ConfigDataType
+import com.github.syari.spigot.api.config.type.data.ConfigSoundDataType
 import org.bukkit.Sound
 
 /**
@@ -19,8 +20,5 @@ object ConfigSoundListDataType : ConfigEnumListDataType<Sound> {
      * @param name 名前
      * @since 1.5.0
      */
-    override fun stringToEnum(name: String): Sound? {
-        val upperName = name.toUpperCase()
-        return Sound.values().firstOrNull { it.name == upperName }
-    }
+    override fun stringToEnum(name: String) = ConfigSoundDataType.stringToEnum(name)
 }

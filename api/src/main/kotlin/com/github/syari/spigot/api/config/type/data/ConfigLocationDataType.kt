@@ -42,11 +42,7 @@ object ConfigLocationDataType : ConfigDataType<Location> {
         path: String,
         value: Location?
     ) {
-        if (value != null) {
-            config.set(path, ConfigDataType.String, locationToString(value))
-        } else {
-            config.setUnsafe(path, null)
-        }
+        config.set(path, ConfigDataType.String, value?.let(::locationToString))
     }
 
     /**

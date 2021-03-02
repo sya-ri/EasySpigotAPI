@@ -41,11 +41,7 @@ object ConfigVectorDataType : ConfigDataType<Vector> {
         path: String,
         value: Vector?
     ) {
-        if (value != null) {
-            config.set(path, ConfigDataType.String, vectorToString(value))
-        } else {
-            config.setUnsafe(path, null)
-        }
+        config.set(path, ConfigDataType.String, value?.let(::vectorToString))
     }
 
     /**

@@ -2,7 +2,8 @@ package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
-import org.bukkit.NamespacedKey
+import com.github.syari.spigot.api.config.type.data.ConfigEnchantmentByKeyDataType.enchantmentToString
+import com.github.syari.spigot.api.config.type.data.ConfigEnchantmentByKeyDataType.stringToEnchantment
 import org.bukkit.enchantments.Enchantment
 
 /**
@@ -28,7 +29,7 @@ object ConfigEnchantmentByKeyListDataType : ConfigDataType<List<Enchantment>> {
         notFoundError: Boolean
     ): List<Enchantment> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            Enchantment.getByKey(NamespacedKey.minecraft(it.toLowerCase())) ?: config.nullError("$path.$it", typeName).run { null }
+            stringToEnchantment(it) ?: config.nullError("$path.$it", typeName).run { null }
         }.orEmpty()
     }
 
@@ -43,6 +44,6 @@ object ConfigEnchantmentByKeyListDataType : ConfigDataType<List<Enchantment>> {
         path: String,
         value: List<Enchantment>?
     ) {
-        config.set(path, ConfigDataType.StringList, value?.map { it.key.key })
+        config.set(path, ConfigDataType.StringList, value?.map(::enchantmentToString))
     }
 }

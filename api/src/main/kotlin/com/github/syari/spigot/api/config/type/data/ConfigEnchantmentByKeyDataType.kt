@@ -28,7 +28,7 @@ object ConfigEnchantmentByKeyDataType : ConfigDataType<Enchantment> {
         notFoundError: Boolean
     ): Enchantment? {
         return config.get(path, ConfigDataType.String, notFoundError)?.let {
-            Enchantment.getByKey(NamespacedKey.minecraft(it.toLowerCase())) ?: config.nullError(path, typeName).run { null }
+            stringToEnchantment(it) ?: config.nullError(path, typeName).run { null }
         }
     }
 
@@ -43,6 +43,22 @@ object ConfigEnchantmentByKeyDataType : ConfigDataType<Enchantment> {
         path: String,
         value: Enchantment?
     ) {
-        config.set(path, ConfigDataType.String, value?.key?.key)
+        config.set(path, ConfigDataType.String, value?.let(::enchantmentToString))
+    }
+
+    /**
+     * [String] を [Enchantment] に変換します
+     * @since 1.5.1.
+     */
+    fun stringToEnchantment(value: String): Enchantment? {
+        return Enchantment.getByKey(NamespacedKey.minecraft(value.toLowerCase()))
+    }
+
+    /**
+     * [Enchantment] を [String] に変換します
+     * @since 1.5.1
+     */
+    fun enchantmentToString(value: Enchantment): String {
+        return value.key.key
     }
 }

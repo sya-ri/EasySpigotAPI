@@ -1,6 +1,7 @@
 package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.type.ConfigDataType
+import com.github.syari.spigot.api.config.type.data.ConfigEntityTypeDataType
 import org.bukkit.entity.EntityType
 
 /**
@@ -19,8 +20,5 @@ object ConfigEntityTypeListDataType : ConfigEnumListDataType<EntityType> {
      * @param name 名前
      * @since 1.5.0
      */
-    override fun stringToEnum(name: String): EntityType? {
-        val upperName = name.toUpperCase()
-        return EntityType.values().firstOrNull { it.name == upperName }
-    }
+    override fun stringToEnum(name: String) = ConfigEntityTypeDataType.stringToEnum(name)
 }

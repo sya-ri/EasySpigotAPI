@@ -27,8 +27,7 @@ object ConfigEnchantmentByNameDataType : ConfigDataType<Enchantment> {
         notFoundError: Boolean
     ): Enchantment? {
         return config.get(path, ConfigDataType.String, notFoundError)?.let {
-            @Suppress("DEPRECATION")
-            Enchantment.getByName(it.toUpperCase()) ?: config.nullError(path, typeName).run { null }
+            stringToEnchantment(it) ?: config.nullError(path, typeName).run { null }
         }
     }
 
@@ -43,7 +42,24 @@ object ConfigEnchantmentByNameDataType : ConfigDataType<Enchantment> {
         path: String,
         value: Enchantment?
     ) {
+        config.set(path, ConfigDataType.String, value?.let(::enchantmentToString))
+    }
+
+    /**
+     * [String] を [Enchantment] に変換します
+     * @since 1.5.1.
+     */
+    fun stringToEnchantment(value: String): Enchantment? {
         @Suppress("DEPRECATION")
-        config.set(path, ConfigDataType.String, value?.name)
+        return Enchantment.getByName(value.toUpperCase())
+    }
+
+    /**
+     * [Enchantment] を [String] に変換します
+     * @since 1.5.1
+     */
+    fun enchantmentToString(value: Enchantment): String {
+        @Suppress("DEPRECATION")
+        return value.name
     }
 }

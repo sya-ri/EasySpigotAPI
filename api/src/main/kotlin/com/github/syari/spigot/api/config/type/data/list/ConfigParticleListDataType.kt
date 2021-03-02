@@ -1,6 +1,7 @@
 package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.type.ConfigDataType
+import com.github.syari.spigot.api.config.type.data.ConfigParticleDataType
 import org.bukkit.Particle
 
 /**
@@ -19,8 +20,5 @@ object ConfigParticleListDataType : ConfigEnumListDataType<Particle> {
      * @param name 名前
      * @since 1.5.0
      */
-    override fun stringToEnum(name: String): Particle? {
-        val upperName = name.toUpperCase()
-        return Particle.values().firstOrNull { it.name == upperName }
-    }
+    override fun stringToEnum(name: String) = ConfigParticleDataType.stringToEnum(name)
 }

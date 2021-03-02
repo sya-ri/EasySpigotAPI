@@ -2,6 +2,8 @@ package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
+import com.github.syari.spigot.api.config.type.data.ConfigEnchantmentByNameDataType.enchantmentToString
+import com.github.syari.spigot.api.config.type.data.ConfigEnchantmentByNameDataType.stringToEnchantment
 import org.bukkit.enchantments.Enchantment
 
 /**
@@ -27,8 +29,7 @@ object ConfigEnchantmentByNameListDataType : ConfigDataType<List<Enchantment>> {
         notFoundError: Boolean
     ): List<Enchantment> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            @Suppress("DEPRECATION")
-            Enchantment.getByName(it.toUpperCase()) ?: config.nullError("$path.$it", typeName).run { null }
+            stringToEnchantment(it) ?: config.nullError("$path.$it", typeName).run { null }
         }.orEmpty()
     }
 
@@ -43,7 +44,6 @@ object ConfigEnchantmentByNameListDataType : ConfigDataType<List<Enchantment>> {
         path: String,
         value: List<Enchantment>?
     ) {
-        @Suppress("DEPRECATION")
-        config.set(path, ConfigDataType.StringList, value?.map(Enchantment::getName))
+        config.set(path, ConfigDataType.StringList, value?.map(::enchantmentToString))
     }
 }

@@ -2,6 +2,8 @@ package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
+import com.github.syari.spigot.api.config.type.data.ConfigPotionEffectTypeDataType.potionEffectTypeToString
+import com.github.syari.spigot.api.config.type.data.ConfigPotionEffectTypeDataType.stringToPotionEffectType
 import org.bukkit.potion.PotionEffectType
 
 /**
@@ -27,7 +29,7 @@ object ConfigPotionEffectTypeListDataType : ConfigDataType<List<PotionEffectType
         notFoundError: Boolean
     ): List<PotionEffectType> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            PotionEffectType.getByName(it) ?: config.nullError("$path.$it", typeName).run { null }
+            stringToPotionEffectType(it) ?: config.nullError("$path.$it", typeName).run { null }
         }.orEmpty()
     }
 
@@ -42,6 +44,6 @@ object ConfigPotionEffectTypeListDataType : ConfigDataType<List<PotionEffectType
         path: String,
         value: List<PotionEffectType>?
     ) {
-        config.set(path, ConfigDataType.StringList, value?.map(PotionEffectType::getName))
+        config.set(path, ConfigDataType.StringList, value?.map(::potionEffectTypeToString))
     }
 }

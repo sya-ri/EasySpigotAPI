@@ -1,6 +1,7 @@
 package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.type.ConfigDataType
+import com.github.syari.spigot.api.config.type.data.ConfigMaterialDataType
 import org.bukkit.Material
 
 /**
@@ -19,7 +20,5 @@ object ConfigMaterialListDataType : ConfigEnumListDataType<Material> {
      * @param name 名前
      * @since 1.5.0
      */
-    override fun stringToEnum(name: String): Material? {
-        return Material.getMaterial(name.toUpperCase())
-    }
+    override fun stringToEnum(name: String) = ConfigMaterialDataType.stringToEnum(name)
 }

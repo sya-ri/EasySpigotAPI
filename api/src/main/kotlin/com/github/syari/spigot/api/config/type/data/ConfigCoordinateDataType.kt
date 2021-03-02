@@ -41,11 +41,7 @@ object ConfigCoordinateDataType : ConfigDataType<Coordinate> {
         path: String,
         value: Coordinate?
     ) {
-        if (value != null) {
-            config.set(path, ConfigDataType.String, coordinateToString(value))
-        } else {
-            config.setUnsafe(path, null)
-        }
+        config.set(path, ConfigDataType.String, value?.let(::coordinateToString))
     }
 
     /**

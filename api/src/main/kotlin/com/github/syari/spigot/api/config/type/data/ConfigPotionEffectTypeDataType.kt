@@ -27,7 +27,7 @@ object ConfigPotionEffectTypeDataType : ConfigDataType<PotionEffectType> {
         notFoundError: Boolean
     ): PotionEffectType? {
         return config.get(path, ConfigDataType.String, notFoundError)?.let {
-            PotionEffectType.getByName(it) ?: config.nullError(path, typeName).run { null }
+            stringToPotionEffectType(it) ?: config.nullError(path, typeName).run { null }
         }
     }
 
@@ -42,6 +42,22 @@ object ConfigPotionEffectTypeDataType : ConfigDataType<PotionEffectType> {
         path: String,
         value: PotionEffectType?
     ) {
-        config.set(path, ConfigDataType.String, value?.name)
+        config.set(path, ConfigDataType.String, value?.let(::potionEffectTypeToString))
+    }
+
+    /**
+     * [String] を [PotionEffectType] に変換します
+     * @since 1.5.1.
+     */
+    fun stringToPotionEffectType(value: String): PotionEffectType? {
+        return PotionEffectType.getByName(value)
+    }
+
+    /**
+     * [PotionEffectType] を [String] に変換します
+     * @since 1.5.1
+     */
+    fun potionEffectTypeToString(value: PotionEffectType): String {
+        return value.name
     }
 }

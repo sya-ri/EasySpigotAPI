@@ -2,7 +2,8 @@ package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
-import com.github.syari.spigot.api.config.type.data.ConfigVectorDataType
+import com.github.syari.spigot.api.config.type.data.ConfigVectorDataType.stringToVector
+import com.github.syari.spigot.api.config.type.data.ConfigVectorDataType.vectorToString
 import org.bukkit.util.Vector
 
 /**
@@ -28,7 +29,7 @@ object ConfigVectorListDataType : ConfigDataType<List<Vector>> {
         notFoundError: Boolean
     ): List<Vector> {
         return config.get(path, ConfigDataType.StringList, notFoundError)?.mapNotNull {
-            ConfigVectorDataType.stringToVector(config, "$path.$it", it)
+            stringToVector(config, "$path.$it", it)
         }.orEmpty()
     }
 
@@ -43,6 +44,6 @@ object ConfigVectorListDataType : ConfigDataType<List<Vector>> {
         path: String,
         value: List<Vector>?
     ) {
-        config.set(path, ConfigDataType.StringList, value?.map(ConfigVectorDataType::vectorToString))
+        config.set(path, ConfigDataType.StringList, value?.map(::vectorToString))
     }
 }
