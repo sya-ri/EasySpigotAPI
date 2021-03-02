@@ -11,7 +11,7 @@ repositories {
 }
 
 group = "com.github.sya-ri.spigot.api"
-version = "1.5.0"
+version = "1.5.1"
 
 bukkit {
     name = "EasySpigotAPI"
