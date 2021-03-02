@@ -4,11 +4,12 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 
 /**
+ * 列挙型の要素からデータタイプを作成する為のインターフェース。
  * @since 1.5.0
  */
 interface ConfigEnumDataType<T : Enum<*>> : ConfigDataType<T> {
     /**
-     * 列挙型の要素を名前から取得する。
+     * [String] を 列挙型の要素 に変換する。
      * @param name 名前
      * @since 1.5.0
      */

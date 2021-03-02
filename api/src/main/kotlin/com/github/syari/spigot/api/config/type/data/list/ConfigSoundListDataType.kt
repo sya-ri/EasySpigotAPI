@@ -10,7 +10,7 @@ import org.bukkit.Sound
  */
 object ConfigSoundListDataType : ConfigEnumListDataType<Sound> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.5.0
      */
     override val typeName = "Sound"

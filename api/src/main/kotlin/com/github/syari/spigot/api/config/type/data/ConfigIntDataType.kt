@@ -9,7 +9,7 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
  */
 object ConfigIntDataType : ConfigDataType<Int> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     override val typeName = "Int"

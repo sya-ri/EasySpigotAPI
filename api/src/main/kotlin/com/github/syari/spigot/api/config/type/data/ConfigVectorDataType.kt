@@ -10,7 +10,7 @@ import org.bukkit.util.Vector
  */
 object ConfigVectorDataType : ConfigDataType<Vector> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.4.0
      */
     override val typeName = "Vector"
@@ -45,7 +45,7 @@ object ConfigVectorDataType : ConfigDataType<Vector> {
     }
 
     /**
-     * [String] を [Vector] に変換します
+     * [String] を [Vector] に変換する。
      * @since 1.4.0
      */
     fun stringToVector(config: CustomConfig, path: String, value: String): Vector? {
@@ -70,7 +70,7 @@ object ConfigVectorDataType : ConfigDataType<Vector> {
     }
 
     /**
-     * [Vector] を [String] に変換します
+     * [Vector] を [String] に変換する。
      * @since 1.4.0
      */
     fun vectorToString(value: Vector): String {

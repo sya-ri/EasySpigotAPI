@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
 /**
- * コンフィグをロードします
+ * コンフィグをロードする。
  * @param output メッセージの出力先
  * @param fileName ファイル名
  * @since 1.3.0
@@ -19,7 +19,7 @@ fun JavaPlugin.config(
 }
 
 /**
- * コンフィグをロードします
+ * コンフィグをロードする。
  * @param output メッセージの出力先
  * @param fileName ファイル名
  * @param action コンフィグに対して実行する処理
@@ -35,7 +35,7 @@ fun JavaPlugin.config(
 }
 
 /**
- * フォルダ内のコンフィグを全てロードします
+ * フォルダ内のコンフィグを全てロードする。
  * @param output メッセージの出力先
  * @param directoryName フォルダ名
  * @since 1.3.0
@@ -62,7 +62,7 @@ fun JavaPlugin.configDirectory(
 }
 
 /**
- * フォルダ内のコンフィグを全てロードします
+ * フォルダ内のコンフィグを全てロードする。
  * @param output メッセージの出力先
  * @param directoryName フォルダ名
  * @param action コンフィグに対して実行する処理
@@ -77,7 +77,7 @@ fun JavaPlugin.configDirectory(
 }
 
 /**
- * ファイルが存在するか取得します
+ * ファイルが存在するか取得する。
  * @param fileName ファイル名
  * @since 1.5.1
  */

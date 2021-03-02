@@ -11,7 +11,7 @@ import org.bukkit.Location
  */
 object ConfigLocationDataType : ConfigDataType<Location> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     override val typeName = "Location"
@@ -47,7 +47,7 @@ object ConfigLocationDataType : ConfigDataType<Location> {
     }
 
     /**
-     * [String] を [Location] に変換します
+     * [String] を [Location] に変換する。
      * @since 1.3.0
      */
     fun stringToLocation(config: CustomConfig, path: String, value: String): Location? {
@@ -80,7 +80,7 @@ object ConfigLocationDataType : ConfigDataType<Location> {
     }
 
     /**
-     * [Location] を [String] に変換します
+     * [Location] を [String] に変換する。
      * @since 1.3.0
      */
     fun locationToString(value: Location): String {

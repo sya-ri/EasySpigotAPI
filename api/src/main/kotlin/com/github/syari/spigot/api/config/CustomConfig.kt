@@ -21,13 +21,13 @@ class CustomConfig internal constructor(
     default: Map<String, Any> = mapOf()
 ) {
     /**
-     * コンフィグファイルの相対パス
+     * コンフィグファイルの相対パス。
      * @since 1.3.0
      */
     val filePath = file.path.substringAfter(plugin.dataFolder.path).substring(1)
 
     /**
-     * コンフィグ
+     * [YamlConfiguration] のインスタンス。
      * @since 1.3.0
      */
     val config: YamlConfiguration
@@ -165,7 +165,7 @@ class CustomConfig internal constructor(
     }
 
     /**
-     * 存在するコンフィグパスかを取得する
+     * 存在するコンフィグパスかを取得する。
      * @param path コンフィグパス
      * @since 1.3.0
      */
@@ -203,7 +203,7 @@ class CustomConfig internal constructor(
     }
 
     /**
-     * ファイルの名前を変更します
+     * ファイルの名前を変更する。
      * @param newName 新しい名前
      * @since 1.3.0
      */
@@ -220,7 +220,7 @@ class CustomConfig internal constructor(
     }
 
     /**
-     * ファイルの変更を保存します
+     * ファイルの変更を保存する。
      * @since 1.3.0
      */
     fun save() {
@@ -233,7 +233,7 @@ class CustomConfig internal constructor(
     }
 
     /**
-     * ファイルを削除します
+     * ファイルを削除する。
      * @since 1.3.0
      */
     fun delete() {
@@ -245,7 +245,7 @@ class CustomConfig internal constructor(
     }
 
     /**
-     * メッセージを出力します
+     * メッセージを出力する。
      * ```
      * Format: "&6[$filePath|$path] &f$message"
      * ```
@@ -261,7 +261,7 @@ class CustomConfig internal constructor(
     }
 
     /**
-     * エラーを出力します
+     * エラーを出力する。
      * ```
      * Format: "&6[$filePath|$path] &c$message"
      * ```

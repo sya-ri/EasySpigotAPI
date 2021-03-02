@@ -9,7 +9,7 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
  */
 object ConfigFloatDataType : ConfigDataType<Float> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     override val typeName = "Float"

@@ -10,7 +10,7 @@ import org.bukkit.Material
  */
 object ConfigMaterialListDataType : ConfigEnumListDataType<Material> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     override val typeName = "Material"

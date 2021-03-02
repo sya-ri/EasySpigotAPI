@@ -10,7 +10,7 @@ import com.github.syari.spigot.api.util.world.Coordinate
  */
 object ConfigCoordinateDataType : ConfigDataType<Coordinate> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.4.0
      */
     override val typeName = "Coordinate"
@@ -46,7 +46,7 @@ object ConfigCoordinateDataType : ConfigDataType<Coordinate> {
     }
 
     /**
-     * [String] を [Coordinate] に変換します
+     * [String] を [Coordinate] に変換する。
      * @since 1.4.0
      */
     fun stringToCoordinate(config: CustomConfig, path: String, value: String): Coordinate? {
@@ -74,7 +74,7 @@ object ConfigCoordinateDataType : ConfigDataType<Coordinate> {
     }
 
     /**
-     * [Coordinate] を [String] に変換します
+     * [Coordinate] を [String] に変換する。
      * @since 1.4.0
      */
     fun coordinateToString(value: Coordinate): String {

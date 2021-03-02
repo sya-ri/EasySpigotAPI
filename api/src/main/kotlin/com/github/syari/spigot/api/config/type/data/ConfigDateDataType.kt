@@ -10,7 +10,7 @@ import java.util.Date
  */
 object ConfigDateDataType : ConfigDataType<Date> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     override val typeName = "Date"

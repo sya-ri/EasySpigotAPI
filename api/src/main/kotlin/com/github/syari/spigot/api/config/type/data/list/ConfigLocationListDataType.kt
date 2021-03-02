@@ -12,7 +12,7 @@ import org.bukkit.Location
  */
 object ConfigLocationListDataType : ConfigDataType<List<Location>> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     override val typeName = "Location"

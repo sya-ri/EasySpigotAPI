@@ -9,7 +9,7 @@ import org.bukkit.Particle
  */
 object ConfigParticleDataType : ConfigEnumDataType<Particle> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.5.0
      */
     override val typeName = "Particle"

@@ -51,7 +51,7 @@ interface CommandTab {
         }
 
         /**
-         * コマンド補完を行う
+         * コマンド補完を行う。
          * @since 1.2.0
          */
         internal fun get(sender: CommandSender, args: Array<out String>): List<String> {

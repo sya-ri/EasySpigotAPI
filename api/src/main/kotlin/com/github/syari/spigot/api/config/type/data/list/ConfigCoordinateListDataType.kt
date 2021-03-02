@@ -12,7 +12,7 @@ import com.github.syari.spigot.api.util.world.Coordinate
  */
 object ConfigCoordinateListDataType : ConfigDataType<List<Coordinate>> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.4.0
      */
     override val typeName = "Coordinate"

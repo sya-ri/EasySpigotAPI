@@ -12,7 +12,7 @@ import org.bukkit.util.Vector
  */
 object ConfigVectorListDataType : ConfigDataType<List<Vector>> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.4.0
      */
     override val typeName = "Vector"

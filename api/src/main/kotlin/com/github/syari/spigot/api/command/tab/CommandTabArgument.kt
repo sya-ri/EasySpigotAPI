@@ -4,7 +4,7 @@ import com.github.syari.spigot.api.command.CommandArgument
 import org.bukkit.command.CommandSender
 
 /**
- * 入力済みの引数のみで補完内容を決める
+ * 入力済みの引数のみで補完内容を決める。
  * @param arg 入力済み引数の中で一致したものが存在していた場合 [action] を実行する。`*` や `**` といったワイルドカードを利用できる。
  * @param action 補完する内容を決める処理
  * @see argument
@@ -16,7 +16,7 @@ class CommandTabArgument internal constructor(
 ) : CommandTab {
     companion object {
         /**
-         * 入力済みの引数のみで補完内容を決める
+         * 入力済みの引数のみで補完内容を決める。
          * @param arg 入力済み引数の中で一致したものが存在していた場合 [action] を実行する。`*` や `**` といったワイルドカードを利用できる。
          * @param action 補完する内容を決める処理
          * @see argument

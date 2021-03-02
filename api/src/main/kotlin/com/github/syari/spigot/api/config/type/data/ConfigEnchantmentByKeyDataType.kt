@@ -11,7 +11,7 @@ import org.bukkit.enchantments.Enchantment
  */
 object ConfigEnchantmentByKeyDataType : ConfigDataType<Enchantment> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.5.1
      */
     override val typeName = "Enchantment(Key)"
@@ -47,7 +47,7 @@ object ConfigEnchantmentByKeyDataType : ConfigDataType<Enchantment> {
     }
 
     /**
-     * [String] を [Enchantment] に変換します
+     * [String] を [Enchantment] に変換する。
      * @since 1.5.1.
      */
     fun stringToEnchantment(value: String): Enchantment? {
@@ -55,7 +55,7 @@ object ConfigEnchantmentByKeyDataType : ConfigDataType<Enchantment> {
     }
 
     /**
-     * [Enchantment] を [String] に変換します
+     * [Enchantment] を [String] に変換する。
      * @since 1.5.1
      */
     fun enchantmentToString(value: Enchantment): String {

@@ -1,7 +1,7 @@
 package com.github.syari.spigot.api.command
 
 /**
- * コマンドの引数
+ * コマンドの引数。
  * @param array 実際の引数
  * @since 1.2.0
  */

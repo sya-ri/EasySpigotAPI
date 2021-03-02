@@ -6,37 +6,37 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 
 /**
- * コマンドの設定を行うクラス
+ * コマンドの設定を行うクラス。
  * @param label コマンド名
  * @since 1.2.0
  */
 class CommandCreator(val label: String) {
     /**
-     * コマンドの説明文
+     * コマンドの説明文。
      * @since 1.2.0
      */
     var description = ""
 
     /**
-     * コマンドの使い方
+     * コマンドの使い方。
      * @since 1.2.0
      */
     var usageMessage = "/"
 
     /**
-     * コマンドの別名
+     * コマンドの別名。
      * @since 1.2.0
      */
     var aliases = listOf<String>()
 
     /**
-     * コマンドの実行権限
+     * コマンドの実行権限。
      * @since 1.3.4
      */
     var permission: String? = null
 
     /**
-     * 実行権限がない場合のメッセージ
+     * 実行権限がない場合のメッセージ。
      * @since 1.3.4
      */
     var permissionMessage: String? = null
@@ -45,7 +45,7 @@ class CommandCreator(val label: String) {
     private var executeAction: CommandExecuteAction.() -> Unit = {}
 
     /**
-     * タブ補完の処理を設定する
+     * タブ補完の処理を設定する。
      * @param action タブ補完した時の処理
      * @since 1.2.0
      */
@@ -54,7 +54,7 @@ class CommandCreator(val label: String) {
     }
 
     /**
-     * コマンド実行の処理を設定する
+     * コマンド実行の処理を設定する。
      * @param action コマンドを実行した時の処理
      * @since 1.2.0
      */
@@ -63,7 +63,7 @@ class CommandCreator(val label: String) {
     }
 
     /**
-     * 設定から [Command] のインスタンスを生成する
+     * 設定から [Command] のインスタンスを生成する。
      * @since 1.2.0
      */
     fun create(): Command {

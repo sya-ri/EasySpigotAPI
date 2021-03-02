@@ -9,7 +9,7 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
  */
 object ConfigBooleanDataType : ConfigDataType<Boolean> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     override val typeName = "Boolean"

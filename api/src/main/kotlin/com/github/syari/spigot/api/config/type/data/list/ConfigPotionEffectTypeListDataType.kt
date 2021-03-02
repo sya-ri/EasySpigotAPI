@@ -12,7 +12,7 @@ import org.bukkit.potion.PotionEffectType
  */
 object ConfigPotionEffectTypeListDataType : ConfigDataType<List<PotionEffectType>> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.5.0
      */
     override val typeName = "PotionEffectType"

@@ -12,7 +12,7 @@ import org.bukkit.enchantments.Enchantment
  */
 object ConfigEnchantmentByKeyListDataType : ConfigDataType<List<Enchantment>> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.5.1
      */
     override val typeName = "Enchantment(Key)"

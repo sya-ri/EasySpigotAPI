@@ -10,7 +10,7 @@ import org.bukkit.potion.PotionEffectType
  */
 object ConfigPotionEffectTypeDataType : ConfigDataType<PotionEffectType> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.5.0
      */
     override val typeName = "PotionEffectType"
@@ -46,7 +46,7 @@ object ConfigPotionEffectTypeDataType : ConfigDataType<PotionEffectType> {
     }
 
     /**
-     * [String] を [PotionEffectType] に変換します
+     * [String] を [PotionEffectType] に変換する。
      * @since 1.5.1.
      */
     fun stringToPotionEffectType(value: String): PotionEffectType? {
@@ -54,7 +54,7 @@ object ConfigPotionEffectTypeDataType : ConfigDataType<PotionEffectType> {
     }
 
     /**
-     * [PotionEffectType] を [String] に変換します
+     * [PotionEffectType] を [String] に変換する。
      * @since 1.5.1
      */
     fun potionEffectTypeToString(value: PotionEffectType): String {

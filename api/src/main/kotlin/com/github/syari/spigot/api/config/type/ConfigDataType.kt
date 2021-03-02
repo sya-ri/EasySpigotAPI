@@ -42,7 +42,7 @@ import com.github.syari.spigot.api.config.type.data.list.ConfigWorldListDataType
  */
 interface ConfigDataType<T> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     val typeName: String
@@ -88,7 +88,7 @@ interface ConfigDataType<T> {
     )
 
     /**
-     * 定義済みのコンフィグデータタイプの一覧
+     * 定義済みのコンフィグデータタイプの一覧。
      * @since 1.3.0
      */
     companion object {

@@ -10,7 +10,7 @@ import com.github.syari.spigot.api.config.type.section.ConfigIntSectionType
  */
 interface ConfigSectionType<T> {
     /**
-     * データ型の名前
+     * データ型の名前。
      * @since 1.3.0
      */
     val typeName: String
@@ -28,7 +28,7 @@ interface ConfigSectionType<T> {
     ): T?
 
     /**
-     * 定義済みのコンフィグセクションタイプの一覧
+     * 定義済みのコンフィグセクションタイプの一覧。
      * @since 1.3.0
      */
     companion object {
