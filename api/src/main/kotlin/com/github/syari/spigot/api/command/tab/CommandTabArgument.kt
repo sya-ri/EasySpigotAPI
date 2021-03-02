@@ -51,6 +51,7 @@ class CommandTabArgument internal constructor(
                         buildString {
                             splitArg.forEachIndexed { index, word ->
                                 append(if (word == "*") args[index] else word)
+                                append(" ")
                             }
                         }.substringBeforeLast(" ")
                     } else {
