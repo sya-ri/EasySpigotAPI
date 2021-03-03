@@ -18,6 +18,7 @@ import com.github.syari.spigot.api.config.type.data.ConfigMaterialDataType
 import com.github.syari.spigot.api.config.type.data.ConfigNumberDataType
 import com.github.syari.spigot.api.config.type.data.ConfigParticleDataType
 import com.github.syari.spigot.api.config.type.data.ConfigPotionEffectTypeDataType
+import com.github.syari.spigot.api.config.type.data.ConfigSerializableInventoryDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSerializableItemStackDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundByKeyDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundByNameDataType
@@ -223,6 +224,12 @@ interface ConfigDataType<T> {
          * @since 1.6.0
          */
         val SerializableItemStackList = ConfigSerializableItemStackListDataType
+
+        /**
+         * インベントリ。シリアライズを使用して保存・読込を行う。
+         * @since 1.6.0
+         */
+        val SerializableInventory = ConfigSerializableInventoryDataType
 
         /**
          * マテリアル。
