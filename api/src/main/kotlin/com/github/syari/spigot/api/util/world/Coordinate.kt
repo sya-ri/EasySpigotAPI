@@ -2,10 +2,8 @@ package com.github.syari.spigot.api.util.world
 
 import org.bukkit.Location
 import org.bukkit.World
-import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.util.NumberConversions
 import org.bukkit.util.Vector
-import java.util.HashMap
 import kotlin.math.sqrt
 
 /**
@@ -18,7 +16,7 @@ data class Coordinate(
     var z: Double,
     var yaw: Float = 0F,
     var pitch: Float = 0F
-) : ConfigurationSerializable {
+) {
     /**
      * X 座標の小数点以下を切り捨てた値を取得する。ブロックの座標を示す。
      * @see Location.getBlockX
@@ -181,35 +179,4 @@ data class Coordinate(
      * @since 1.4.0
      */
     fun toLocation(world: World?) = Location(world, x, y, z, yaw, pitch)
-
-    /**
-     * @see Location.serialize
-     * @since 1.4.0
-     */
-    override fun serialize(): Map<String, Any> {
-        val data = HashMap<String, Any>()
-        data["x"] = x
-        data["y"] = y
-        data["z"] = z
-        data["yaw"] = yaw
-        data["pitch"] = pitch
-        return data
-    }
-
-    companion object {
-        /**
-         * @see Location.deserialize
-         * @since 1.4.0
-         */
-        @JvmStatic
-        fun deserialize(args: Map<String?, Any?>): Coordinate {
-            return Coordinate(
-                NumberConversions.toDouble(args["x"]),
-                NumberConversions.toDouble(args["y"]),
-                NumberConversions.toDouble(args["z"]),
-                NumberConversions.toFloat(args["yaw"]),
-                NumberConversions.toFloat(args["pitch"])
-            )
-        }
-    }
 }
