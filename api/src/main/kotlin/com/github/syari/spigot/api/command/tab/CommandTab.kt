@@ -26,7 +26,7 @@ interface CommandTab {
         /**
          * @since 1.2.0
          */
-        @Deprecated("Use addAll instead. Delete on v1.7.0", ReplaceWith("addAll(value)"))
+        @Deprecated("代わりに addAll を使用する。v1.7.0 で削除予定。", ReplaceWith("addAll(value)"))
         fun add(vararg value: String) = addAll(value)
 
         /**
