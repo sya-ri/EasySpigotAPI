@@ -154,6 +154,7 @@ plugin.runTaskTimer(30 * 20, async = true) {
 ```
 
 ### その他
+- [Util / Component](sample/README.md#util--component)
 - [Util / Item](sample/README.md#util--item)
 - [Util / String](sample/README.md#util--string)
 - [Util / UUID](sample/README.md#util--uuid)

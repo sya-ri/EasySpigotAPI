@@ -278,6 +278,80 @@ inline fun ItemStack.editItemMeta(action: ItemMeta.() -> Unit)
 inline fun <reified T : ItemMeta> ItemStack.editItemMeta(action: T.() -> Unit)
 ```
 
+## Util / Component
+TextComponent 関連の便利な関数・クラスを追加します。
+
+```kotlin
+/**
+ * [TextComponent] のビルダークラス
+ */
+class TextComponentBuilder {
+    /**
+     * 末尾に文字列を挿入する。
+     * @param text 文字列
+     * @param hover ホバーイベント
+     * @param click クリックイベント
+     */
+    fun append(
+        text: String,
+        hover: HoverEvent? = null,
+        click: ClickEvent? = null
+    ): TextComponent
+
+    /**
+     * 末尾に改行を挿入する。
+     */
+    fun appendLine(): TextComponent
+
+    /**
+     * 末尾に文字列を挿入し、改行する。
+     * @param text 文字列
+     * @param hover ホバーイベント
+     * @param click クリックイベント
+     */
+    fun appendLine(
+        text: String,
+        hover: HoverEvent? = null,
+        click: ClickEvent? = null
+    ): TextComponent
+
+    /**
+     * [TextComponent] に変換する。
+     */
+    fun build(): TextComponent
+}
+
+/**
+ * @see TextComponentBuilder
+ */
+inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit) = TextComponentBuilder().apply(action).build()
+
+/**
+ * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
+ */
+fun clickRunCommand(command: String) = ClickEvent(ClickEvent.Action.RUN_COMMAND, command)
+
+/**
+ * [ClickEvent.Action.SUGGEST_COMMAND] の [ClickEvent]
+ */
+fun clickTypeText(text: String) = ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, text)
+
+/**
+ * [ClickEvent.Action.OPEN_URL] の [ClickEvent]
+ */
+fun clickOpenURL(url: String) = ClickEvent(ClickEvent.Action.OPEN_URL, url)
+
+/**
+ * [ClickEvent.Action.COPY_TO_CLIPBOARD] の [ClickEvent]
+ */
+fun clickCopyToClipboard(text: String) = ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, text)
+
+/**
+ * [HoverEvent.Action.SHOW_TEXT] の [HoverEvent]
+ */
+fun hoverText(text: String) = HoverEvent(HoverEvent.Action.SHOW_TEXT, Text(text.toColor()))
+```
+
 ## [Util / String](util-string)
 String 関連の便利な関数を追加します。
 
