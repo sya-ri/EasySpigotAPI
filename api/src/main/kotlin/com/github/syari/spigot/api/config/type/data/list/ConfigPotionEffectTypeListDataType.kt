@@ -7,7 +7,8 @@ import com.github.syari.spigot.api.config.type.data.ConfigPotionEffectTypeDataTy
 import org.bukkit.potion.PotionEffectType
 
 /**
- * [ConfigDataType.PotionEffectTypeList]
+ * ポーションエフェクトの種類のリスト。
+ * @see ConfigDataType.PotionEffectTypeList
  * @since 1.5.0
  */
 object ConfigPotionEffectTypeListDataType : ConfigDataType<List<PotionEffectType>> {

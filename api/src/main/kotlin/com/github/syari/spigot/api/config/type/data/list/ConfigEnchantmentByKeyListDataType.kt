@@ -7,7 +7,8 @@ import com.github.syari.spigot.api.config.type.data.ConfigEnchantmentByKeyDataTy
 import org.bukkit.enchantments.Enchantment
 
 /**
- * [ConfigDataType.EnchantmentByKeyList]
+ * エンチャントの一覧。固有名から取得する。
+ * @see ConfigDataType.EnchantmentByKeyList
  * @since 1.5.1
  */
 object ConfigEnchantmentByKeyListDataType : ConfigDataType<List<Enchantment>> {

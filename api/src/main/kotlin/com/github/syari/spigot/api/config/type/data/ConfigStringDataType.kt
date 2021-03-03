@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 
 /**
- * [ConfigDataType.String]
+ * 文字列型。
+ * @see ConfigDataType.String
  * @since 1.3.0
  */
 object ConfigStringDataType : ConfigDataType<String> {

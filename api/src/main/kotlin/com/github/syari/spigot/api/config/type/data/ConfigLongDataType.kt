@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 
 /**
- * [ConfigDataType.Long]
+ * [ConfigDataType.Int] より大きい整数型。
+ * @see ConfigDataType.Long
  * @since 1.3.0
  */
 object ConfigLongDataType : ConfigDataType<Long> {

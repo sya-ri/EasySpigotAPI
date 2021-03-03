@@ -5,9 +5,11 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.enchantments.Enchantment
 
 /**
- * [ConfigDataType.EnchantmentByName]
+ * エンチャント。名前から取得する。
+ * @see ConfigDataType.EnchantmentByName
  * @since 1.5.1
  */
+@Deprecated("Enchantment::getByName は非推奨です。", ReplaceWith("ConfigEnchantmentByKeyDataType"))
 object ConfigEnchantmentByNameDataType : ConfigDataType<Enchantment> {
     /**
      * データ型の名前

@@ -7,7 +7,8 @@ import com.github.syari.spigot.api.config.type.data.ConfigVectorDataType.vectorT
 import org.bukkit.util.Vector
 
 /**
- * [ConfigDataType.VectorList]
+ * ベクトルのリスト。
+ * @see ConfigDataType.VectorList
  * @since 1.4.0
  */
 object ConfigVectorListDataType : ConfigDataType<List<Vector>> {

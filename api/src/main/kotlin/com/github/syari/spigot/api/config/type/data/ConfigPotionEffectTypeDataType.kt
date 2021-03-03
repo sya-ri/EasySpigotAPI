@@ -5,7 +5,8 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.potion.PotionEffectType
 
 /**
- * [ConfigDataType.PotionEffectType]
+ * ポーションエフェクトの種類。
+ * @see ConfigDataType.PotionEffectType
  * @since 1.5.0
  */
 object ConfigPotionEffectTypeDataType : ConfigDataType<PotionEffectType> {

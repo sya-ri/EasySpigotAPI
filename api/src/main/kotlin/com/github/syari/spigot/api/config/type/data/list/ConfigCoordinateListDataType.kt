@@ -7,7 +7,8 @@ import com.github.syari.spigot.api.config.type.data.ConfigCoordinateDataType.str
 import com.github.syari.spigot.api.util.world.Coordinate
 
 /**
- * [ConfigDataType.CoordinateList]
+ * 座標のリスト。
+ * @see ConfigDataType.CoordinateList
  * @since 1.4.0
  */
 object ConfigCoordinateListDataType : ConfigDataType<List<Coordinate>> {

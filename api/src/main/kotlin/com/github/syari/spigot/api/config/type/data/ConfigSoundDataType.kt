@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.Sound
 
 /**
- * [ConfigDataType.Sound]
+ * サウンドの種類。
+ * @see ConfigDataType.Sound
  * @since 1.5.0
  */
 object ConfigSoundDataType : ConfigEnumDataType<Sound> {

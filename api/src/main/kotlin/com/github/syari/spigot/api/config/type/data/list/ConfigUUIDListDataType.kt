@@ -6,7 +6,8 @@ import com.github.syari.spigot.api.util.uuid.uuidOrNull
 import java.util.UUID
 
 /**
- * [ConfigDataType.UUIDList]
+ * UUIDのリスト。
+ * @see ConfigDataType.UUIDList
  * @since 1.3.4
  */
 object ConfigUUIDListDataType : ConfigDataType<List<UUID>> {

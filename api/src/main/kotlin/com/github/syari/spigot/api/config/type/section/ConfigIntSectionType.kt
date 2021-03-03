@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigSectionType
 
 /**
- * [ConfigSectionType.Int]
+ * 整数型。
+ * @see ConfigSectionType.Int
  * @since 1.3.0
  */
 object ConfigIntSectionType : ConfigSectionType<Int> {

@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 
 /**
- * [ConfigDataType.StringList]
+ * 文字列型のリスト。
+ * @see ConfigDataType.StringList
  * @since 1.3.0
  */
 object ConfigStringListDataType : ConfigDataType<List<String>> {

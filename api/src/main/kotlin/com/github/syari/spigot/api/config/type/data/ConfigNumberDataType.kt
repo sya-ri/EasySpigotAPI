@@ -4,7 +4,12 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 
 /**
- * [ConfigDataType.Number]
+ * 数字。別の数字型に変換して使う。
+ * @see ConfigDataType.Number
+ * @see ConfigDataType.Int
+ * @see ConfigDataType.Long
+ * @see ConfigDataType.Float
+ * @see ConfigDataType.Double
  * @since 1.3.0
  */
 object ConfigNumberDataType : ConfigDataType<Number> {

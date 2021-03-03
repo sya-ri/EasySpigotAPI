@@ -6,7 +6,8 @@ import org.bukkit.Bukkit
 import org.bukkit.Location
 
 /**
- * [ConfigDataType.Location]
+ * ワールド座標。World, X, Y, Z, Yaw, Pitch の値を持つ。
+ * @see ConfigDataType.Location
  * @since 1.3.0
  */
 object ConfigLocationDataType : ConfigDataType<Location> {

@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 
 /**
- * [ConfigDataType.Float]
+ * 浮動小数型。
+ * @see ConfigDataType.Float
  * @since 1.3.0
  */
 object ConfigFloatDataType : ConfigDataType<Float> {

@@ -7,7 +7,8 @@ import com.github.syari.spigot.api.config.type.data.ConfigLocationDataType.strin
 import org.bukkit.Location
 
 /**
- * [ConfigDataType.LocationList]
+ * ワールド座標のリスト。
+ * @see ConfigDataType.LocationList
  * @since 1.3.0
  */
 object ConfigLocationListDataType : ConfigDataType<List<Location>> {

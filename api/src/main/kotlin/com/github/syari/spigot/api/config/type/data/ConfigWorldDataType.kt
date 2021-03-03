@@ -6,7 +6,8 @@ import org.bukkit.Bukkit
 import org.bukkit.World
 
 /**
- * [ConfigDataType.World]
+ * ワールド。
+ * @see ConfigDataType.World
  * @since 1.3.0
  */
 object ConfigWorldDataType : ConfigDataType<World> {

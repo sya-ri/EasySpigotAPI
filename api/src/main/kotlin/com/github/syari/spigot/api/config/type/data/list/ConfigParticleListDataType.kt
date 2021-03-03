@@ -5,7 +5,8 @@ import com.github.syari.spigot.api.config.type.data.ConfigParticleDataType
 import org.bukkit.Particle
 
 /**
- * [ConfigDataType.ParticleList]
+ * パーティクルの種類のリスト。
+ * @see ConfigDataType.ParticleList
  * @since 1.5.0
  */
 object ConfigParticleListDataType : ConfigEnumListDataType<Particle> {

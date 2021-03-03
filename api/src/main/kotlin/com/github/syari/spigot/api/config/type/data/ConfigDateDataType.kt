@@ -5,7 +5,8 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
 import java.util.Date
 
 /**
- * [ConfigDataType.Date]
+ * 日付型。
+ * @see ConfigDataType.Date
  * @since 1.3.0
  */
 object ConfigDateDataType : ConfigDataType<Date> {

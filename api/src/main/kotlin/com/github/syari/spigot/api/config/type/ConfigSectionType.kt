@@ -32,6 +32,10 @@ interface ConfigSectionType<T> {
      * @since 1.3.0
      */
     companion object {
+        /**
+         * 整数型。
+         * @since 1.3.0
+         */
         val Int = ConfigIntSectionType
     }
 }

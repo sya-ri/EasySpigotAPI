@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.entity.EntityType
 
 /**
- * [ConfigDataType.EntityType]
+ * エンティティの種類。
+ * @see ConfigDataType.EntityType
  * @since 1.5.0
  */
 object ConfigEntityTypeDataType : ConfigEnumDataType<EntityType> {

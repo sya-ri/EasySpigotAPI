@@ -6,7 +6,8 @@ import org.bukkit.Bukkit
 import org.bukkit.World
 
 /**
- * [ConfigDataType.WorldList]
+ * ワールドのリスト。
+ * @see ConfigDataType.WorldList
  * @since 1.3.0
  */
 object ConfigWorldListDataType : ConfigDataType<List<World>> {

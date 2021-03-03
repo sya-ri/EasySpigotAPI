@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.Material
 
 /**
- * [ConfigDataType.Material]
+ * マテリアル。
+ * @see ConfigDataType.Material
  * @since 1.3.0
  */
 object ConfigMaterialDataType : ConfigEnumDataType<Material> {

@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.CustomConfig
@@ -10,6 +12,7 @@ import org.bukkit.enchantments.Enchantment
  * [ConfigDataType.EnchantmentByNameList]
  * @since 1.5.1
  */
+@Deprecated("Enchantment::getByName は非推奨です。", ReplaceWith("ConfigEnchantmentByKeyListDataType"))
 object ConfigEnchantmentByNameListDataType : ConfigDataType<List<Enchantment>> {
     /**
      * データ型の名前。

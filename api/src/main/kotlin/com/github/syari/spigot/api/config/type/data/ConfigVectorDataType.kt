@@ -5,7 +5,8 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.util.Vector
 
 /**
- * [ConfigDataType.Vector]
+ * ベクトル。X, Y, Z の値を持つ。
+ * @see ConfigDataType.Vector
  * @since 1.4.0
  */
 object ConfigVectorDataType : ConfigDataType<Vector> {

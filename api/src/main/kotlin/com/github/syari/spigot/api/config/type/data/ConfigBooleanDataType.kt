@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 
 /**
- * [ConfigDataType.Boolean]
+ * 真偽型。
+ * @see ConfigDataType.Boolean
  * @since 1.3.0
  */
 object ConfigBooleanDataType : ConfigDataType<Boolean> {

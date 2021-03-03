@@ -5,7 +5,8 @@ import com.github.syari.spigot.api.config.type.ConfigDataType
 import com.github.syari.spigot.api.util.world.Coordinate
 
 /**
- * [ConfigDataType.Coordinate]
+ * 座標。X, Y, Z, Yaw, Pitch の値を持つ。
+ * @see ConfigDataType.Coordinate
  * @since 1.4.0
  */
 object ConfigCoordinateDataType : ConfigDataType<Coordinate> {

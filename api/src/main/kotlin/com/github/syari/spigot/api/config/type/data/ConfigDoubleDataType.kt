@@ -4,7 +4,8 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 
 /**
- * [ConfigDataType.Double]
+ * [ConfigDataType.Float] よりも精度の高い浮動小数型。
+ * @see ConfigDataType.Double
  * @since 1.3.0
  */
 object ConfigDoubleDataType : ConfigDataType<Double> {

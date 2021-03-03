@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.github.syari.spigot.api.config.type
 
 import com.github.syari.spigot.api.config.CustomConfig
@@ -92,38 +94,221 @@ interface ConfigDataType<T> {
      * @since 1.3.0
      */
     companion object {
+        /**
+         * 数字。別の数字型に変換して使う。
+         * @see ConfigDataType.Int
+         * @see ConfigDataType.Long
+         * @see ConfigDataType.Float
+         * @see ConfigDataType.Double
+         * @since 1.3.0
+         */
         val Number = ConfigNumberDataType
+
+        /**
+         * 整数型。
+         * @since 1.3.0
+         */
         val Int = ConfigIntDataType
+
+        /**
+         * [ConfigDataType.Int] より大きい整数型。
+         * @since 1.3.0
+         */
         val Long = ConfigLongDataType
+
+        /**
+         * 浮動小数型。
+         * @since 1.3.0
+         */
         val Float = ConfigFloatDataType
+
+        /**
+         * [ConfigDataType.Float] よりも精度の高い浮動小数型。
+         * @since 1.3.0
+         */
         val Double = ConfigDoubleDataType
+
+        /**
+         * 真偽型。
+         * @since 1.3.0
+         */
         val Boolean = ConfigBooleanDataType
+
+        /**
+         * 文字列型。
+         * @since 1.3.0
+         */
         val String = ConfigStringDataType
+
+        /**
+         * 文字列型のリスト。
+         * @see ConfigDataType.String
+         * @since 1.3.0
+         */
         val StringList = ConfigStringListDataType
+
+        /**
+         * 日付型。
+         * @since 1.3.0
+         */
         val Date = ConfigDateDataType
+
+        /**
+         * ベクトル。X, Y, Z の値を持つ。
+         * @since 1.4.0
+         */
         val Vector = ConfigVectorDataType
+
+        /**
+         * ベクトルのリスト。
+         * @see ConfigDataType.Vector
+         * @since 1.4.0
+         */
         val VectorList = ConfigVectorListDataType
+
+        /**
+         * 座標。X, Y, Z, Yaw, Pitch の値を持つ。
+         * @since 1.4.0
+         */
         val Coordinate = ConfigCoordinateDataType
+
+        /**
+         * 座標のリスト。
+         * @see ConfigDataType.Coordinate
+         * @since 1.4.0
+         */
         val CoordinateList = ConfigCoordinateListDataType
+
+        /**
+         * ワールド座標。World, X, Y, Z, Yaw, Pitch の値を持つ。
+         * @since 1.3.0
+         */
         val Location = ConfigLocationDataType
+
+        /**
+         * ワールド座標のリスト。
+         * @see ConfigDataType.Location
+         * @since 1.3.0
+         */
         val LocationList = ConfigLocationListDataType
+
+        /**
+         * ワールド。
+         * @since 1.3.0
+         */
         val World = ConfigWorldDataType
+
+        /**
+         * ワールドのリスト。
+         * @see ConfigDataType.World
+         * @since 1.3.0
+         */
         val WorldList = ConfigWorldListDataType
+
+        /**
+         * マテリアル。
+         * @since 1.3.0
+         */
         val Material = ConfigMaterialDataType
+
+        /**
+         * マテリアルのリスト。
+         * @see ConfigDataType.Material
+         * @since 1.3.0
+         */
         val MaterialList = ConfigMaterialListDataType
+
+        /**
+         * エンティティの種類。
+         * @since 1.5.0
+         */
         val EntityType = ConfigEntityTypeDataType
+
+        /**
+         * エンティティの種類のリスト。
+         * @see ConfigDataType.EntityType
+         * @since 1.5.0
+         */
         val EntityTypeList = ConfigEntityTypeListDataType
+
+        /**
+         * エンチャント。名前から取得する。
+         * @since 1.5.1
+         */
+        @Deprecated("Enchantment::getByName は非推奨です。", ReplaceWith("EnchantmentByKey"))
         val EnchantmentByName = ConfigEnchantmentByNameDataType
+
+        /**
+         * エンチャントのリスト。名前から取得する。
+         * @see ConfigDataType.EnchantmentByName
+         * @since 1.5.1
+         */
+        @Deprecated("Enchantment::getByName は非推奨です。", ReplaceWith("EnchantmentByKeyList"))
         val EnchantmentByNameList = ConfigEnchantmentByNameListDataType
+
+        /**
+         * エンチャント。固有名から取得する。
+         * @since 1.5.1
+         */
         val EnchantmentByKey = ConfigEnchantmentByKeyDataType
+
+        /**
+         * エンチャントのリスト。固有名から取得する。
+         * @see ConfigDataType.EnchantmentByKey
+         * @since 1.5.1
+         */
         val EnchantmentByKeyList = ConfigEnchantmentByKeyListDataType
+
+        /**
+         * ポーションエフェクトの種類。
+         * @since 1.5.0
+         */
         val PotionEffectType = ConfigPotionEffectTypeDataType
+
+        /**
+         * ポーションエフェクトの種類のリスト。
+         * @see ConfigDataType.PotionEffectType
+         * @since 1.5.0
+         */
         val PotionEffectTypeList = ConfigPotionEffectTypeListDataType
+
+        /**
+         * サウンドの種類。
+         * @since 1.5.0
+         */
         val Sound = ConfigSoundDataType
+
+        /**
+         * サウンドの種類のリスト。
+         * @see ConfigDataType.Sound
+         * @since 1.5.0
+         */
         val SoundList = ConfigSoundListDataType
+
+        /**
+         * パーティクルの種類。
+         * @since 1.5.0
+         */
         val Particle = ConfigParticleDataType
+
+        /**
+         * パーティクルの種類のリスト。
+         * @see ConfigDataType.Particle
+         * @since 1.5.0
+         */
         val ParticleList = ConfigParticleListDataType
+
+        /**
+         * UUID。
+         * @since 1.3.4
+         */
         val UUID = ConfigUUIDDataType
+
+        /**
+         * UUIDのリスト。
+         * @see ConfigDataType.UUID
+         * @since 1.3.4
+         */
         val UUIDList = ConfigUUIDListDataType
     }
 }

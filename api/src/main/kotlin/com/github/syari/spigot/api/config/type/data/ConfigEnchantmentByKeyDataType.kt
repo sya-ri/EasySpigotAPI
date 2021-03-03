@@ -6,7 +6,8 @@ import org.bukkit.NamespacedKey
 import org.bukkit.enchantments.Enchantment
 
 /**
- * [ConfigDataType.EnchantmentByKey]
+ * エンチャント。固有名から取得する。
+ * @see ConfigDataType.EnchantmentByKey
  * @since 1.5.1
  */
 object ConfigEnchantmentByKeyDataType : ConfigDataType<Enchantment> {
