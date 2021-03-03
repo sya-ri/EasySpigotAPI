@@ -18,6 +18,7 @@ import com.github.syari.spigot.api.config.type.data.ConfigMaterialDataType
 import com.github.syari.spigot.api.config.type.data.ConfigNumberDataType
 import com.github.syari.spigot.api.config.type.data.ConfigParticleDataType
 import com.github.syari.spigot.api.config.type.data.ConfigPotionEffectTypeDataType
+import com.github.syari.spigot.api.config.type.data.ConfigSerializableItemStackDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundByKeyDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundByNameDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundDataType
@@ -33,6 +34,7 @@ import com.github.syari.spigot.api.config.type.data.list.ConfigLocationListDataT
 import com.github.syari.spigot.api.config.type.data.list.ConfigMaterialListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigParticleListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigPotionEffectTypeListDataType
+import com.github.syari.spigot.api.config.type.data.list.ConfigSerializableItemStackListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigSoundByKeyListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigSoundByNameListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigSoundListDataType
@@ -208,6 +210,19 @@ interface ConfigDataType<T> {
          * @since 1.3.0
          */
         val WorldList = ConfigWorldListDataType
+
+        /**
+         * アイテムスタック。シリアライズを使用して保存・読込を行う。
+         * @since 1.6.0
+         */
+        val SerializableItemStack = ConfigSerializableItemStackDataType
+
+        /**
+         * アイテムスタックのリスト。シリアライズを使用して保存・読込を行う。
+         * @see ConfigDataType.SerializableItemStack
+         * @since 1.6.0
+         */
+        val SerializableItemStackList = ConfigSerializableItemStackListDataType
 
         /**
          * マテリアル。
