@@ -18,6 +18,7 @@ import com.github.syari.spigot.api.config.type.data.ConfigMaterialDataType
 import com.github.syari.spigot.api.config.type.data.ConfigNumberDataType
 import com.github.syari.spigot.api.config.type.data.ConfigParticleDataType
 import com.github.syari.spigot.api.config.type.data.ConfigPotionEffectTypeDataType
+import com.github.syari.spigot.api.config.type.data.ConfigSoundByKeyDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundByNameDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundDataType
 import com.github.syari.spigot.api.config.type.data.ConfigStringDataType
@@ -32,6 +33,7 @@ import com.github.syari.spigot.api.config.type.data.list.ConfigLocationListDataT
 import com.github.syari.spigot.api.config.type.data.list.ConfigMaterialListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigParticleListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigPotionEffectTypeListDataType
+import com.github.syari.spigot.api.config.type.data.list.ConfigSoundByKeyListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigSoundByNameListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigSoundListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigStringListDataType
@@ -301,6 +303,19 @@ interface ConfigDataType<T> {
          * @since 1.6.0
          */
         val SoundByNameList = ConfigSoundByNameListDataType
+
+        /**
+         * サウンドの種類。固有名から取得する。
+         * @since 1.6.0
+         */
+        val SoundByKey = ConfigSoundByKeyDataType
+
+        /**
+         * サウンドの種類のリスト。固有名から取得する。
+         * @see ConfigDataType.SoundByKey
+         * @since 1.6.0
+         */
+        val SoundByKeyList = ConfigSoundByKeyListDataType
 
         /**
          * パーティクルの種類。
