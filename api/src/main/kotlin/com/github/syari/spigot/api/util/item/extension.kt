@@ -58,7 +58,7 @@ var ItemStack.lore: List<String>
  * @since 1.5.0
  */
 inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit) {
-    lore = lore.toMutableList().apply(action)
+    lore = lore.toMutableList().apply(action).map(String::toColor)
 }
 
 /**
