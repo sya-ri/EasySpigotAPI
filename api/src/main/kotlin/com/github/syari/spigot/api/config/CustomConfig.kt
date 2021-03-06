@@ -203,6 +203,18 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * @param path コンフィグパス
+     * @param save 上書き後に保存する default: false
+     * @since 1.7.0
+     */
+    fun setNull(
+        path: String,
+        save: Boolean = false
+    ) {
+        setUnsafe(path, null, save)
+    }
+
+    /**
      * ファイルの名前を変更する。
      * @param newName 新しい名前
      * @since 1.3.0
