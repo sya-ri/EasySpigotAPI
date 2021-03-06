@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.github.syari.spigot.api.config
 
 import com.github.syari.spigot.api.config.type.ConfigDataType
@@ -59,6 +61,7 @@ class CustomConfig internal constructor(
      * @param notFoundError 存在しないデータの場合にエラーを出す default: true
      * @since 1.3.0
      */
+    @Deprecated("安全ではありません。get を使ってください。")
     inline fun <reified T> getUnsafe(
         path: String,
         typeName: String,
@@ -83,6 +86,7 @@ class CustomConfig internal constructor(
      * @param notFoundError 存在しないデータの場合にエラーを出す default: true
      * @since 1.3.0
      */
+    @Deprecated("安全ではありません。get を使ってください。")
     inline fun <reified T> getListUnsafe(
         path: String,
         typeName: String,
@@ -177,6 +181,7 @@ class CustomConfig internal constructor(
      * @param save 上書き後に保存する default: false
      * @since 1.3.0
      */
+    @Deprecated("安全ではありません。set, setNull を使ってください。")
     fun setUnsafe(
         path: String,
         value: Any?,

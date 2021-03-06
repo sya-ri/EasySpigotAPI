@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.github.syari.spigot.api.config.type.data
 
 import com.github.syari.spigot.api.config.CustomConfig
