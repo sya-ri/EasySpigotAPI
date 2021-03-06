@@ -2,6 +2,7 @@
 
 package com.github.syari.spigot.api.config
 
+import com.github.syari.spigot.api.config.def.DefaultConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 import com.github.syari.spigot.api.config.type.ConfigSectionType
 import org.bukkit.command.CommandSender
@@ -20,7 +21,7 @@ class CustomConfig internal constructor(
     val plugin: JavaPlugin,
     private val output: CommandSender,
     val file: File,
-    default: Map<String, Any> = mapOf()
+    default: DefaultConfig?
 ) {
     /**
      * コンフィグファイルの相対パス。
@@ -35,23 +36,18 @@ class CustomConfig internal constructor(
     val config: YamlConfiguration
 
     init {
-        val writeDefault = if (file.exists().not()) {
+        val fileNotExists = file.exists().not()
+        if (fileNotExists) {
             try {
                 file.parentFile.mkdirs()
                 file.createNewFile()
             } catch (ex: IOException) {
                 throw IOException("$filePath の作成に失敗しました")
             }
-            default.isNotEmpty()
-        } else {
-            false
         }
         config = YamlConfiguration.loadConfiguration(file)
-        if (writeDefault) {
-            default.forEach { (key, value) ->
-                setUnsafe(key, value)
-            }
-            save()
+        if (fileNotExists) {
+            default?.set(this)
         }
     }
 

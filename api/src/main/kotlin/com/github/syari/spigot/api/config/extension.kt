@@ -1,5 +1,7 @@
 package com.github.syari.spigot.api.config
 
+import com.github.syari.spigot.api.config.def.DefaultConfig
+import com.github.syari.spigot.api.config.def.DefaultConfigMap
 import org.bukkit.command.CommandSender
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
@@ -8,12 +10,13 @@ import java.io.File
  * コンフィグをロードする。
  * @param output メッセージの出力先
  * @param fileName ファイル名
- * @since 1.3.0
+ * @param default デフォルト設定
+ * @since 1.7.0
  */
 fun JavaPlugin.config(
     output: CommandSender,
     fileName: String,
-    default: Map<String, Any> = emptyMap()
+    default: DefaultConfig
 ): CustomConfig {
     return CustomConfig(this, output, File(dataFolder, fileName), default)
 }
@@ -22,6 +25,39 @@ fun JavaPlugin.config(
  * コンフィグをロードする。
  * @param output メッセージの出力先
  * @param fileName ファイル名
+ * @param default デフォルト設定
+ * @since 1.3.0
+ */
+fun JavaPlugin.config(
+    output: CommandSender,
+    fileName: String,
+    default: Map<String, Any> = emptyMap()
+): CustomConfig {
+    return config(output, fileName, DefaultConfigMap(default))
+}
+
+/**
+ * コンフィグをロードする。
+ * @param output メッセージの出力先
+ * @param fileName ファイル名
+ * @param default デフォルト設定
+ * @param action コンフィグに対して実行する処理
+ * @since 1.7.0
+ */
+fun JavaPlugin.config(
+    output: CommandSender,
+    fileName: String,
+    default: DefaultConfig,
+    action: CustomConfig.() -> Unit
+): CustomConfig {
+    return config(output, fileName, default).apply(action)
+}
+
+/**
+ * コンフィグをロードする。
+ * @param output メッセージの出力先
+ * @param fileName ファイル名
+ * @param default デフォルト設定
  * @param action コンフィグに対して実行する処理
  * @since 1.3.0
  */
@@ -31,7 +67,7 @@ fun JavaPlugin.config(
     default: Map<String, Any> = emptyMap(),
     action: CustomConfig.() -> Unit
 ): CustomConfig {
-    return config(output, fileName, default).apply(action)
+    return config(output, fileName, DefaultConfigMap(default), action)
 }
 
 /**
@@ -49,7 +85,7 @@ fun JavaPlugin.configDirectory(
         fun File.loadFiles() {
             listFiles()?.forEach { file ->
                 if (file.isFile) {
-                    CustomConfig(this@configDirectory, output, file).run {
+                    CustomConfig(this@configDirectory, output, file, null).run {
                         put(filePath, this)
                     }
                 } else if (file.isDirectory) {
