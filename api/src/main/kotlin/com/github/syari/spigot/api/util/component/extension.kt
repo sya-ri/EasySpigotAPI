@@ -1,9 +1,13 @@
 package com.github.syari.spigot.api.util.component
 
+import com.github.syari.spigot.api.util.item.nbtTag
 import com.github.syari.spigot.api.util.string.toColor
 import net.md_5.bungee.api.chat.ClickEvent
 import net.md_5.bungee.api.chat.HoverEvent
+import net.md_5.bungee.api.chat.ItemTag
+import net.md_5.bungee.api.chat.hover.content.Item
 import net.md_5.bungee.api.chat.hover.content.Text
+import org.bukkit.inventory.ItemStack
 
 /**
  * @see TextComponentBuilder
@@ -40,3 +44,9 @@ fun clickCopyToClipboard(text: String) = ClickEvent(ClickEvent.Action.COPY_TO_CL
  * @since 1.6.0
  */
 fun hoverText(text: String) = HoverEvent(HoverEvent.Action.SHOW_TEXT, Text(text.toColor()))
+
+/**
+ * [HoverEvent.Action.SHOW_ITEM] の [HoverEvent]
+ * @since 1.8.0
+ */
+fun hoverItem(itemStack: ItemStack) = HoverEvent(HoverEvent.Action.SHOW_ITEM, Item(itemStack.type.key.key, 1, ItemTag.ofNbt(itemStack.nbtTag)))
