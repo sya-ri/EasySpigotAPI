@@ -44,8 +44,9 @@ class ConfigInventoryDataType(private val itemConverter: ConfigItemConverter) : 
         path: String,
         value: Map<Int, ItemStack>?
     ) {
+        config.setNull(path)
         value?.forEach { (slot, item) ->
             config.set("$path.$slot", ConfigDataType.String, itemConverter.itemToString(item))
-        } ?: config.setNull(path)
+        }
     }
 }
