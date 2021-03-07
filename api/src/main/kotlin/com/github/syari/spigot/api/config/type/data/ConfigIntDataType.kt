@@ -40,6 +40,6 @@ object ConfigIntDataType : ConfigDataType<Int> {
         path: String,
         value: Int?
     ) {
-        config.setUnsafe(path, value)
+        config.set(path, ConfigDataType.Number, value)
     }
 }

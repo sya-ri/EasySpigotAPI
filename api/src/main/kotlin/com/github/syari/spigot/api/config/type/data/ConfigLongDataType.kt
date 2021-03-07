@@ -40,6 +40,6 @@ object ConfigLongDataType : ConfigDataType<Long> {
         path: String,
         value: Long?
     ) {
-        config.setUnsafe(path, value)
+        config.set(path, ConfigDataType.Number, value)
     }
 }

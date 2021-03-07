@@ -40,6 +40,6 @@ object ConfigFloatDataType : ConfigDataType<Float> {
         path: String,
         value: Float?
     ) {
-        config.setUnsafe(path, value)
+        config.set(path, ConfigDataType.Number, value)
     }
 }

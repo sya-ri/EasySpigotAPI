@@ -40,6 +40,6 @@ object ConfigDoubleDataType : ConfigDataType<Double> {
         path: String,
         value: Double?
     ) {
-        config.setUnsafe(path, value)
+        config.set(path, ConfigDataType.Number, value)
     }
 }
