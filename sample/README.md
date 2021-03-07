@@ -105,7 +105,7 @@ fun hoverText(text: String): HoverEvent
 /**
  * [HoverEvent.Action.SHOW_ITEM] の [HoverEvent]
  */
-fun hoverItem(text: String): HoverEvent
+fun hoverItem(itemStack: ItemStack): HoverEvent
 ```
 
 ## [Config](config)
