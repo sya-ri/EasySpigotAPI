@@ -5,6 +5,7 @@ com.github.syari.spigot.api
 com.github.syari.spigot.api.command
 com.github.syari.spigot.api.command.execute
 com.github.syari.spigot.api.command.tab
+com.github.syari.spigot.api.component
 com.github.syari.spigot.api.config
 com.github.syari.spigot.api.config.converter
 com.github.syari.spigot.api.config.def
@@ -12,12 +13,11 @@ com.github.syari.spigot.api.config.type
 com.github.syari.spigot.api.config.type.data
 com.github.syari.spigot.api.config.type.data.list
 com.github.syari.spigot.api.config.type.section
-com.github.syari.spigot.api.event.register
+com.github.syari.spigot.api.event
+com.github.syari.spigot.api.item
 com.github.syari.spigot.api.nms
 com.github.syari.spigot.api.scheduler
-com.github.syari.spigot.api.util.component
-com.github.syari.spigot.api.util.item
-com.github.syari.spigot.api.util.string
-com.github.syari.spigot.api.util.uuid
-com.github.syari.spigot.api.util.world
+com.github.syari.spigot.api.string
+com.github.syari.spigot.api.uuid
+com.github.syari.spigot.api.world
 
