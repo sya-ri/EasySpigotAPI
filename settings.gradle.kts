@@ -4,11 +4,11 @@ include(
     "api",
     "sample",
     "sample:command",
+    "sample:component",
     "sample:config",
-    "sample:event-register",
+    "sample:event",
     "sample:nms",
     "sample:scheduler",
-    "sample:util-component",
-    "sample:util-string",
-    "sample:util-uuid"
+    "sample:string",
+    "sample:uuid"
 )

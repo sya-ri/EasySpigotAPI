@@ -63,6 +63,9 @@ plugin.command("teleport") {
 }
 ```
 
+### [Component](sample/README.md#component)
+TextComponentを簡単に生成するための関数・クラスを追加します。
+
 ### [Config](sample/README.md#config)
 コンフィグを簡単に読み込むことができます。
 
@@ -106,7 +109,7 @@ plugin.configDirectory(sender, "mobs") {
 }
 ```
 
-### [Event / Register](sample/README.md#event--register)
+### [Event](sample/README.md#event)
 イベント定義をラムダ式で書くことができます。
 
 #### Without EasySpigotAPI
@@ -124,6 +127,8 @@ event<PlayerJoinEvent> { e ->
 }
 ```
 
+### [Item](sample/README.md#item)
+アイテム関連の便利な関数を追加します。
 
 ### [NMS](sample/README.md#nms)
 NMSを使うための関数を追加します。
@@ -157,12 +162,16 @@ plugin.runTaskTimer(30 * 20, async = true) {
 }
 ```
 
+### [String](sample/README.md#string)
+文字列関連の便利な関数を追加します。
+
+### [UUID](sample/README.md#uuid)
+UUIDの便利な関数・クラスを追加します。
+
+### [World](sample/README.md#world)
+ワールド関連の便利なクラスを追加します。
+
 ### その他
-- [Util / Component](sample/README.md#util--component)
-- [Util / Item](sample/README.md#util--item)
-- [Util / String](sample/README.md#util--string)
-- [Util / UUID](sample/README.md#util--uuid)
-- [Util / World](sample/README.md#util--world)
 - [Plugin Using EasySpigotAPI](sample/README.md#plugin-using-easyspigotapi)
 
 ## テンプレートプロジェクト

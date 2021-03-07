@@ -2,7 +2,7 @@ package com.github.syari.spigot.api.config.type.data.list
 
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
-import com.github.syari.spigot.api.util.uuid.uuidOrNull
+import com.github.syari.spigot.api.uuid.uuidOrNull
 import java.util.UUID
 
 /**

@@ -2,7 +2,7 @@ package com.github.syari.spigot.api.config.type.data
 
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
-import com.github.syari.spigot.api.util.world.Coordinate
+import com.github.syari.spigot.api.world.Coordinate
 
 /**
  * 座標。X, Y, Z, Yaw, Pitch の値を持つ。

@@ -29,6 +29,85 @@ plugin.command("teleport") {
 }
 ```
 
+## Component
+TextComponent 関連の便利な関数・クラスを追加します。
+
+```kotlin
+/**
+ * [TextComponent] のビルダークラス
+ */
+class TextComponentBuilder {
+    /**
+     * 末尾に文字列を挿入する。
+     * @param text 文字列
+     * @param hover ホバーイベント
+     * @param click クリックイベント
+     */
+    fun append(
+        text: String,
+        hover: HoverEvent? = null,
+        click: ClickEvent? = null
+    ): TextComponent
+
+    /**
+     * 末尾に改行を挿入する。
+     */
+    fun appendLine(): TextComponent
+
+    /**
+     * 末尾に文字列を挿入し、改行する。
+     * @param text 文字列
+     * @param hover ホバーイベント
+     * @param click クリックイベント
+     */
+    fun appendLine(
+        text: String,
+        hover: HoverEvent? = null,
+        click: ClickEvent? = null
+    ): TextComponent
+
+    /**
+     * [TextComponent] に変換する。
+     */
+    fun build(): TextComponent
+}
+
+/**
+ * @see TextComponentBuilder
+ */
+inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit): TextComponent
+
+/**
+ * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
+ */
+fun clickRunCommand(command: String): ClickEvent
+
+/**
+ * [ClickEvent.Action.SUGGEST_COMMAND] の [ClickEvent]
+ */
+fun clickTypeText(text: String): ClickEvent
+
+/**
+ * [ClickEvent.Action.OPEN_URL] の [ClickEvent]
+ */
+fun clickOpenURL(url: String): ClickEvent
+
+/**
+ * [ClickEvent.Action.COPY_TO_CLIPBOARD] の [ClickEvent]
+ */
+fun clickCopyToClipboard(text: String): ClickEvent
+
+/**
+ * [HoverEvent.Action.SHOW_TEXT] の [HoverEvent]
+ */
+fun hoverText(text: String): HoverEvent
+
+/**
+ * [HoverEvent.Action.SHOW_ITEM] の [HoverEvent]
+ */
+fun hoverItem(text: String): HoverEvent
+```
+
 ## [Config](config)
 コンフィグを簡単に読み込むことができます。
 
@@ -78,63 +157,7 @@ object EventListener : EventRegister {
 }
 ```
 
-## NMS
-NMSを使うための関数・クラスを追加します。
-
-```kotlin
-
-/**
- * NMS のバージョン。
- */
-val NMS_VERSION = Bukkit.getServer()::class.java.`package`.name.substring(23)
-
-/**
- * NMS のクラスを取得する。`%s` が [NMS_VERSION] に置き換わる。
- */
-fun getNMSClass(className: String): Class<*> = Class.forName(className.format(NMS_VERSION))
-
-
-/**
- * NMS を扱う為の基底クラス。
- */
-abstract class NMSWrapper
-
-/**
- * `org.bukkit.craftbukkit.%s.inventory.CraftItemStack` を扱う。
- */
-class CraftItemStackWrapper
-
-/**
- * `net.minecraft.server.%s.NBTTagCompound` を扱う。
- */
-class NBTTagCompoundWrapper
-
-/**
- * `net.minecraft.server.%s.ItemStack` を扱う。
- */
-class NMSItemStackWrapper
-```
-
-## [Scheduler](scheduler)
-スケジューラを簡単に使うことができます。
-
-```kotlin
-// 10秒後に実行されます
-runTaskLater(10 * 20) {
-    // async: false ... サーバーに同期した処理です
-    server.broadcastMessage("プラグインが有効になってから10秒経ちました")
-}
-
-// 30秒毎に実行されます
-runTaskTimer(30 * 20, async = true) {
-    // async: true ... サーバーに同期していない処理です
-    server.onlinePlayers.forEach {
-        it.giveExpLevels(1)
-    }
-}
-```
-
-## Util / Item
+## Item
 Item 関連の便利な関数を追加します。
 
 ```kotlin
@@ -294,9 +317,7 @@ fun ItemStack.removeAttributeModifier(attribute: Attribute): Boolean
  * [AttributeModifier] を削除する。
  * @see ItemMeta.removeAttributeModifier
  */
-fun ItemStack.removeAttributeModifier(slot: EquipmentSlot): Boolean {
-    return itemMeta?.removeAttributeModifier(slot) ?: false
-}
+fun ItemStack.removeAttributeModifier(slot: EquipmentSlot): Boolean
 
 /**
  * [AttributeModifier] を削除する。
@@ -320,81 +341,63 @@ inline fun <reified T : ItemMeta> ItemStack.editItemMeta(action: T.() -> Unit)
 val ItemStack.nbtTag: String
 ```
 
-## Util / Component
-TextComponent 関連の便利な関数・クラスを追加します。
+## NMS
+NMSを使うための関数・クラスを追加します。
 
 ```kotlin
-/**
- * [TextComponent] のビルダークラス
- */
-class TextComponentBuilder {
-    /**
-     * 末尾に文字列を挿入する。
-     * @param text 文字列
-     * @param hover ホバーイベント
-     * @param click クリックイベント
-     */
-    fun append(
-        text: String,
-        hover: HoverEvent? = null,
-        click: ClickEvent? = null
-    ): TextComponent
-
-    /**
-     * 末尾に改行を挿入する。
-     */
-    fun appendLine(): TextComponent
-
-    /**
-     * 末尾に文字列を挿入し、改行する。
-     * @param text 文字列
-     * @param hover ホバーイベント
-     * @param click クリックイベント
-     */
-    fun appendLine(
-        text: String,
-        hover: HoverEvent? = null,
-        click: ClickEvent? = null
-    ): TextComponent
-
-    /**
-     * [TextComponent] に変換する。
-     */
-    fun build(): TextComponent
-}
 
 /**
- * @see TextComponentBuilder
+ * NMS のバージョン。
  */
-inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit) = TextComponentBuilder().apply(action).build()
+val NMS_VERSION = Bukkit.getServer()::class.java.`package`.name.substring(23)
 
 /**
- * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
+ * NMS のクラスを取得する。`%s` が [NMS_VERSION] に置き換わる。
  */
-fun clickRunCommand(command: String) = ClickEvent(ClickEvent.Action.RUN_COMMAND, command)
+fun getNMSClass(className: String): Class<*> = Class.forName(className.format(NMS_VERSION))
+
 
 /**
- * [ClickEvent.Action.SUGGEST_COMMAND] の [ClickEvent]
+ * NMS を扱う為の基底クラス。
  */
-fun clickTypeText(text: String) = ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, text)
+abstract class NMSWrapper
 
 /**
- * [ClickEvent.Action.OPEN_URL] の [ClickEvent]
+ * `org.bukkit.craftbukkit.%s.inventory.CraftItemStack` を扱う。
  */
-fun clickOpenURL(url: String) = ClickEvent(ClickEvent.Action.OPEN_URL, url)
+class CraftItemStackWrapper
 
 /**
- * [ClickEvent.Action.COPY_TO_CLIPBOARD] の [ClickEvent]
+ * `net.minecraft.server.%s.NBTTagCompound` を扱う。
  */
-fun clickCopyToClipboard(text: String) = ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, text)
+class NBTTagCompoundWrapper
 
 /**
- * [HoverEvent.Action.SHOW_TEXT] の [HoverEvent]
+ * `net.minecraft.server.%s.ItemStack` を扱う。
  */
-fun hoverText(text: String) = HoverEvent(HoverEvent.Action.SHOW_TEXT, Text(text.toColor()))
+class NMSItemStackWrapper
 ```
 
-## [Util / String](util-string)
+## [Scheduler](scheduler)
+スケジューラを簡単に使うことができます。
+
+```kotlin
+// 10秒後に実行されます
+runTaskLater(10 * 20) {
+    // async: false ... サーバーに同期した処理です
+    server.broadcastMessage("プラグインが有効になってから10秒経ちました")
+}
+
+// 30秒毎に実行されます
+runTaskTimer(30 * 20, async = true) {
+    // async: true ... サーバーに同期していない処理です
+    server.onlinePlayers.forEach {
+        it.giveExpLevels(1)
+    }
+}
+```
+
+## [String](string)
 String 関連の便利な関数を追加します。
 
 ```kotlin
@@ -409,7 +412,7 @@ fun String.toColor(): String
 fun String.toUncolor(): String
 ```
 
-## [Util / UUID](util-uuid)
+## [UUID](uuid)
 UUID 関連の便利な関数・クラスを追加します。
 
 ```kotlin
@@ -460,7 +463,7 @@ object PlayerJoinChecker : EventRegister {
 }
 ```
 
-## Util / World
+## World
 World 関連の便利なクラスを追加します。
 
 ```kotlin

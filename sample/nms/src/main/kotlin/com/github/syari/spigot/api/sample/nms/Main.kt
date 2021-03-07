@@ -1,8 +1,8 @@
 package com.github.syari.spigot.api.sample.nms
 
+import com.github.syari.spigot.api.item.displayName
+import com.github.syari.spigot.api.item.nbtTag
 import com.github.syari.spigot.api.nms.NMS_VERSION
-import com.github.syari.spigot.api.util.item.displayName
-import com.github.syari.spigot.api.util.item.nbtTag
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.bukkit.plugin.java.JavaPlugin

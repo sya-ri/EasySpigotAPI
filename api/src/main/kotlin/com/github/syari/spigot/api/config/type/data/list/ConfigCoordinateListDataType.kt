@@ -4,7 +4,7 @@ import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 import com.github.syari.spigot.api.config.type.data.ConfigCoordinateDataType.coordinateToString
 import com.github.syari.spigot.api.config.type.data.ConfigCoordinateDataType.stringToCoordinate
-import com.github.syari.spigot.api.util.world.Coordinate
+import com.github.syari.spigot.api.world.Coordinate
 
 /**
  * 座標のリスト。
