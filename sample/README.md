@@ -79,7 +79,7 @@ object EventListener : EventRegister {
 ```
 
 ## NMS
-NMSを使うための関数を追加します。
+NMSを使うための関数・クラスを追加します。
 
 ```kotlin
 
@@ -92,6 +92,27 @@ val NMS_VERSION = Bukkit.getServer()::class.java.`package`.name.substring(23)
  * NMS のクラスを取得する。`%s` が [NMS_VERSION] に置き換わる。
  */
 fun getNMSClass(className: String): Class<*> = Class.forName(className.format(NMS_VERSION))
+
+
+/**
+ * NMS を扱う為の基底クラス。
+ */
+abstract class NMSWrapper
+
+/**
+ * `org.bukkit.craftbukkit.%s.inventory.CraftItemStack` を扱う。
+ */
+class CraftItemStackWrapper
+
+/**
+ * `net.minecraft.server.%s.NBTTagCompound` を扱う。
+ */
+class NBTTagCompoundWrapper
+
+/**
+ * `net.minecraft.server.%s.ItemStack` を扱う。
+ */
+class NMSItemStackWrapper
 ```
 
 ## [Scheduler](scheduler)
@@ -292,6 +313,11 @@ inline fun ItemStack.editItemMeta(action: ItemMeta.() -> Unit)
  * [ItemMeta] に対して変更を加える。
  */
 inline fun <reified T : ItemMeta> ItemStack.editItemMeta(action: T.() -> Unit)
+
+/**
+ * NBT タグを取得する。
+ */
+val ItemStack.nbtTag: String
 ```
 
 ## Util / Component

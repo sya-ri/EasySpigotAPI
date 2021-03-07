@@ -1,5 +1,6 @@
 package com.github.syari.spigot.api.util.item
 
+import com.github.syari.spigot.api.nms.NMSItemStackWrapper
 import com.github.syari.spigot.api.util.string.toColor
 import com.google.common.collect.ImmutableMultimap
 import com.google.common.collect.Multimap
@@ -298,3 +299,10 @@ inline fun <reified T : ItemMeta> ItemStack.editItemMeta(action: T.() -> Unit) {
         (this as? T)?.action()
     }
 }
+
+/**
+ * NBT タグを取得する。
+ * @since 1.8.0
+ */
+val ItemStack.nbtTag: String
+    get() = NMSItemStackWrapper(this).getOrCreateTag().toString()
