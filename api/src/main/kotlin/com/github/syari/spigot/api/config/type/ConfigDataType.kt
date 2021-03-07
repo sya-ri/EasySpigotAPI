@@ -3,6 +3,7 @@
 package com.github.syari.spigot.api.config.type
 
 import com.github.syari.spigot.api.config.CustomConfig
+import com.github.syari.spigot.api.config.converter.ConfigItemConverter
 import com.github.syari.spigot.api.config.type.data.ConfigBooleanDataType
 import com.github.syari.spigot.api.config.type.data.ConfigCoordinateDataType
 import com.github.syari.spigot.api.config.type.data.ConfigDateDataType
@@ -12,6 +13,8 @@ import com.github.syari.spigot.api.config.type.data.ConfigEnchantmentByNameDataT
 import com.github.syari.spigot.api.config.type.data.ConfigEntityTypeDataType
 import com.github.syari.spigot.api.config.type.data.ConfigFloatDataType
 import com.github.syari.spigot.api.config.type.data.ConfigIntDataType
+import com.github.syari.spigot.api.config.type.data.ConfigInventoryDataType
+import com.github.syari.spigot.api.config.type.data.ConfigItemStackDataType
 import com.github.syari.spigot.api.config.type.data.ConfigLocationDataType
 import com.github.syari.spigot.api.config.type.data.ConfigLongDataType
 import com.github.syari.spigot.api.config.type.data.ConfigMaterialDataType
@@ -31,6 +34,7 @@ import com.github.syari.spigot.api.config.type.data.list.ConfigCoordinateListDat
 import com.github.syari.spigot.api.config.type.data.list.ConfigEnchantmentByKeyListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigEnchantmentByNameListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigEntityTypeListDataType
+import com.github.syari.spigot.api.config.type.data.list.ConfigItemStackListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigLocationListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigMaterialListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigParticleListDataType
@@ -100,6 +104,7 @@ interface ConfigDataType<T> {
      * 定義済みのコンフィグデータタイプの一覧。
      * @since 1.3.0
      */
+    @Suppress("FunctionName")
     companion object {
         /**
          * 数字。別の数字型に変換して使う。
@@ -364,5 +369,24 @@ interface ConfigDataType<T> {
          * @since 1.3.4
          */
         val UUIDList = ConfigUUIDListDataType
+
+        /**
+         * アイテムスタック。[ConfigItemConverter] を使用して保存・読込を行う。
+         * @since 1.7.0
+         */
+        fun ItemStack(itemConverter: ConfigItemConverter) = ConfigItemStackDataType(itemConverter)
+
+        /**
+         * アイテムスタックのリスト。[ConfigItemConverter] を使用して保存・読込を行う。
+         * @see ConfigDataType.ItemStack
+         * @since 1.7.0
+         */
+        fun ItemStackList(itemConverter: ConfigItemConverter) = ConfigItemStackListDataType(itemConverter)
+
+        /**
+         * インベントリ。[ConfigItemConverter] を使用して保存・読込を行う。
+         * @since 1.7.0
+         */
+        fun Inventory(itemConverter: ConfigItemConverter) = ConfigInventoryDataType(itemConverter)
     }
 }
