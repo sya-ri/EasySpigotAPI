@@ -1,8 +1,6 @@
 package com.github.syari.spigot.api.config
 
 import com.github.syari.spigot.api.config.def.DefaultConfig
-import com.github.syari.spigot.api.config.def.DefaultConfigAction
-import com.github.syari.spigot.api.config.def.DefaultConfigMap
 import org.bukkit.command.CommandSender
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
@@ -17,7 +15,7 @@ import java.io.File
 fun JavaPlugin.config(
     output: CommandSender,
     fileName: String,
-    default: DefaultConfig
+    default: DefaultConfig? = null
 ): CustomConfig {
     return CustomConfig(this, output, File(dataFolder, fileName), default)
 }
@@ -27,80 +25,16 @@ fun JavaPlugin.config(
  * @param output メッセージの出力先
  * @param fileName ファイル名
  * @param default デフォルト設定
- * @since 1.3.0
- */
-fun JavaPlugin.config(
-    output: CommandSender,
-    fileName: String,
-    default: Map<String, Any> = emptyMap()
-): CustomConfig {
-    return config(output, fileName, DefaultConfigMap(default))
-}
-
-/**
- * コンフィグをロードする。
- * @param output メッセージの出力先
- * @param fileName ファイル名
- * @param default デフォルト設定
- * @since 1.7.0
- */
-fun JavaPlugin.config(
-    output: CommandSender,
-    fileName: String,
-    default: CustomConfig.() -> Unit
-): CustomConfig {
-    return config(output, fileName, DefaultConfigAction(default))
-}
-
-/**
- * コンフィグをロードする。
- * @param output メッセージの出力先
- * @param fileName ファイル名
- * @param default デフォルト設定
  * @param action コンフィグに対して実行する処理
  * @since 1.7.0
  */
 fun JavaPlugin.config(
     output: CommandSender,
     fileName: String,
-    default: DefaultConfig,
+    default: DefaultConfig? = null,
     action: CustomConfig.() -> Unit
 ): CustomConfig {
     return config(output, fileName, default).apply(action)
-}
-
-/**
- * コンフィグをロードする。
- * @param output メッセージの出力先
- * @param fileName ファイル名
- * @param default デフォルト設定
- * @param action コンフィグに対して実行する処理
- * @since 1.3.0
- */
-fun JavaPlugin.config(
-    output: CommandSender,
-    fileName: String,
-    default: Map<String, Any> = emptyMap(),
-    action: CustomConfig.() -> Unit
-): CustomConfig {
-    return config(output, fileName, DefaultConfigMap(default), action)
-}
-
-/**
- * コンフィグをロードする。
- * @param output メッセージの出力先
- * @param fileName ファイル名
- * @param default デフォルト設定
- * @param action コンフィグに対して実行する処理
- * @since 1.7.0
- */
-fun JavaPlugin.config(
-    output: CommandSender,
-    fileName: String,
-    default: CustomConfig.() -> Unit,
-    action: CustomConfig.() -> Unit
-): CustomConfig {
-    return config(output, fileName, DefaultConfigAction(default), action)
 }
 
 /**
