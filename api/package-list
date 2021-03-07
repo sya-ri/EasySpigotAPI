@@ -13,6 +13,7 @@ com.github.syari.spigot.api.config.type.data
 com.github.syari.spigot.api.config.type.data.list
 com.github.syari.spigot.api.config.type.section
 com.github.syari.spigot.api.event.register
+com.github.syari.spigot.api.nms
 com.github.syari.spigot.api.scheduler
 com.github.syari.spigot.api.util.component
 com.github.syari.spigot.api.util.item
