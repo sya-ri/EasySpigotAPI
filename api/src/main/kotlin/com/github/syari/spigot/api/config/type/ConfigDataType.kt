@@ -25,7 +25,6 @@ import com.github.syari.spigot.api.config.type.data.ConfigSerializableInventoryD
 import com.github.syari.spigot.api.config.type.data.ConfigSerializableItemStackDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundByKeyDataType
 import com.github.syari.spigot.api.config.type.data.ConfigSoundByNameDataType
-import com.github.syari.spigot.api.config.type.data.ConfigSoundDataType
 import com.github.syari.spigot.api.config.type.data.ConfigStringDataType
 import com.github.syari.spigot.api.config.type.data.ConfigUUIDDataType
 import com.github.syari.spigot.api.config.type.data.ConfigVectorDataType
@@ -42,7 +41,6 @@ import com.github.syari.spigot.api.config.type.data.list.ConfigPotionEffectTypeL
 import com.github.syari.spigot.api.config.type.data.list.ConfigSerializableItemStackListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigSoundByKeyListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigSoundByNameListDataType
-import com.github.syari.spigot.api.config.type.data.list.ConfigSoundListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigStringListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigUUIDListDataType
 import com.github.syari.spigot.api.config.type.data.list.ConfigVectorListDataType
@@ -302,21 +300,6 @@ interface ConfigDataType<T> {
          * @since 1.5.0
          */
         val PotionEffectTypeList = ConfigPotionEffectTypeListDataType
-
-        /**
-         * サウンドの種類。
-         * @since 1.5.0
-         */
-        @Deprecated("代わりに SoundByName を使用する。v1.8.0 で削除予定。", ReplaceWith("SoundByName"))
-        val Sound = ConfigSoundDataType
-
-        /**
-         * サウンドの種類のリスト。
-         * @see ConfigDataType.Sound
-         * @since 1.5.0
-         */
-        @Deprecated("代わりに SoundByNameList を使用する。v1.8.0 で削除予定。", ReplaceWith("SoundByNameList"))
-        val SoundList = ConfigSoundListDataType
 
         /**
          * サウンドの種類。名前から取得する。
