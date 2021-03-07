@@ -78,6 +78,22 @@ object EventListener : EventRegister {
 }
 ```
 
+## NMS
+NMSを使うための関数を追加します。
+
+```kotlin
+
+/**
+ * NMS のバージョン。
+ */
+val NMS_VERSION = Bukkit.getServer()::class.java.`package`.name.substring(23)
+
+/**
+ * NMS のクラスを取得する。`%s` が [NMS_VERSION] に置き換わる。
+ */
+fun getNMSClass(className: String): Class<*> = Class.forName(className.format(NMS_VERSION))
+```
+
 ## [Scheduler](scheduler)
 スケジューラを簡単に使うことができます。
 

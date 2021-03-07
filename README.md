@@ -124,6 +124,10 @@ event<PlayerJoinEvent> { e ->
 }
 ```
 
+
+### [NMS](sample/README.md#nms)
+NMSを使うための関数を追加します。
+
 ### [Scheduler](sample/README.md#scheduler)
 スケジューラを簡単に使うことができます。
 
