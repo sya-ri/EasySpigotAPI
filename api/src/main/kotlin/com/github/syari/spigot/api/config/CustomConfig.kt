@@ -19,7 +19,7 @@ import java.io.IOException
  */
 class CustomConfig internal constructor(
     val plugin: JavaPlugin,
-    private val output: CommandSender,
+    private val output: CommandSender?,
     val file: File,
     default: DefaultConfig?
 ) {
@@ -270,7 +270,7 @@ class CustomConfig internal constructor(
         path: String,
         message: String
     ) {
-        output.sendMessage("§6[$filePath $path] §f$message")
+        output?.sendMessage("§6[$filePath $path] §f$message")
     }
 
     /**

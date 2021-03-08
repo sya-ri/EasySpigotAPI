@@ -13,7 +13,7 @@ import java.io.File
  * @since 1.7.0
  */
 fun JavaPlugin.config(
-    output: CommandSender,
+    output: CommandSender?,
     fileName: String,
     default: DefaultConfig? = null
 ): CustomConfig {
@@ -29,7 +29,7 @@ fun JavaPlugin.config(
  * @since 1.7.0
  */
 fun JavaPlugin.config(
-    output: CommandSender,
+    output: CommandSender?,
     fileName: String,
     default: DefaultConfig? = null,
     action: CustomConfig.() -> Unit
@@ -44,7 +44,7 @@ fun JavaPlugin.config(
  * @since 1.3.0
  */
 fun JavaPlugin.configDirectory(
-    output: CommandSender,
+    output: CommandSender?,
     directoryName: String
 ): Map<String, CustomConfig> {
     val directory = File(dataFolder, directoryName).apply(File::mkdirs)
@@ -72,7 +72,7 @@ fun JavaPlugin.configDirectory(
  * @since 1.3.0
  */
 fun JavaPlugin.configDirectory(
-    output: CommandSender,
+    output: CommandSender?,
     directoryName: String,
     action: CustomConfig.() -> Unit
 ): Map<String, CustomConfig> {
