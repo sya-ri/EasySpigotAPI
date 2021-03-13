@@ -378,6 +378,53 @@ class NBTTagCompoundWrapper
 class NMSItemStackWrapper
 ```
 
+## Particle
+パーティクル関連の便利な関数を追加します。
+
+```kotlin
+/**
+ * 指定の座標にパーティクルを表示する。
+ * @param particle パーティクルの種類
+ * @param count パーティクルの量 default: 1
+ * @param offsetX X方向の最大誤差 default: 0
+ * @param offsetY Y方向の最大誤差 default: 0
+ * @param offsetZ Z方向の最大誤差 default: 0
+ * @param speed パーティクルの速度 default: 1.0
+ * @param data パーティクルデータ [Particle.getDataType] default: null
+ * @param force クライアント設定に関係なく表示するか default: true
+ */
+fun Location.spawnParticle(
+    particle: Particle,
+    count: Int = 1,
+    offsetX: Double = 0.0,
+    offsetY: Double = 0.0,
+    offsetZ: Double = 0.0,
+    speed: Double = 1.0,
+    data: Any? = null,
+    force: Boolean = true
+)
+
+/**
+ * 指定の座標にパーティクルを表示する。
+ * @param particle パーティクルの種類
+ * @param count パーティクルの量 default: 1
+ * @param offsetX X方向の最大誤差 default: 0
+ * @param offsetY Y方向の最大誤差 default: 0
+ * @param offsetZ Z方向の最大誤差 default: 0
+ * @param speed パーティクルの速度 default: 1.0
+ * @param data パーティクルデータ [Particle.getDataType] default: null
+ */
+fun Player.spawnParticle(
+    particle: Particle,
+    count: Int = 1,
+    offsetX: Double = 0.0,
+    offsetY: Double = 0.0,
+    offsetZ: Double = 0.0,
+    speed: Double = 1.0,
+    data: Any? = null
+)
+```
+
 ## [Scheduler](scheduler)
 スケジューラを簡単に使うことができます。
 
