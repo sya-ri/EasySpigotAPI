@@ -397,6 +397,67 @@ runTaskTimer(30 * 20, async = true) {
 }
 ```
 
+## Sound
+音関連の便利な関数を追加します。
+
+```kotlin
+/**
+ * 座標の周囲に音を再生する。
+ * @param sound サウンド
+ * @param soundCategory サウンドの種類 default: [SoundCategory.MASTER]
+ * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
+ * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
+ */
+fun Location.playSound(
+    sound: Sound,
+    soundCategory: SoundCategory = SoundCategory.MASTER,
+    volume: Float = 1F,
+    pitch: Float = 1F,
+)
+
+/**
+ * 座標の周囲に音を再生する。
+ * @param sound サウンド
+ * @param soundCategory サウンドの種類 default: [SoundCategory.MASTER]
+ * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
+ * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
+ */
+fun Location.playSound(
+    sound: String,
+    soundCategory: SoundCategory = SoundCategory.MASTER,
+    volume: Float = 1F,
+    pitch: Float = 1F,
+)
+
+/**
+ * プレイヤーに対してに音を再生する。
+ * @param sound サウンド
+ * @param soundCategory サウンドの種類 default: [SoundCategory.MASTER]
+ * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
+ * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
+ */
+fun Player.playSound(
+    sound: Sound,
+    soundCategory: SoundCategory = SoundCategory.MASTER,
+    volume: Float = 1F,
+    pitch: Float = 1F,
+)
+
+/**
+ * プレイヤーに対してに音を再生する。
+ * @param sound サウンド
+ * @param soundCategory サウンドの種類 default: [SoundCategory.MASTER]
+ * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
+ * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
+ */
+fun Player.playSound(
+    sound: String,
+    soundCategory: SoundCategory = SoundCategory.MASTER,
+    volume: Float = 1F,
+    pitch: Float = 1F,
+)
+```
+
 ## [String](string)
 String 関連の便利な関数を追加します。
 

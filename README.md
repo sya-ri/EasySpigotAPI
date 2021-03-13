@@ -136,6 +136,9 @@ NMSを使うための関数を追加します。
 ### [Scheduler](sample/README.md#scheduler)
 スケジューラを簡単に使うことができます。
 
+### [Sound](sample/README.md#sound)
+音関連の便利な関数を追加します。
+
 #### Without EasySpigotAPI
 ```kotlin
 object : BukkitRunnable() {
