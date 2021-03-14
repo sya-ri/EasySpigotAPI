@@ -1,5 +1,6 @@
 package com.github.syari.spigot.api.config.type.data.list
 
+import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import com.github.syari.spigot.api.config.type.ConfigDataType
 import com.github.syari.spigot.api.config.type.data.ConfigParticleDataType
 import org.bukkit.Particle
@@ -9,6 +10,7 @@ import org.bukkit.Particle
  * @see ConfigDataType.ParticleList
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8)
 object ConfigParticleListDataType : ConfigEnumListDataType<Particle> {
     /**
      * データ型の名前。

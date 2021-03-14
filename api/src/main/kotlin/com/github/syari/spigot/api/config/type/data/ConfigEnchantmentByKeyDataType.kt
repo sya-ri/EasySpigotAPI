@@ -1,5 +1,6 @@
 package com.github.syari.spigot.api.config.type.data
 
+import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.NamespacedKey
@@ -10,6 +11,7 @@ import org.bukkit.enchantments.Enchantment
  * @see ConfigDataType.EnchantmentByKey
  * @since 1.5.1
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 object ConfigEnchantmentByKeyDataType : ConfigDataType<Enchantment> {
     /**
      * データ型の名前。

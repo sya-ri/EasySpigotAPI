@@ -1,5 +1,6 @@
 package com.github.syari.spigot.api.config.type.data
 
+import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import com.github.syari.spigot.api.config.type.ConfigDataType
 import org.bukkit.Sound
 
@@ -8,6 +9,7 @@ import org.bukkit.Sound
  * @see ConfigDataType.SoundByKey
  * @since 1.6.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14, 15)
 object ConfigSoundByKeyDataType : ConfigEnumDataType<Sound> {
     /**
      * データ型の名前。

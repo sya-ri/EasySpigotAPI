@@ -26,6 +26,7 @@ subprojects {
 
     repositories {
         maven(url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+        maven(url = "https://oss.sonatype.org/content/groups/public/")
     }
 
     val shadowImplementation: Configuration by configurations.creating
@@ -33,7 +34,21 @@ subprojects {
 
     dependencies {
         shadowImplementation(kotlin("stdlib"))
-        implementation("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
+
+        val minecraftVersion = when (16) {
+            8 -> "1.8.8"
+            9 -> "1.9.4"
+            10 -> "1.10.2"
+            11 -> "1.11.2"
+            12 -> "1.12.2"
+            13 -> "1.13.2"
+            14 -> "1.14.4"
+            15 -> "1.15.2"
+            16 -> "1.16.5"
+            else -> error("Unsupported Version")
+        }
+
+        implementation("org.spigotmc:spigot-api:$minecraftVersion-R0.1-SNAPSHOT")
     }
 
     tasks.withType<ShadowJar> {

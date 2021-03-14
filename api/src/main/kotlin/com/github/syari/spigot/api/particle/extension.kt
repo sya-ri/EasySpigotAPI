@@ -1,5 +1,6 @@
 package com.github.syari.spigot.api.particle
 
+import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import org.bukkit.Location
 import org.bukkit.Particle
 import org.bukkit.entity.Player
@@ -16,6 +17,7 @@ import org.bukkit.entity.Player
  * @param force クライアント設定に関係なく表示するか default: true
  * @since 2.1.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun Location.spawnParticle(
     particle: Particle,
     count: Int = 1,
@@ -38,7 +40,30 @@ fun Location.spawnParticle(
  * @param data パーティクルデータ [Particle.getDataType] default: null
  * @since 2.1.0
  */
-fun Player.spawnParticle(
+@UnsupportedMinecraftVersion(8)
+fun Location.spawnParticleLegacy(
+    particle: Particle,
+    count: Int = 1,
+    offsetX: Double = 0.0,
+    offsetY: Double = 0.0,
+    offsetZ: Double = 0.0,
+    speed: Double = 1.0,
+    data: Any? = null
+) = world?.spawnParticle(particle, this, count, offsetX, offsetY, offsetZ, speed, data)
+
+/**
+ * 指定の座標にパーティクルを表示する。
+ * @param particle パーティクルの種類
+ * @param count パーティクルの量 default: 1
+ * @param offsetX X方向の最大誤差 default: 0
+ * @param offsetY Y方向の最大誤差 default: 0
+ * @param offsetZ Z方向の最大誤差 default: 0
+ * @param speed パーティクルの速度 default: 1.0
+ * @param data パーティクルデータ [Particle.getDataType] default: null
+ * @since 2.1.0
+ */
+@UnsupportedMinecraftVersion(8)
+fun Player.spawnParticleLegacy(
     particle: Particle,
     count: Int = 1,
     offsetX: Double = 0.0,

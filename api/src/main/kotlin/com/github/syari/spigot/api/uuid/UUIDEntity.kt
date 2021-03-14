@@ -1,5 +1,6 @@
 package com.github.syari.spigot.api.uuid
 
+import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import org.bukkit.Bukkit
 import org.bukkit.entity.Entity
 import java.util.UUID
@@ -10,6 +11,7 @@ import java.util.UUID
  * 変数に保存する際には [Entity] ではなく [UUID] で保存することを推奨する。
  * @since 1.1.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10)
 data class UUIDEntity(val uniqueId: UUID) : Comparable<UUIDEntity> {
     /**
      * [Entity] として取得する。

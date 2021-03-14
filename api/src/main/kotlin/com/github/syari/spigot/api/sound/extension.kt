@@ -1,9 +1,23 @@
 package com.github.syari.spigot.api.sound
 
+import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import org.bukkit.Location
 import org.bukkit.Sound
 import org.bukkit.SoundCategory
 import org.bukkit.entity.Player
+
+/**
+ * 座標の周囲に音を再生する。
+ * @param sound サウンドの種類
+ * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
+ * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
+ * @since 2.2.0
+ */
+fun Location.playSoundLegacy(
+    sound: Sound,
+    volume: Float = 1F,
+    pitch: Float = 1F,
+) = world?.playSound(this, sound, volume, pitch)
 
 /**
  * 座標の周囲に音を再生する。
@@ -13,6 +27,7 @@ import org.bukkit.entity.Player
  * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
  * @since 2.1.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10)
 fun Location.playSound(
     sound: Sound,
     soundCategory: SoundCategory = SoundCategory.MASTER,
@@ -23,11 +38,26 @@ fun Location.playSound(
 /**
  * 座標の周囲に音を再生する。
  * @param sound サウンド
+ * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
+ * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
+ * @since 2.2.0
+ */
+@UnsupportedMinecraftVersion(8)
+fun Location.playSoundLegacy(
+    sound: String,
+    volume: Float = 1F,
+    pitch: Float = 1F,
+) = world?.playSound(this, sound, volume, pitch)
+
+/**
+ * 座標の周囲に音を再生する。
+ * @param sound サウンド
  * @param soundCategory サウンドの種類 default: [SoundCategory.MASTER]
  * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
  * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
  * @since 2.1.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10)
 fun Location.playSound(
     sound: String,
     soundCategory: SoundCategory = SoundCategory.MASTER,
@@ -38,11 +68,25 @@ fun Location.playSound(
 /**
  * プレイヤーに対してに音を再生する。
  * @param sound サウンド
+ * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
+ * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
+ * @since 2.2.0
+ */
+fun Player.playSoundLegacy(
+    sound: Sound,
+    volume: Float = 1F,
+    pitch: Float = 1F,
+) = playSound(location, sound, volume, pitch)
+
+/**
+ * プレイヤーに対してに音を再生する。
+ * @param sound サウンド
  * @param soundCategory サウンドの種類 default: [SoundCategory.MASTER]
  * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
  * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
  * @since 2.1.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10)
 fun Player.playSound(
     sound: Sound,
     soundCategory: SoundCategory = SoundCategory.MASTER,
@@ -53,11 +97,26 @@ fun Player.playSound(
 /**
  * プレイヤーに対してに音を再生する。
  * @param sound サウンド
+ * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
+ * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
+ * @since 2.2.0
+ */
+@UnsupportedMinecraftVersion(8)
+fun Player.playSoundLegacy(
+    sound: String,
+    volume: Float = 1F,
+    pitch: Float = 1F,
+) = playSound(location, sound, volume, pitch)
+
+/**
+ * プレイヤーに対してに音を再生する。
+ * @param sound サウンド
  * @param soundCategory サウンドの種類 default: [SoundCategory.MASTER]
  * @param volume 音量 0~1.0 で変更可能。1.0 より大きい値では、聞こえる範囲が [volume] * 16 ブロックになる。
  * @param pitch ピッチ 0.5~2.0 で変更可能。0.5から1.0までの値が2倍になると1オクターブ高くなる。
  * @since 2.1.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10)
 fun Player.playSound(
     sound: String,
     soundCategory: SoundCategory = SoundCategory.MASTER,

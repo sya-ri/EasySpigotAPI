@@ -1,5 +1,6 @@
 package com.github.syari.spigot.api.item
 
+import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import com.github.syari.spigot.api.nms.NMSItemStackWrapper
 import com.github.syari.spigot.api.string.toColor
 import com.google.common.collect.ImmutableMultimap
@@ -67,6 +68,7 @@ inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit) {
  * @see ItemMeta.hasCustomModelData
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13)
 fun ItemStack.hasCustomModelData(): Boolean = itemMeta?.hasCustomModelData() ?: false
 
 /**
@@ -75,6 +77,7 @@ fun ItemStack.hasCustomModelData(): Boolean = itemMeta?.hasCustomModelData() ?: 
  * @see ItemMeta.setCustomModelData
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13)
 var ItemStack.customModelData: Int?
     get() = itemMeta?.customModelData
     set(value) {
@@ -198,6 +201,7 @@ fun ItemStack.hasItemFlag(flag: ItemFlag): Boolean = itemMeta?.hasItemFlag(flag)
  * 耐久無限。
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10)
 var ItemStack.isUnbreakable: Boolean
     get() = itemMeta?.isUnbreakable ?: false
     set(value) {
@@ -211,6 +215,7 @@ var ItemStack.isUnbreakable: Boolean
  * @see ItemMeta.hasAttributeModifiers
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.hasAttributeModifiers(): Boolean = itemMeta?.hasAttributeModifiers() ?: false
 
 /**
@@ -219,6 +224,7 @@ fun ItemStack.hasAttributeModifiers(): Boolean = itemMeta?.hasAttributeModifiers
  * @see ItemMeta.setAttributeModifiers
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 var ItemStack.attributeModifiers: Multimap<Attribute, AttributeModifier>
     get() = itemMeta?.attributeModifiers ?: ImmutableMultimap.of()
     set(value) {
@@ -232,6 +238,7 @@ var ItemStack.attributeModifiers: Multimap<Attribute, AttributeModifier>
  * @see ItemMeta.getAttributeModifiers
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.getAttributeModifiers(slot: EquipmentSlot): Multimap<Attribute, AttributeModifier> {
     return itemMeta?.getAttributeModifiers(slot) ?: ImmutableMultimap.of()
 }
@@ -241,6 +248,7 @@ fun ItemStack.getAttributeModifiers(slot: EquipmentSlot): Multimap<Attribute, At
  * @see ItemMeta.getAttributeModifiers
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.getAttributeModifiers(attribute: Attribute): Collection<AttributeModifier> {
     return itemMeta?.getAttributeModifiers(attribute).orEmpty()
 }
@@ -250,6 +258,7 @@ fun ItemStack.getAttributeModifiers(attribute: Attribute): Collection<AttributeM
  * @see ItemMeta.addAttributeModifier
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.addAttributeModifier(attribute: Attribute, modifier: AttributeModifier): Boolean {
     return itemMeta?.addAttributeModifier(attribute, modifier) ?: false
 }
@@ -259,6 +268,7 @@ fun ItemStack.addAttributeModifier(attribute: Attribute, modifier: AttributeModi
  * @see ItemMeta.removeAttributeModifier
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.removeAttributeModifier(attribute: Attribute): Boolean {
     return itemMeta?.removeAttributeModifier(attribute) ?: false
 }
@@ -268,6 +278,7 @@ fun ItemStack.removeAttributeModifier(attribute: Attribute): Boolean {
  * @see ItemMeta.removeAttributeModifier
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.removeAttributeModifier(slot: EquipmentSlot): Boolean {
     return itemMeta?.removeAttributeModifier(slot) ?: false
 }
@@ -277,6 +288,7 @@ fun ItemStack.removeAttributeModifier(slot: EquipmentSlot): Boolean {
  * @see ItemMeta.removeAttributeModifier
  * @since 1.5.0
  */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.removeAttributeModifier(attribute: Attribute, modifier: AttributeModifier): Boolean {
     return itemMeta?.removeAttributeModifier(attribute, modifier) ?: false
 }

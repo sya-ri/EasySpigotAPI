@@ -2,6 +2,7 @@
 
 package com.github.syari.spigot.api.config.type
 
+import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import com.github.syari.spigot.api.config.CustomConfig
 import com.github.syari.spigot.api.config.converter.ConfigItemConverter
 import com.github.syari.spigot.api.config.type.data.ConfigBooleanDataType
@@ -279,6 +280,7 @@ interface ConfigDataType<T> {
          * エンチャント。固有名から取得する。
          * @since 1.5.1
          */
+        @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
         val EnchantmentByKey = ConfigEnchantmentByKeyDataType
 
         /**
@@ -286,6 +288,7 @@ interface ConfigDataType<T> {
          * @see ConfigDataType.EnchantmentByKey
          * @since 1.5.1
          */
+        @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
         val EnchantmentByKeyList = ConfigEnchantmentByKeyListDataType
 
         /**
@@ -318,6 +321,7 @@ interface ConfigDataType<T> {
          * サウンドの種類。固有名から取得する。
          * @since 1.6.0
          */
+        @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14, 15)
         val SoundByKey = ConfigSoundByKeyDataType
 
         /**
@@ -325,12 +329,14 @@ interface ConfigDataType<T> {
          * @see ConfigDataType.SoundByKey
          * @since 1.6.0
          */
+        @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14, 15)
         val SoundByKeyList = ConfigSoundByKeyListDataType
 
         /**
          * パーティクルの種類。
          * @since 1.5.0
          */
+        @UnsupportedMinecraftVersion(8)
         val Particle = ConfigParticleDataType
 
         /**
@@ -338,6 +344,7 @@ interface ConfigDataType<T> {
          * @see ConfigDataType.Particle
          * @since 1.5.0
          */
+        @UnsupportedMinecraftVersion(8)
         val ParticleList = ConfigParticleListDataType
 
         /**
