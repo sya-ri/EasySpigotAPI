@@ -113,160 +113,185 @@ interface ConfigDataType<T> {
          * @see ConfigDataType.Double
          * @since 1.3.0
          */
-        val Number = ConfigNumberDataType
+        val Number
+            inline get() = ConfigNumberDataType
 
         /**
          * 整数型。
          * @since 1.3.0
          */
-        val Int = ConfigIntDataType
+        val Int
+            inline get() = ConfigIntDataType
 
         /**
          * [ConfigDataType.Int] より大きい整数型。
          * @since 1.3.0
          */
-        val Long = ConfigLongDataType
+        val Long
+            inline get() = ConfigLongDataType
 
         /**
          * 浮動小数型。
          * @since 1.3.0
          */
-        val Float = ConfigFloatDataType
+        val Float
+            inline get() = ConfigFloatDataType
 
         /**
          * [ConfigDataType.Float] よりも精度の高い浮動小数型。
          * @since 1.3.0
          */
-        val Double = ConfigDoubleDataType
+        val Double
+            inline get() = ConfigDoubleDataType
 
         /**
          * 真偽型。
          * @since 1.3.0
          */
-        val Boolean = ConfigBooleanDataType
+        val Boolean
+            inline get() = ConfigBooleanDataType
 
         /**
          * 文字列型。
          * @since 1.3.0
          */
-        val String = ConfigStringDataType
+        val String
+            inline get() = ConfigStringDataType
 
         /**
          * 文字列型のリスト。
          * @see ConfigDataType.String
          * @since 1.3.0
          */
-        val StringList = ConfigStringListDataType
+        val StringList
+            inline get() = ConfigStringListDataType
 
         /**
          * 日付型。
          * @since 1.3.0
          */
-        val Date = ConfigDateDataType
+        val Date
+            inline get() = ConfigDateDataType
 
         /**
          * ベクトル。X, Y, Z の値を持つ。
          * @since 1.4.0
          */
-        val Vector = ConfigVectorDataType
+        val Vector
+            inline get() = ConfigVectorDataType
 
         /**
          * ベクトルのリスト。
          * @see ConfigDataType.Vector
          * @since 1.4.0
          */
-        val VectorList = ConfigVectorListDataType
+        val VectorList
+            inline get() = ConfigVectorListDataType
 
         /**
          * 座標。X, Y, Z, Yaw, Pitch の値を持つ。
          * @since 1.4.0
          */
-        val Coordinate = ConfigCoordinateDataType
+        val Coordinate
+            inline get() = ConfigCoordinateDataType
 
         /**
          * 座標のリスト。
          * @see ConfigDataType.Coordinate
          * @since 1.4.0
          */
-        val CoordinateList = ConfigCoordinateListDataType
+        val CoordinateList
+            inline get() = ConfigCoordinateListDataType
 
         /**
          * ワールド座標。World, X, Y, Z, Yaw, Pitch の値を持つ。
          * @since 1.3.0
          */
-        val Location = ConfigLocationDataType
+        val Location
+            inline get() = ConfigLocationDataType
 
         /**
          * ワールド座標のリスト。
          * @see ConfigDataType.Location
          * @since 1.3.0
          */
-        val LocationList = ConfigLocationListDataType
+        val LocationList
+            inline get() = ConfigLocationListDataType
 
         /**
          * ワールド。
          * @since 1.3.0
          */
-        val World = ConfigWorldDataType
+        val World
+            inline get() = ConfigWorldDataType
 
         /**
          * ワールドのリスト。
          * @see ConfigDataType.World
          * @since 1.3.0
          */
-        val WorldList = ConfigWorldListDataType
+        val WorldList
+            inline get() = ConfigWorldListDataType
 
         /**
          * アイテムスタック。シリアライズを使用して保存・読込を行う。
          * @since 1.6.0
          */
-        val SerializableItemStack = ConfigSerializableItemStackDataType
+        val SerializableItemStack
+            inline get() = ConfigSerializableItemStackDataType
 
         /**
          * アイテムスタックのリスト。シリアライズを使用して保存・読込を行う。
          * @see ConfigDataType.SerializableItemStack
          * @since 1.6.0
          */
-        val SerializableItemStackList = ConfigSerializableItemStackListDataType
+        val SerializableItemStackList
+            inline get() = ConfigSerializableItemStackListDataType
 
         /**
          * インベントリ。シリアライズを使用して保存・読込を行う。
          * @since 1.6.0
          */
-        val SerializableInventory = ConfigSerializableInventoryDataType
+        val SerializableInventory
+            inline get() = ConfigSerializableInventoryDataType
 
         /**
          * マテリアル。
          * @since 1.3.0
          */
-        val Material = ConfigMaterialDataType
+        val Material
+            inline get() = ConfigMaterialDataType
 
         /**
          * マテリアルのリスト。
          * @see ConfigDataType.Material
          * @since 1.3.0
          */
-        val MaterialList = ConfigMaterialListDataType
+        val MaterialList
+            inline get() = ConfigMaterialListDataType
 
         /**
          * エンティティの種類。
          * @since 1.5.0
          */
-        val EntityType = ConfigEntityTypeDataType
+        val EntityType
+            inline get() = ConfigEntityTypeDataType
 
         /**
          * エンティティの種類のリスト。
          * @see ConfigDataType.EntityType
          * @since 1.5.0
          */
-        val EntityTypeList = ConfigEntityTypeListDataType
+        val EntityTypeList
+            inline get() = ConfigEntityTypeListDataType
 
         /**
          * エンチャント。名前から取得する。
          * @since 1.5.1
          */
         @Deprecated("Enchantment::getByName は非推奨です。", ReplaceWith("EnchantmentByKey"))
-        val EnchantmentByName = ConfigEnchantmentByNameDataType
+        val EnchantmentByName
+            inline get() = ConfigEnchantmentByNameDataType
 
         /**
          * エンチャントのリスト。名前から取得する。
@@ -274,14 +299,16 @@ interface ConfigDataType<T> {
          * @since 1.5.1
          */
         @Deprecated("Enchantment::getByName は非推奨です。", ReplaceWith("EnchantmentByKeyList"))
-        val EnchantmentByNameList = ConfigEnchantmentByNameListDataType
+        val EnchantmentByNameList
+            inline get() = ConfigEnchantmentByNameListDataType
 
         /**
          * エンチャント。固有名から取得する。
          * @since 1.5.1
          */
         @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
-        val EnchantmentByKey = ConfigEnchantmentByKeyDataType
+        val EnchantmentByKey
+            inline get() = ConfigEnchantmentByKeyDataType
 
         /**
          * エンチャントのリスト。固有名から取得する。
@@ -289,40 +316,46 @@ interface ConfigDataType<T> {
          * @since 1.5.1
          */
         @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
-        val EnchantmentByKeyList = ConfigEnchantmentByKeyListDataType
+        val EnchantmentByKeyList
+            inline get() = ConfigEnchantmentByKeyListDataType
 
         /**
          * ポーションエフェクトの種類。
          * @since 1.5.0
          */
-        val PotionEffectType = ConfigPotionEffectTypeDataType
+        val PotionEffectType
+            inline get() = ConfigPotionEffectTypeDataType
 
         /**
          * ポーションエフェクトの種類のリスト。
          * @see ConfigDataType.PotionEffectType
          * @since 1.5.0
          */
-        val PotionEffectTypeList = ConfigPotionEffectTypeListDataType
+        val PotionEffectTypeList
+            inline get() = ConfigPotionEffectTypeListDataType
 
         /**
          * サウンドの種類。名前から取得する。
          * @since 1.6.0
          */
-        val SoundByName = ConfigSoundByNameDataType
+        val SoundByName
+            inline get() = ConfigSoundByNameDataType
 
         /**
          * サウンドの種類のリスト。名前から取得する。
          * @see ConfigDataType.SoundByName
          * @since 1.6.0
          */
-        val SoundByNameList = ConfigSoundByNameListDataType
+        val SoundByNameList
+            inline get() = ConfigSoundByNameListDataType
 
         /**
          * サウンドの種類。固有名から取得する。
          * @since 1.6.0
          */
         @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14, 15)
-        val SoundByKey = ConfigSoundByKeyDataType
+        val SoundByKey
+            inline get() = ConfigSoundByKeyDataType
 
         /**
          * サウンドの種類のリスト。固有名から取得する。
@@ -330,14 +363,16 @@ interface ConfigDataType<T> {
          * @since 1.6.0
          */
         @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14, 15)
-        val SoundByKeyList = ConfigSoundByKeyListDataType
+        val SoundByKeyList
+            inline get() = ConfigSoundByKeyListDataType
 
         /**
          * パーティクルの種類。
          * @since 1.5.0
          */
         @UnsupportedMinecraftVersion(8)
-        val Particle = ConfigParticleDataType
+        val Particle
+            inline get() = ConfigParticleDataType
 
         /**
          * パーティクルの種類のリスト。
@@ -345,20 +380,23 @@ interface ConfigDataType<T> {
          * @since 1.5.0
          */
         @UnsupportedMinecraftVersion(8)
-        val ParticleList = ConfigParticleListDataType
+        val ParticleList
+            inline get() = ConfigParticleListDataType
 
         /**
          * UUID。
          * @since 1.3.4
          */
-        val UUID = ConfigUUIDDataType
+        val UUID
+            inline get() = ConfigUUIDDataType
 
         /**
          * UUIDのリスト。
          * @see ConfigDataType.UUID
          * @since 1.3.4
          */
-        val UUIDList = ConfigUUIDListDataType
+        val UUIDList
+            inline get() = ConfigUUIDListDataType
 
         /**
          * アイテムスタック。[ConfigItemConverter] を使用して保存・読込を行う。
