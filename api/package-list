@@ -16,7 +16,9 @@ com.github.syari.spigot.api.config.type.section
 com.github.syari.spigot.api.event
 com.github.syari.spigot.api.item
 com.github.syari.spigot.api.nms
+com.github.syari.spigot.api.particle
 com.github.syari.spigot.api.scheduler
+com.github.syari.spigot.api.sound
 com.github.syari.spigot.api.string
 com.github.syari.spigot.api.uuid
 com.github.syari.spigot.api.world
