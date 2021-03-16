@@ -339,6 +339,32 @@ inline fun <reified T : ItemMeta> ItemStack.editItemMeta(action: T.() -> Unit)
  * NBT タグを取得する。
  */
 val ItemStack.nbtTag: String
+
+/**
+ * [ItemStack] のインスタンスを生成する
+ * @param material マテリアル
+ * @param displayName 表示名 default: null
+ * @param lore 説明文 default: listOf()
+ */
+fun itemStack(
+    material: Material,
+    displayName: String? = null,
+    lore: List<String> = listOf()
+): ItemStack
+
+/**
+ * [ItemStack] のインスタンスを生成する
+ * @param material マテリアル
+ * @param displayName 表示名 default: null
+ * @param lore 説明文 default: listOf()
+ * @param action [ItemStack] に対して実行する処理
+ */
+inline fun itemStack(
+    material: Material,
+    displayName: String? = null,
+    lore: List<String> = listOf(),
+    action: ItemStack.() -> Unit
+): ItemStack
 ```
 
 ## NMS

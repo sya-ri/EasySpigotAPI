@@ -5,6 +5,7 @@ import com.github.syari.spigot.api.nms.NMSItemStackWrapper
 import com.github.syari.spigot.api.string.toColor
 import com.google.common.collect.ImmutableMultimap
 import com.google.common.collect.Multimap
+import org.bukkit.Material
 import org.bukkit.attribute.Attribute
 import org.bukkit.attribute.AttributeModifier
 import org.bukkit.enchantments.Enchantment
@@ -12,6 +13,7 @@ import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
+import com.github.syari.spigot.api.item.displayName as eDisplayName
 import com.github.syari.spigot.api.item.lore as eLore
 
 /**
@@ -319,3 +321,34 @@ inline fun <reified T : ItemMeta> ItemStack.editItemMeta(action: T.() -> Unit) {
  */
 val ItemStack.nbtTag: String
     get() = NMSItemStackWrapper(this).getOrCreateTag().toString()
+
+/**
+ * [ItemStack] のインスタンスを生成する
+ * @param material マテリアル
+ * @param displayName 表示名 default: null
+ * @param lore 説明文 default: listOf()
+ * @since 2.2.1
+ */
+fun itemStack(
+    material: Material,
+    displayName: String? = null,
+    lore: List<String> = listOf()
+) = ItemStack(material).apply {
+    eDisplayName = displayName
+    eLore = lore
+}
+
+/**
+ * [ItemStack] のインスタンスを生成する
+ * @param material マテリアル
+ * @param displayName 表示名 default: null
+ * @param lore 説明文 default: listOf()
+ * @param action [ItemStack] に対して実行する処理
+ * @since 2.2.1
+ */
+inline fun itemStack(
+    material: Material,
+    displayName: String? = null,
+    lore: List<String> = listOf(),
+    action: ItemStack.() -> Unit
+) = itemStack(material, displayName, lore).apply(action)
