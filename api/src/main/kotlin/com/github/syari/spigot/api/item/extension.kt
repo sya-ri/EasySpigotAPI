@@ -12,6 +12,7 @@ import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
+import com.github.syari.spigot.api.item.lore as eLore
 
 /**
  * 表示名が存在するか取得する。
@@ -60,7 +61,7 @@ var ItemStack.lore: List<String>
  * @since 1.5.0
  */
 inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit) {
-    lore = lore.toMutableList().apply(action).map(String::toColor)
+    eLore = eLore.toMutableList().apply(action)
 }
 
 /**
