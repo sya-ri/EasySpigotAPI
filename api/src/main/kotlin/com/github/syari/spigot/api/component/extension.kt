@@ -6,6 +6,7 @@ import com.github.syari.spigot.api.string.toColor
 import net.md_5.bungee.api.chat.ClickEvent
 import net.md_5.bungee.api.chat.HoverEvent
 import net.md_5.bungee.api.chat.ItemTag
+import net.md_5.bungee.api.chat.TextComponent
 import net.md_5.bungee.api.chat.hover.content.Item
 import net.md_5.bungee.api.chat.hover.content.Text
 import org.bukkit.inventory.ItemStack
@@ -15,6 +16,21 @@ import org.bukkit.inventory.ItemStack
  * @since 1.6.0
  */
 inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit) = TextComponentBuilder().apply(action).build()
+
+/**
+ * @param text 文字列
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ * @since 2.2.2
+ */
+fun textComponent(
+    text: String,
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+) = TextComponent(text.toColor()).apply {
+    hoverEvent = hover
+    clickEvent = click
+}
 
 /**
  * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]

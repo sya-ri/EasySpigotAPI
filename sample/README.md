@@ -77,6 +77,18 @@ class TextComponentBuilder {
  */
 inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit): TextComponent
 
+
+/**
+ * @param text 文字列
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ */
+fun textComponent(
+    text: String,
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+): TextComponent
+
 /**
  * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
  */
