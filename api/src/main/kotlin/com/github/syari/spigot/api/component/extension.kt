@@ -6,6 +6,7 @@ import com.github.syari.spigot.api.string.toColor
 import net.md_5.bungee.api.chat.ClickEvent
 import net.md_5.bungee.api.chat.HoverEvent
 import net.md_5.bungee.api.chat.ItemTag
+import net.md_5.bungee.api.chat.KeybindComponent
 import net.md_5.bungee.api.chat.TextComponent
 import net.md_5.bungee.api.chat.TranslatableComponent
 import net.md_5.bungee.api.chat.hover.content.Item
@@ -63,6 +64,23 @@ fun translateComponent(
     hover: HoverEvent? = null,
     click: ClickEvent? = null,
 ) = translateComponent((if (material.isBlock) "block" else "item") + ".minecraft." + material.key.key, hover, click)
+
+/**
+ * [KeybindComponent] を生成する
+ * @param identifier 識別子 [net.md_5.bungee.api.chat.Keybinds]
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ * @since 2.2.3
+ */
+@UnsupportedMinecraftVersion(8, 9, 10, 11)
+fun keybindComponent(
+    identifier: String,
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+) = KeybindComponent(identifier).apply {
+    hoverEvent = hover
+    clickEvent = click
+}
 
 /**
  * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
