@@ -26,7 +26,7 @@ class TextComponentBuilder {
     ) = append(textComponent(text, hover, click))
 
     /**
-     * 末尾に [TextComponent] を挿入する。
+     * 末尾に [BaseComponent] を挿入する。
      * @param component
      * @since 2.2.3
      */
@@ -54,7 +54,7 @@ class TextComponentBuilder {
     ) = append(text, hover, click).appendLine()
 
     /**
-     * 末尾に [TextComponent] を挿入し、改行する。
+     * 末尾に [BaseComponent] を挿入し、改行する。
      * @param component
      * @since 2.2.3
      */

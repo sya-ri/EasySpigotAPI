@@ -47,12 +47,18 @@ class TextComponentBuilder {
         text: String,
         hover: HoverEvent? = null,
         click: ClickEvent? = null
-    ): TextComponent
+    ): TextComponentBuilder
+
+    /**
+     * 末尾に [BaseComponent] を挿入する。
+     * @param component
+     */
+    fun append(component: BaseComponent): TextComponentBuilder
 
     /**
      * 末尾に改行を挿入する。
      */
-    fun appendLine(): TextComponent
+    fun appendLine(): TextComponentBuilder
 
     /**
      * 末尾に文字列を挿入し、改行する。
@@ -64,7 +70,13 @@ class TextComponentBuilder {
         text: String,
         hover: HoverEvent? = null,
         click: ClickEvent? = null
-    ): TextComponent
+    ): TextComponentBuilder
+
+    /**
+     * 末尾に [BaseComponent] を挿入し、改行する。
+     * @param component
+     */
+    fun appendLine(component: BaseComponent): TextComponentBuilder
 
     /**
      * [TextComponent] に変換する。
@@ -77,6 +89,14 @@ class TextComponentBuilder {
  */
 inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit): TextComponent
 
+/**
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ */
+fun <T : BaseComponent> T.with(
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+): T
 
 /**
  * @param text 文字列
@@ -88,6 +108,44 @@ fun textComponent(
     hover: HoverEvent? = null,
     click: ClickEvent? = null,
 ): TextComponent
+
+/**
+ * [TranslatableComponent] を生成する
+ * @param translate 翻訳キー
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ */
+fun translateComponent(
+    translate: String,
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+): TranslatableComponent
+
+/**
+ * [Material] から [TranslatableComponent] を生成する
+ * @param material 翻訳するアイテム
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
+fun translateComponent(
+    material: Material,
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+): TranslatableComponent
+
+/**
+ * [KeybindComponent] を生成する
+ * @param identifier 識別子 [net.md_5.bungee.api.chat.Keybinds]
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ */
+@UnsupportedMinecraftVersion(8, 9, 10, 11)
+fun keybindComponent(
+    identifier: String,
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+): KeybindComponent
 
 /**
  * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
