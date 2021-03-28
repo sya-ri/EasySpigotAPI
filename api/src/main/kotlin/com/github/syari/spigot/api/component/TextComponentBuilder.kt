@@ -69,6 +69,6 @@ class TextComponentBuilder {
     }
 
     companion object {
-        val NewLine = TextComponent(System.lineSeparator())
+        val NewLine = TextComponent("\n")
     }
 }
