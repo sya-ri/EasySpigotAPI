@@ -7,6 +7,8 @@ import com.github.syari.spigot.api.component.clickOpenURL
 import com.github.syari.spigot.api.component.clickRunCommand
 import com.github.syari.spigot.api.component.clickTypeText
 import com.github.syari.spigot.api.component.hoverText
+import com.github.syari.spigot.api.component.translateComponent
+import org.bukkit.Material
 import org.bukkit.plugin.java.JavaPlugin
 
 @Suppress("unused")
@@ -30,6 +32,9 @@ class Main : JavaPlugin() {
                         appendLine("&aTypeText", hoverText("&6Click"), clickTypeText("Hello"))
                         appendLine("&aOpenURL", hoverText("&6Click"), clickOpenURL("https://github.com/sya-ri/EasySpigotAPI"))
                         appendLine("&aCopyToClipboard", hoverText("&6Click"), clickCopyToClipboard("Hello"))
+                        appendLine()
+                        appendLine("&dTranslatableComponent")
+                        append(translateComponent(Material.STONE_AXE))
                     }
                 )
             }

@@ -7,8 +7,10 @@ import net.md_5.bungee.api.chat.ClickEvent
 import net.md_5.bungee.api.chat.HoverEvent
 import net.md_5.bungee.api.chat.ItemTag
 import net.md_5.bungee.api.chat.TextComponent
+import net.md_5.bungee.api.chat.TranslatableComponent
 import net.md_5.bungee.api.chat.hover.content.Item
 import net.md_5.bungee.api.chat.hover.content.Text
+import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
 /**
@@ -31,6 +33,36 @@ fun textComponent(
     hoverEvent = hover
     clickEvent = click
 }
+
+/**
+ * [TranslatableComponent] を生成する
+ * @param translate 翻訳キー
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ * @since 2.2.3
+ */
+fun translateComponent(
+    translate: String,
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+) = TranslatableComponent(translate).apply {
+    hoverEvent = hover
+    clickEvent = click
+}
+
+/**
+ * [Material] から [TranslatableComponent] を生成する
+ * @param material 翻訳するアイテム
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ * @since 2.2.3
+ */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
+fun translateComponent(
+    material: Material,
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+) = translateComponent((if (material.isBlock) "block" else "item") + ".minecraft." + material.key.key, hover, click)
 
 /**
  * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
