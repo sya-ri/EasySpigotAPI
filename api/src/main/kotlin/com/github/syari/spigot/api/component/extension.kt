@@ -3,6 +3,7 @@ package com.github.syari.spigot.api.component
 import com.github.syari.spigot.api.UnsupportedMinecraftVersion
 import com.github.syari.spigot.api.item.nbtTag
 import com.github.syari.spigot.api.string.toColor
+import net.md_5.bungee.api.chat.BaseComponent
 import net.md_5.bungee.api.chat.ClickEvent
 import net.md_5.bungee.api.chat.HoverEvent
 import net.md_5.bungee.api.chat.ItemTag
@@ -21,6 +22,19 @@ import org.bukkit.inventory.ItemStack
 inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit) = TextComponentBuilder().apply(action).build()
 
 /**
+ * @param hover [HoverEvent] default: null
+ * @param click [ClickEvent] default: null
+ * @since 2.2.3
+ */
+fun <T : BaseComponent> T.with(
+    hover: HoverEvent? = null,
+    click: ClickEvent? = null,
+) = apply {
+    hoverEvent = hover
+    clickEvent = click
+}
+
+/**
  * @param text 文字列
  * @param hover [HoverEvent] default: null
  * @param click [ClickEvent] default: null
@@ -30,10 +44,7 @@ fun textComponent(
     text: String,
     hover: HoverEvent? = null,
     click: ClickEvent? = null,
-) = TextComponent(text.toColor()).apply {
-    hoverEvent = hover
-    clickEvent = click
-}
+) = TextComponent(text.toColor()).with(hover, click)
 
 /**
  * [TranslatableComponent] を生成する
@@ -46,10 +57,7 @@ fun translateComponent(
     translate: String,
     hover: HoverEvent? = null,
     click: ClickEvent? = null,
-) = TranslatableComponent(translate).apply {
-    hoverEvent = hover
-    clickEvent = click
-}
+) = TranslatableComponent(translate).with(hover, click)
 
 /**
  * [Material] から [TranslatableComponent] を生成する
@@ -77,10 +85,7 @@ fun keybindComponent(
     identifier: String,
     hover: HoverEvent? = null,
     click: ClickEvent? = null,
-) = KeybindComponent(identifier).apply {
-    hoverEvent = hover
-    clickEvent = click
-}
+) = KeybindComponent(identifier).with(hover, click)
 
 /**
  * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
