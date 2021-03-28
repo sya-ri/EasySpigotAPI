@@ -1,5 +1,6 @@
 package com.github.syari.spigot.api.component
 
+import net.md_5.bungee.api.chat.BaseComponent
 import net.md_5.bungee.api.chat.ClickEvent
 import net.md_5.bungee.api.chat.HoverEvent
 import net.md_5.bungee.api.chat.TextComponent
@@ -9,7 +10,7 @@ import net.md_5.bungee.api.chat.TextComponent
  * @since 1.6.0
  */
 class TextComponentBuilder {
-    private val components = mutableListOf<TextComponent>()
+    private val components = mutableListOf<BaseComponent>()
 
     /**
      * 末尾に文字列を挿入する。
@@ -27,9 +28,9 @@ class TextComponentBuilder {
     /**
      * 末尾に [TextComponent] を挿入する。
      * @param component
-     * @since 2.2.2
+     * @since 2.2.3
      */
-    fun append(component: TextComponent) = apply {
+    fun append(component: BaseComponent) = apply {
         components.add(component)
     }
 
@@ -55,9 +56,9 @@ class TextComponentBuilder {
     /**
      * 末尾に [TextComponent] を挿入し、改行する。
      * @param component
-     * @since 2.2.2
+     * @since 2.2.3
      */
-    fun appendLine(component: TextComponent) = append(component).appendLine()
+    fun appendLine(component: BaseComponent) = append(component).appendLine()
 
     /**
      * [TextComponent] に変換する。
