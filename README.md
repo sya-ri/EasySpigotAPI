@@ -200,7 +200,7 @@ repositories {
 }
 
 dependencies {
-    api('com.github.sya-ri:EasySpigotAPI:2.2.3') {
+    api('com.github.sya-ri:EasySpigotAPI:2.2.4') {
         exclude group: 'org.spigotmc', module: 'spigot-api'
     }
 }
@@ -214,7 +214,7 @@ repositories {
 }
 
 dependencies {
-    api("com.github.sya-ri:EasySpigotAPI:2.2.3") {
+    api("com.github.sya-ri:EasySpigotAPI:2.2.4") {
         exclude(group = "org.spigotmc", module = "spigot-api")
     }
 }
@@ -240,7 +240,7 @@ configurations {
 }
 
 dependencies {
-    shadowApi('com.github.sya-ri:EasySpigotAPI:2.2.3') {
+    shadowApi('com.github.sya-ri:EasySpigotAPI:2.2.4') {
         exclude group: 'org.spigotmc', module: 'spigot-api'
     }
 }
@@ -265,7 +265,7 @@ repositories {
 }
 
 dependencies {
-    shadowApi("com.github.sya-ri:EasySpigotAPI:2.2.3") {
+    shadowApi("com.github.sya-ri:EasySpigotAPI:2.2.4") {
         exclude(group = "org.spigotmc", module = "spigot-api")
     }
 }

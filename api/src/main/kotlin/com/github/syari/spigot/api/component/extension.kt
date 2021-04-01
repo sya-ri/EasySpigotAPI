@@ -15,6 +15,8 @@ import net.md_5.bungee.api.chat.hover.content.Text
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
+typealias BungeeChatColor = net.md_5.bungee.api.ChatColor
+
 /**
  * @see TextComponentBuilder
  * @since 1.6.0
@@ -32,6 +34,33 @@ fun <T : BaseComponent> T.with(
 ) = apply {
     hoverEvent = hover
     clickEvent = click
+}
+
+/**
+ * フォーマットを変更する。
+ * @param color 文字色
+ * @param bold 太字
+ * @param italic 斜体
+ * @param underline 下線
+ * @param strike 取り消し線
+ * @param obfuscate 難読化
+ * @return [T]
+ * @since 2.2.3
+ */
+fun <T : BaseComponent> T.with(
+    color: BungeeChatColor? = getColor(),
+    bold: Boolean = isBold,
+    italic: Boolean = isItalic,
+    underline: Boolean = isUnderlined,
+    strike: Boolean = isStrikethrough,
+    obfuscate: Boolean = isObfuscated,
+) = apply {
+    setColor(color)
+    isBold = bold
+    isItalic = italic
+    isUnderlined = underline
+    isStrikethrough = strike
+    isObfuscated = obfuscate
 }
 
 /**
