@@ -695,10 +695,14 @@ class Region(
 ```
 
 ## Plugin Using EasySpigotAPI
-EasySpigotAPI を使用してプラグインを製作した場合は以下に追加してください。
+EasySpigotAPI を使用してプラグインを製作した場合は以下に追加してください。参考にしていただけたらと思います。
 
+<!-- アルファベット順に並べてください -->
 - [SecondStoryServer/SS-Plugins](https://github.com/SecondStoryServer/SS-Plugins)
+- [sya-ri/CraftKing](https://github.com/sya-ri/CraftKing)
+- [sya-ri/RandomCraft](https://github.com/sya-ri/RandomCraft)
 - [sya-ri/TalkWithNearPlayer](https://github.com/sya-ri/TalkWithNearPlayer)
 - [sya-ri/WorldBorderTester](https://github.com/sya-ri/WorldBorderTester)
+- [sya-ri/YouAreMyDoll](https://github.com/sya-ri/YouAreMyDoll)
 
 [<< 戻る](../README.md)
