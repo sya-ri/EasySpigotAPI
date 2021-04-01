@@ -21,9 +21,11 @@ object ConfigEnchantmentByNameListDataType : ConfigDataType<List<Enchantment>> {
     override val typeName = "Enchantment(Name)"
 
     /**
+     * コンフィグから値を取得する。
      * @param config [CustomConfig]
      * @param path コンフィグパス
      * @param notFoundError 存在しないデータの場合にエラーを出す
+     * @return 取得した値
      * @since 1.5.1
      */
     override fun get(
@@ -37,6 +39,7 @@ object ConfigEnchantmentByNameListDataType : ConfigDataType<List<Enchantment>> {
     }
 
     /**
+     * コンフィグの値を変更する。
      * @param config [CustomConfig]
      * @param path コンフィグパス
      * @param value 設定する値

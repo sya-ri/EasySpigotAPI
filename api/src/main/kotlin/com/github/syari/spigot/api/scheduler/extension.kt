@@ -7,6 +7,7 @@ import org.bukkit.scheduler.BukkitTask
 /**
  * [BukkitRunnable] のインスタンスを生成する。
  * @param action 実行する処理
+ * @return [BukkitRunnable]
  * @since 1.5.1
  */
 inline fun bukkitRunnable(crossinline action: BukkitRunnable.() -> Unit) = object : BukkitRunnable() {

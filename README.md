@@ -192,6 +192,9 @@ inventory("Inventory Title", 4) {
 ### [Item](sample/README.md#item)
 アイテム関連の便利な関数を追加します。
 
+### [Message](sample/README.md#message)
+メッセージ関連の便利な関数を追加します。
+
 ### [NMS](sample/README.md#nms)
 NMSを使うための関数を追加します。
 

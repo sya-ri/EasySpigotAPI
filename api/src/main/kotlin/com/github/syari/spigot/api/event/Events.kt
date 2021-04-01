@@ -8,11 +8,16 @@ import org.bukkit.plugin.java.JavaPlugin
 
 /**
  * [EventRegister.register] で使われている。イベントの定義を行える。
+ * @param plugin 登録先のプラグイン
  * @since 1.0.0
  */
 class Events internal constructor(val plugin: JavaPlugin) : Listener {
     /**
      * イベントを定義する。
+     * @param T イベント
+     * @param priority 優先度 default: NORMAL
+     * @param ignoreCancelled キャンセルされていたら実行しない default: false
+     * @param action 実行する処理
      * @since 1.0.0
      */
     inline fun <reified T : Event> event(
@@ -34,6 +39,9 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
 
     /**
      * 条件に一致した時に特定のイベントをキャンセルする。
+     * @param T イベント
+     * @param priority 優先度 default: NORMAL
+     * @param action 条件
      * @since 1.0.0
      */
     inline fun <reified T> cancelEventIf(
@@ -47,6 +55,9 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
 
     /**
      * 条件に一致しなかった時に特定のイベントをキャンセルする。
+     * @param T イベント
+     * @param priority 優先度 default: NORMAL
+     * @param action 条件
      * @since 1.0.0
      */
     inline fun <reified T> cancelEventIfNot(

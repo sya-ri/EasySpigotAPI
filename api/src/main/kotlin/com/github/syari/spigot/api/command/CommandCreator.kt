@@ -64,6 +64,7 @@ class CommandCreator(val label: String) {
 
     /**
      * 設定から [Command] のインスタンスを生成する。
+     * @return [Command] のインスタンス
      * @since 1.2.0
      */
     fun create(): Command {

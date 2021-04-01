@@ -15,17 +15,27 @@ import net.md_5.bungee.api.chat.hover.content.Text
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
+/**
+ * [org.bukkit.ChatColor] と混同しないようにするためのエイリアス
+ * @see net.md_5.bungee.api.ChatColor
+ * @since 2.2.4
+ */
 typealias BungeeChatColor = net.md_5.bungee.api.ChatColor
 
 /**
+ * [TextComponent] を生成する。
  * @see TextComponentBuilder
+ * @param action [TextComponentBuilder] に対して実行する処理
+ * @return [TextComponent]
  * @since 1.6.0
  */
 inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit) = TextComponentBuilder().apply(action).build()
 
 /**
+ * [BaseComponent] の hoverEvent, clickEvent を設定する。
  * @param hover [HoverEvent] default: null
  * @param click [ClickEvent] default: null
+ * @return [TextComponentBuilder]
  * @since 2.2.3
  */
 fun <T : BaseComponent> T.with(
@@ -45,7 +55,7 @@ fun <T : BaseComponent> T.with(
  * @param strike 取り消し線
  * @param obfuscate 難読化
  * @return [T]
- * @since 2.2.3
+ * @since 2.2.4
  */
 fun <T : BaseComponent> T.with(
     color: BungeeChatColor? = getColor(),
@@ -64,9 +74,11 @@ fun <T : BaseComponent> T.with(
 }
 
 /**
+ * 文字列とイベントから [TextComponent] を生成する。
  * @param text 文字列
  * @param hover [HoverEvent] default: null
  * @param click [ClickEvent] default: null
+ * @return [TextComponent]
  * @since 2.2.2
  */
 fun textComponent(
@@ -76,10 +88,11 @@ fun textComponent(
 ) = TextComponent(text.toColor()).with(hover, click)
 
 /**
- * [TranslatableComponent] を生成する
+ * 翻訳キーとイベントから [TranslatableComponent] を生成する。
  * @param translate 翻訳キー
  * @param hover [HoverEvent] default: null
  * @param click [ClickEvent] default: null
+ * @return [TranslatableComponent]
  * @since 2.2.3
  */
 fun translateComponent(
@@ -89,10 +102,11 @@ fun translateComponent(
 ) = TranslatableComponent(translate).with(hover, click)
 
 /**
- * [Material] から [TranslatableComponent] を生成する
+ * [Material] とイベントから [TranslatableComponent] を生成する。
  * @param material 翻訳するアイテム
  * @param hover [HoverEvent] default: null
  * @param click [ClickEvent] default: null
+ * @return [TranslatableComponent]
  * @since 2.2.3
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
@@ -103,10 +117,11 @@ fun translateComponent(
 ) = translateComponent((if (material.isBlock) "block" else "item") + ".minecraft." + material.key.key, hover, click)
 
 /**
- * [KeybindComponent] を生成する
+ * キーバインド識別子とイベントから [KeybindComponent] を生成する。
  * @param identifier 識別子 [net.md_5.bungee.api.chat.Keybinds]
  * @param hover [HoverEvent] default: null
  * @param click [ClickEvent] default: null
+ * @return [KeybindComponent]
  * @since 2.2.3
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11)
@@ -117,39 +132,51 @@ fun keybindComponent(
 ) = KeybindComponent(identifier).with(hover, click)
 
 /**
- * [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
+ * クリックした時にコマンドを実行する。
+ * @param command 実行するコマンド
+ * @return [ClickEvent.Action.RUN_COMMAND] の [ClickEvent]
  * @since 1.6.0
  */
 fun clickRunCommand(command: String) = ClickEvent(ClickEvent.Action.RUN_COMMAND, command)
 
 /**
- * [ClickEvent.Action.SUGGEST_COMMAND] の [ClickEvent]
+ * クリックした時に文字列を自動入力する。
+ * @param text 自動入力する文字列
+ * @return [ClickEvent.Action.SUGGEST_COMMAND] の [ClickEvent]
  * @since 1.6.0
  */
 fun clickTypeText(text: String) = ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, text)
 
 /**
- * [ClickEvent.Action.OPEN_URL] の [ClickEvent]
+ * クリックした時にURLを開く。
+ * @param url 開くURL
+ * @return [ClickEvent.Action.OPEN_URL] の [ClickEvent]
  * @since 1.6.0
  */
 fun clickOpenURL(url: String) = ClickEvent(ClickEvent.Action.OPEN_URL, url)
 
 /**
- * [ClickEvent.Action.COPY_TO_CLIPBOARD] の [ClickEvent]
+ * クリックした時にクリップボードに文字列をコピーする。
+ * @param text コピーする文字列
+ * @return [ClickEvent.Action.COPY_TO_CLIPBOARD] の [ClickEvent]
  * @since 1.6.0
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14)
 fun clickCopyToClipboard(text: String) = ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, text)
 
 /**
- * [HoverEvent.Action.SHOW_TEXT] の [HoverEvent]
+ * ホバーした時に文字列を表示する。
+ * @param text 表示する文字列
+ * @return [HoverEvent.Action.SHOW_TEXT] の [HoverEvent]
  * @since 1.6.0
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14, 15)
 fun hoverText(text: String) = HoverEvent(HoverEvent.Action.SHOW_TEXT, Text(text.toColor()))
 
 /**
- * [HoverEvent.Action.SHOW_ITEM] の [HoverEvent]
+ * ホバーした時にアイテムを表示する。
+ * @param itemStack 表示するアイテム
+ * @return [HoverEvent.Action.SHOW_ITEM] の [HoverEvent]
  * @since 1.8.0
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14, 15)

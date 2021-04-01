@@ -34,6 +34,7 @@ class CommandTabArgument internal constructor(
      *　コマンド補完の内容を決定する。
      * @param sender タブ補完者
      * @param args 入力済みの引数
+     * @return 補完結果
      * @since 1.2.0
      */
     override fun complete(

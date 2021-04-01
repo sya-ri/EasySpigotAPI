@@ -9,6 +9,7 @@ import java.util.UUID
  * [Player] が持つ [UUID] を操作しやすくしたクラス。
  *
  * 変数に保存する際には [Player] や [OfflinePlayer] ではなく [UUID] で保存することを推奨する。
+ * @param uniqueId [UUID]
  * @since 1.1.0
  */
 data class UUIDPlayer(val uniqueId: UUID) : Comparable<UUIDPlayer> {
@@ -46,11 +47,15 @@ data class UUIDPlayer(val uniqueId: UUID) : Comparable<UUIDPlayer> {
     companion object {
         /**
          * [OfflinePlayer] を [UUIDPlayer] に変換する。
+         * @param player [OfflinePlayer]
+         * @return [UUIDPlayer]
          */
         fun from(player: OfflinePlayer) = UUIDPlayer(player.uniqueId)
 
         /**
          * [UUID] を表す文字列から [UUIDPlayer] に変換する。
+         * @param uniqueId [UUID] の文字列
+         * @return [UUIDPlayer]
          */
         fun from(uniqueId: String) = uuidOrNull(uniqueId)?.let(::UUIDPlayer)
     }

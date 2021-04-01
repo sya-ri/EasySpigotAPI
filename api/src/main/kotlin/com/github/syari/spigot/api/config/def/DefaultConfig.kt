@@ -9,6 +9,7 @@ import com.github.syari.spigot.api.config.CustomConfig
 interface DefaultConfig {
     /**
      * デフォルト設定を適用する。
+     * @param config 適用するコンフィグ
      * @since 1.7.0
      */
     fun set(config: CustomConfig)

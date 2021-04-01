@@ -16,6 +16,7 @@ object ConfigIntSectionType : ConfigSectionType<Int> {
     override val typeName = "Int"
 
     /**
+     * 文字列を [Int] に変換する。
      * @param config [CustomConfig]
      * @param path セクションパス
      * @param value セクションキー

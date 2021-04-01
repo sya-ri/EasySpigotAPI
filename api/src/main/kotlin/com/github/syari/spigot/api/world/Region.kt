@@ -35,6 +35,8 @@ class Region(
 
     /**
      * 領域内の座標かどうかを取得する。
+     * @param o 判定する座標
+     * @return 領域内か
      * @since 1.4.0
      */
     fun inRegion(o: Location): Boolean {

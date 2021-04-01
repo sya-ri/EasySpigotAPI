@@ -17,6 +17,7 @@ class TextComponentBuilder {
      * @param text 文字列
      * @param hover ホバーイベント
      * @param click クリックイベント
+     * @return [TextComponentBuilder]
      * @since 1.6.0
      */
     fun append(
@@ -28,6 +29,7 @@ class TextComponentBuilder {
     /**
      * 末尾に [BaseComponent] を挿入する。
      * @param component
+     * @return [TextComponentBuilder]
      * @since 2.2.3
      */
     fun append(component: BaseComponent) = apply {
@@ -36,6 +38,7 @@ class TextComponentBuilder {
 
     /**
      * 末尾に改行を挿入する。
+     * @return [TextComponentBuilder]
      * @since 1.6.0
      */
     fun appendLine() = append(NewLine)
@@ -45,6 +48,7 @@ class TextComponentBuilder {
      * @param text 文字列
      * @param hover ホバーイベント
      * @param click クリックイベント
+     * @return [TextComponentBuilder]
      * @since 1.6.0
      */
     fun appendLine(
@@ -56,12 +60,14 @@ class TextComponentBuilder {
     /**
      * 末尾に [BaseComponent] を挿入し、改行する。
      * @param component
+     * @return [TextComponentBuilder]
      * @since 2.2.3
      */
     fun appendLine(component: BaseComponent) = append(component).appendLine()
 
     /**
      * [TextComponent] に変換する。
+     * @return [TextComponent]
      * @since 1.6.0
      */
     fun build() = TextComponent().apply {
@@ -69,6 +75,10 @@ class TextComponentBuilder {
     }
 
     companion object {
+        /**
+         * 改行のための [TextComponent]
+         * @since 2.2.3
+         */
         val NewLine = TextComponent("\n")
     }
 }

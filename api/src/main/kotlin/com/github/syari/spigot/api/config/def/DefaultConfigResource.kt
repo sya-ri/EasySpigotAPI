@@ -4,12 +4,15 @@ import com.github.syari.spigot.api.config.CustomConfig
 import org.bukkit.plugin.java.JavaPlugin
 
 /**
- * デフォルト設定として [CustomConfig] に対して処理を実行する。
+ * デフォルト設定としてリソースファイルを [CustomConfig] にコピーする。
+ * @param plugin 参照するリソースファイルが存在するプラグイン
+ * @param fileName リソースファイルのパス
  * @since 2.2.1
  */
 class DefaultConfigResource(val plugin: JavaPlugin, val fileName: String) : DefaultConfig {
     /**
      * デフォルト設定を適用する。
+     * @param config 適用するコンフィグ
      * @since 2.2.1
      */
     override fun set(config: CustomConfig) {

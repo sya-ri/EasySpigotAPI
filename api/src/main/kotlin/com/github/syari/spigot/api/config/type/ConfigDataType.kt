@@ -60,9 +60,11 @@ interface ConfigDataType<T> {
     val typeName: String
 
     /**
+     * コンフィグから値を取得する。
      * @param config [CustomConfig]
      * @param path コンフィグパス
      * @param notFoundError 存在しないデータの場合にエラーを出す
+     * @return 取得した値
      * @since 1.3.0
      */
     fun get(
@@ -72,10 +74,12 @@ interface ConfigDataType<T> {
     ): T?
 
     /**
+     * コンフィグから値を取得するが、存在しない場合はデフォルトの値を利用する。
      * @param config [CustomConfig]
      * @param path コンフィグパス
      * @param notFoundError 存在しないデータの場合にエラーを出す
      * @param default デフォルト値
+     * @return 取得した値
      * @since 1.3.0
      */
     fun get(
@@ -88,6 +92,7 @@ interface ConfigDataType<T> {
     }
 
     /**
+     * コンフィグの値を変更する。
      * @param config [CustomConfig]
      * @param path コンフィグパス
      * @param value 設定する値

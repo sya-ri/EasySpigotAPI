@@ -9,6 +9,7 @@ import java.util.UUID
  * [Entity] が持つ [UUID] を操作しやすくしたクラス。
  *
  * 変数に保存する際には [Entity] ではなく [UUID] で保存することを推奨する。
+ * @param uniqueId [UUID]
  * @since 1.1.0
  */
 @UnsupportedMinecraftVersion(8, 9, 10)
@@ -40,11 +41,15 @@ data class UUIDEntity(val uniqueId: UUID) : Comparable<UUIDEntity> {
     companion object {
         /**
          * [Entity] を [UUIDEntity] に変換する。
+         * @param entity [Entity]
+         * @return [UUIDEntity]
          */
         fun from(entity: Entity) = UUIDEntity(entity.uniqueId)
 
         /**
          * [UUID] を表す文字列から [UUIDEntity] に変換する。
+         * @param uniqueId [UUID] の文字列
+         * @return [UUIDEntity]
          */
         fun from(uniqueId: String) = uuidOrNull(uniqueId)?.let(::UUIDEntity)
     }

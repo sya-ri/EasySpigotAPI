@@ -10,15 +10,14 @@ import java.io.File
  * @param output メッセージの出力先
  * @param fileName ファイル名
  * @param default デフォルト設定
+ * @return コンフィグ
  * @since 1.7.0
  */
 fun JavaPlugin.config(
     output: CommandSender?,
     fileName: String,
     default: DefaultConfig? = null
-): CustomConfig {
-    return CustomConfig(this, output, File(dataFolder, fileName), default)
-}
+) = CustomConfig(this, output, File(dataFolder, fileName), default)
 
 /**
  * コンフィグをロードする。
@@ -26,6 +25,7 @@ fun JavaPlugin.config(
  * @param fileName ファイル名
  * @param default デフォルト設定
  * @param action コンフィグに対して実行する処理
+ * @return コンフィグ
  * @since 1.7.0
  */
 fun JavaPlugin.config(
@@ -33,14 +33,13 @@ fun JavaPlugin.config(
     fileName: String,
     default: DefaultConfig? = null,
     action: CustomConfig.() -> Unit
-): CustomConfig {
-    return config(output, fileName, default).apply(action)
-}
+) = config(output, fileName, default).apply(action)
 
 /**
  * フォルダ内のコンフィグを全てロードする。
  * @param output メッセージの出力先
  * @param directoryName フォルダ名
+ * @return ファイルパスとコンフィグ
  * @since 1.3.0
  */
 fun JavaPlugin.configDirectory(
@@ -69,19 +68,19 @@ fun JavaPlugin.configDirectory(
  * @param output メッセージの出力先
  * @param directoryName フォルダ名
  * @param action コンフィグに対して実行する処理
+ * @return ファイルパスとコンフィグ
  * @since 1.3.0
  */
 fun JavaPlugin.configDirectory(
     output: CommandSender?,
     directoryName: String,
     action: CustomConfig.() -> Unit
-): Map<String, CustomConfig> {
-    return configDirectory(output, directoryName).onEach { it.value.action() }
-}
+) = configDirectory(output, directoryName).onEach { it.value.action() }
 
 /**
  * ファイルが存在するか取得する。
  * @param fileName ファイル名
+ * @return 存在するか
  * @since 1.5.1
  */
 fun JavaPlugin.existsConfig(fileName: String) = dataFolder.resolve(fileName).exists()

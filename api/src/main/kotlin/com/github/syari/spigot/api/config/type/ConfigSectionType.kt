@@ -16,9 +16,11 @@ interface ConfigSectionType<T> {
     val typeName: String
 
     /**
+     * 文字列を任意の型に変換する。
      * @param config [CustomConfig]
      * @param path セクションパス
      * @param value セクションキー
+     * @return 変換した後の値
      * @since 1.3.0
      */
     fun parse(

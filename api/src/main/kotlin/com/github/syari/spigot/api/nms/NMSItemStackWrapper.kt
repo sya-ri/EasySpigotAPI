@@ -4,6 +4,7 @@ import org.bukkit.inventory.ItemStack
 
 /**
  * `net.minecraft.server.%s.ItemStack` を扱う。
+ * @param itemStack インスタンスを生成する元のアイテム
  * @since 1.8.0
  */
 class NMSItemStackWrapper(val itemStack: ItemStack) : NMSWrapper() {
@@ -19,6 +20,7 @@ class NMSItemStackWrapper(val itemStack: ItemStack) : NMSWrapper() {
 
     /**
      * [org.bukkit.inventory.ItemStack] から [NBTTagCompoundWrapper] のインスタンスを取得する。
+     * @return NBTTagCompound
      * @since 1.8.0
      */
     fun getTag(): NBTTagCompoundWrapper? {
@@ -27,6 +29,7 @@ class NMSItemStackWrapper(val itemStack: ItemStack) : NMSWrapper() {
 
     /**
      * [org.bukkit.inventory.ItemStack] の NBTTagCompound を変更する。
+     * @param nbtTagCompound NBTTagCompound
      * @since 1.8.0
      */
     fun setTag(nbtTagCompound: NBTTagCompoundWrapper) {
@@ -35,6 +38,7 @@ class NMSItemStackWrapper(val itemStack: ItemStack) : NMSWrapper() {
 
     /**
      * [org.bukkit.inventory.ItemStack] から NBTTagCompound を取得する。存在しない場合は空のインスタンスを作成する
+     * @return NBTTagCompound
      * @since 1.8.0
      */
     fun getOrCreateTag(): NBTTagCompoundWrapper {

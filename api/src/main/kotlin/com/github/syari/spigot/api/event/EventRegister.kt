@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.github.syari.spigot.api.event
 
 import org.bukkit.plugin.java.JavaPlugin
@@ -25,6 +27,7 @@ interface EventRegister {
          *     registerEvents(...)
          * }
          * ```
+         * @param events 登録するイベント
          * @since 1.0.0
          */
         @Deprecated("EventRegister は非推奨です。")

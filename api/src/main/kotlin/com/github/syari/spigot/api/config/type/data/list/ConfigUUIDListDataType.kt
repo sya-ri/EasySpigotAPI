@@ -18,9 +18,11 @@ object ConfigUUIDListDataType : ConfigDataType<List<UUID>> {
     override val typeName = "UUID"
 
     /**
+     * コンフィグから値を取得する。
      * @param config [CustomConfig]
      * @param path コンフィグパス
      * @param notFoundError 存在しないデータの場合にエラーを出す
+     * @return 取得した値
      * @since 1.3.4
      */
     override fun get(
@@ -34,6 +36,7 @@ object ConfigUUIDListDataType : ConfigDataType<List<UUID>> {
     }
 
     /**
+     * コンフィグの値を変更する。
      * @param config [CustomConfig]
      * @param path コンフィグパス
      * @param value 設定する値

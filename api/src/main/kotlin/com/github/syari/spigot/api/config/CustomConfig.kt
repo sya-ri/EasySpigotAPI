@@ -12,9 +12,11 @@ import java.io.File
 import java.io.IOException
 
 /**
+ * コンフィグを操作するクラス
  * @param plugin コンフィグがあるプラグイン
  * @param output メッセージの出力先
  * @param file コンフィグファイル
+ * @param default デフォルト設定
  * @since 1.3.0
  */
 class CustomConfig internal constructor(
@@ -52,9 +54,11 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * [YamlConfiguration.get] を使って値の取得をする。取得できない可能性がある。
      * @param path コンフィグパス
      * @param typeName データ型の名前
      * @param notFoundError 存在しないデータの場合にエラーを出す default: true
+     * @return 取得した値
      * @since 1.3.0
      */
     @Deprecated("安全ではありません。get を使ってください。")
@@ -77,9 +81,11 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * [YamlConfiguration.getList] を使って値の取得をする。取得できない可能性がある。
      * @param path コンフィグパス
      * @param typeName データ型の名前
      * @param notFoundError 存在しないデータの場合にエラーを出す default: true
+     * @return 取得した値
      * @since 1.3.0
      */
     @Deprecated("安全ではありません。get を使ってください。")
@@ -108,9 +114,11 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * [ConfigDataType] を使って値の取得をする。
      * @param path コンフィグパス
      * @param type データタイプ
      * @param notFoundError 存在しないデータの場合にエラーを出す default: true
+     * @return 取得した値
      * @since 1.3.0
      */
     fun <T> get(
@@ -122,10 +130,12 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * [ConfigDataType] を使って値の取得をするが、存在しない場合はデフォルトの値を利用する。
      * @param path コンフィグパス
      * @param type データタイプ
      * @param default デフォルト値
      * @param notFoundError 存在しないデータの場合にエラーを出す default: true
+     * @return 取得した値
      * @since 1.3.0
      */
     fun <T> get(
@@ -138,8 +148,10 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * セクションを取得する。
      * @param path コンフィグパス
      * @param notFoundError 存在しないデータの場合にエラーを出す default: true
+     * @return 取得したセクション
      * @since 1.3.0
      */
     fun section(
@@ -151,9 +163,11 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * セクションを取得し、[ConfigSectionType] で任意の型に変換する。
      * @param path コンフィグパス
      * @param type セクションタイプ
      * @param notFoundError 存在しないデータの場合にエラーを出す default: true
+     * @return 取得したセクション
      * @since 1.3.0
      */
     fun <T> section(
@@ -167,11 +181,13 @@ class CustomConfig internal constructor(
     /**
      * 存在するコンフィグパスかを取得する。
      * @param path コンフィグパス
+     * @return 存在するか
      * @since 1.3.0
      */
     fun contains(path: String) = config.contains(path)
 
     /**
+     * [YamlConfiguration.set] を使って値の変更をする。変更できない可能性がある。
      * @param path コンフィグパス
      * @param value 上書きする値
      * @param save 上書き後に保存する default: false
@@ -188,6 +204,7 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * [ConfigDataType] を使って値の変更をする。
      * @param path コンフィグパス
      * @param value 上書きする値
      * @param save 上書き後に保存する default: false
@@ -204,6 +221,7 @@ class CustomConfig internal constructor(
     }
 
     /**
+     * コンフィグから値を削除する。
      * @param path コンフィグパス
      * @param save 上書き後に保存する default: false
      * @since 1.7.0
@@ -218,6 +236,7 @@ class CustomConfig internal constructor(
     /**
      * ファイルの名前を変更する。
      * @param newName 新しい名前
+     * @return 変更できたか
      * @since 1.3.0
      */
     fun rename(newName: String): Boolean {

@@ -18,9 +18,11 @@ object ConfigStringListDataType : ConfigDataType<List<String>> {
     override val typeName = "String"
 
     /**
+     * コンフィグから値を取得する。
      * @param config [CustomConfig]
      * @param path コンフィグパス
      * @param notFoundError 存在しないデータの場合にエラーを出す
+     * @return 取得した値
      * @since 1.3.0
      */
     override fun get(

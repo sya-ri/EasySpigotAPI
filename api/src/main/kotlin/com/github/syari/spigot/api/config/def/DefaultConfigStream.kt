@@ -4,12 +4,13 @@ import com.github.syari.spigot.api.config.CustomConfig
 import java.io.InputStream
 
 /**
- * デフォルト設定として [CustomConfig] に対して処理を実行する。
+ * デフォルト設定としてストリームを [CustomConfig] にコピーする。
  * @since 2.2.1
  */
 class DefaultConfigStream(val inputStream: InputStream) : DefaultConfig {
     /**
      * デフォルト設定を適用する。
+     * @param config 適用するコンフィグ
      * @since 2.2.1
      */
     override fun set(config: CustomConfig) {

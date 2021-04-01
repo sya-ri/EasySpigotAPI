@@ -18,6 +18,7 @@ object ConfigEntityTypeDataType : ConfigEnumDataType<EntityType> {
     /**
      * 列挙型の要素を名前から取得する。
      * @param name 名前
+     * @return 取得した要素
      * @since 1.5.0
      */
     override fun stringToEnum(name: String): EntityType? {

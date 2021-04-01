@@ -18,6 +18,7 @@ import com.github.syari.spigot.api.item.lore as eLore
 
 /**
  * 表示名が存在するか取得する。
+ * @return 存在するか
  * @see ItemMeta.hasDisplayName
  * @since 1.5.0
  */
@@ -39,6 +40,7 @@ var ItemStack.displayName: String?
 
 /**
  * 説明文が存在するか取得する。
+ * @return 存在するか
  * @see ItemMeta.hasLore
  * @since 1.5.0
  */
@@ -60,6 +62,7 @@ var ItemStack.lore: List<String>
 
 /**
  * アイテムの説明文を変更する。
+ * @param action 変更する処理
  * @since 1.5.0
  */
 inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit) {
@@ -68,6 +71,7 @@ inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit) {
 
 /**
  * カスタムモデルデータが設定されているか取得する。
+ * @return 設定されているか
  * @see ItemMeta.hasCustomModelData
  * @since 1.5.0
  */
@@ -91,6 +95,7 @@ var ItemStack.customModelData: Int?
 
 /**
  * エンチャントが存在するか取得する。
+ * @return 存在するか
  * @see ItemMeta.hasEnchants
  * @since 1.5.0
  */
@@ -98,6 +103,7 @@ fun ItemStack.hasEnchants(): Boolean = itemMeta?.hasEnchants() ?: false
 
 /**
  * 特定のエンチャントが存在するか取得する。
+ * @return 存在するか
  * @see ItemMeta.hasEnchant
  * @since 1.5.0
  */
@@ -105,6 +111,8 @@ fun ItemStack.hasEnchant(enchant: Enchantment): Boolean = itemMeta?.hasEnchant(e
 
 /**
  * 特定のエンチャントのレベルを取得する。
+ * @param enchant 取得するエンチャント
+ * @return 取得したエンチャントレベル
  * @see ItemMeta.getEnchantLevel
  * @since 1.5.0
  */
@@ -130,6 +138,9 @@ var ItemStack.enchants: Map<Enchantment, Int>
 
 /**
  * エンチャントを追加する。
+ * @param enchant エンチャント
+ * @param level エンチャントレベル
+ * @param ignoreLevelRestriction エンチャントのレベル制限を無視するか default: true
  * @see ItemMeta.addEnchant
  * @since 1.5.0
  */
@@ -141,6 +152,7 @@ fun ItemStack.addEnchant(enchant: Enchantment, level: Int, ignoreLevelRestrictio
 
 /**
  * エンチャントを削除する。
+ * @param enchant 削除するエンチャント
  * @see ItemMeta.removeEnchant
  * @since 1.5.0
  */
@@ -152,6 +164,8 @@ fun ItemStack.removeEnchant(enchant: Enchantment) {
 
 /**
  * エンチャントが競合するかどうかを取得する。
+ * @param enchant エンチャント
+ * @return 競合するか
  * @see ItemMeta.hasConflictingEnchant
  * @since 1.5.0
  */
@@ -159,6 +173,7 @@ fun ItemStack.hasConflictingEnchant(enchant: Enchantment): Boolean = itemMeta?.h
 
 /**
  * アイテムフラグを追加する。
+ * @param itemFlags アイテムフラグ
  * @see ItemMeta.addItemFlags
  * @since 1.5.0
  */
@@ -170,6 +185,7 @@ fun ItemStack.addItemFlags(vararg itemFlags: ItemFlag) {
 
 /**
  * アイテムフラグを削除する。
+ * @param itemFlags アイテムフラグ
  * @see ItemMeta.removeItemFlags
  * @since 1.5.0
  */
@@ -195,10 +211,12 @@ var ItemStack.itemFlags: Set<ItemFlag>
 
 /**
  * 特定のアイテムフラグが存在するか取得する。
+ * @param itemFlag アイテムフラグ
+ * @return 存在するか
  * @see ItemMeta.hasItemFlag
  * @since 1.5.0
  */
-fun ItemStack.hasItemFlag(flag: ItemFlag): Boolean = itemMeta?.hasItemFlag(flag) ?: false
+fun ItemStack.hasItemFlag(itemFlag: ItemFlag): Boolean = itemMeta?.hasItemFlag(itemFlag) ?: false
 
 /**
  * 耐久無限。
@@ -215,6 +233,7 @@ var ItemStack.isUnbreakable: Boolean
 
 /**
  * [AttributeModifier] が存在するか取得する。
+ * @return 存在するか
  * @see ItemMeta.hasAttributeModifiers
  * @since 1.5.0
  */
@@ -238,6 +257,8 @@ var ItemStack.attributeModifiers: Multimap<Attribute, AttributeModifier>
 
 /**
  * 特定の装備箇所で影響する [AttributeModifier] の一覧を取得する。
+ * @param slot 装備欄
+ * @return [AttributeModifier] の一覧
  * @see ItemMeta.getAttributeModifiers
  * @since 1.5.0
  */
@@ -248,6 +269,8 @@ fun ItemStack.getAttributeModifiers(slot: EquipmentSlot): Multimap<Attribute, At
 
 /**
  * [Attribute] に関する [AttributeModifier] の一覧を取得する。
+ * @param attribute 取得する [Attribute] の種類
+ * @return [AttributeModifier] の一覧
  * @see ItemMeta.getAttributeModifiers
  * @since 1.5.0
  */
@@ -258,6 +281,9 @@ fun ItemStack.getAttributeModifiers(attribute: Attribute): Collection<AttributeM
 
 /**
  * [AttributeModifier] を追加する。
+ * @param attribute 追加する [Attribute] の種類
+ * @param modifier 追加する効果
+ * @return 追加できたか
  * @see ItemMeta.addAttributeModifier
  * @since 1.5.0
  */
@@ -268,6 +294,8 @@ fun ItemStack.addAttributeModifier(attribute: Attribute, modifier: AttributeModi
 
 /**
  * [AttributeModifier] を削除する。
+ * @param attribute 削除する [Attribute] の種類
+ * @return 削除できたか
  * @see ItemMeta.removeAttributeModifier
  * @since 1.5.0
  */
@@ -278,6 +306,8 @@ fun ItemStack.removeAttributeModifier(attribute: Attribute): Boolean {
 
 /**
  * [AttributeModifier] を削除する。
+ * @param slot 削除する装備欄
+ * @return 削除できたか
  * @see ItemMeta.removeAttributeModifier
  * @since 1.5.0
  */
@@ -288,6 +318,8 @@ fun ItemStack.removeAttributeModifier(slot: EquipmentSlot): Boolean {
 
 /**
  * [AttributeModifier] を削除する。
+ * @param attribute 削除する [Attribute] の種類
+ * @param modifier 削除する効果
  * @see ItemMeta.removeAttributeModifier
  * @since 1.5.0
  */
@@ -298,6 +330,7 @@ fun ItemStack.removeAttributeModifier(attribute: Attribute, modifier: AttributeM
 
 /**
  * [ItemMeta] に対して変更を加える。
+ * @param action 変更を加える処理
  * @since 1.5.0
  */
 inline fun ItemStack.editItemMeta(action: ItemMeta.() -> Unit) {
@@ -306,6 +339,7 @@ inline fun ItemStack.editItemMeta(action: ItemMeta.() -> Unit) {
 
 /**
  * [ItemMeta] に対して変更を加える。
+ * @param action 変更を加える処理
  * @since 1.5.0
  */
 @JvmName("editItemMetaT")
@@ -327,6 +361,7 @@ val ItemStack.nbtTag: String
  * @param material マテリアル
  * @param displayName 表示名 default: null
  * @param lore 説明文 default: listOf()
+ * @return [ItemStack] のインスタンス
  * @since 2.2.1
  */
 fun itemStack(
@@ -344,6 +379,7 @@ fun itemStack(
  * @param displayName 表示名 default: null
  * @param lore 説明文 default: listOf()
  * @param action [ItemStack] に対して実行する処理
+ * @return [ItemStack] のインスタンス
  * @since 2.2.1
  */
 inline fun itemStack(

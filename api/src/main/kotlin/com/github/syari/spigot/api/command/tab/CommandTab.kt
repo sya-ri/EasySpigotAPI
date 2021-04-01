@@ -12,6 +12,7 @@ interface CommandTab {
      *　コマンド補完の内容を決定する。
      * @param sender タブ補完者
      * @param args 入力済みの引数
+     * @return 補完結果
      * @since 1.2.0
      */
     fun complete(sender: CommandSender, args: Array<out String>): Iterable<String>
@@ -24,6 +25,9 @@ interface CommandTab {
      */
     class Element(val sender: CommandSender, val args: CommandArgument) : LinkedHashSet<String>() {
         /**
+         * 補完候補をまとめて追加する。
+         * @param value 候補
+         * @return 追加されたかどうか
          * @since 1.5.1
          */
         fun addAll(vararg value: String) = addAll(value)
@@ -38,6 +42,7 @@ interface CommandTab {
 
         /**
          * コマンド補完クラスを追加する。
+         * @param commandTab 補完クラス
          * @since 1.2.0
          */
         fun add(commandTab: CommandTab) {
@@ -46,6 +51,9 @@ interface CommandTab {
 
         /**
          * コマンド補完を行う。
+         * @param sender 補完者
+         * @param args 入力済みの引数
+         * @return 補完結果
          * @since 1.2.0
          */
         internal fun get(sender: CommandSender, args: Array<out String>): List<String> {
