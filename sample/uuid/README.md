@@ -7,7 +7,7 @@
 以下の例では、`Player` を用いた時に正常に動作しないことを確認している。
 
 ```kotlin
-object PlayerJoinChecker : EventRegister {
+object PlayerJoinChecker {
     /**
      * [UUIDPlayer] を使うと再ログインしても同一プレイヤーとして認識される
      *
@@ -22,18 +22,20 @@ object PlayerJoinChecker : EventRegister {
      */
     private val usePlayer = mutableSetOf<Player>()
 
-    override fun Events.register() {
-        event<PlayerJoinEvent> {
-            val player = it.player
-            val uuidPlayer = UUIDPlayer.from(player)
-            player.sendMessage(
-                """
+    fun register() {
+        events {
+            event<PlayerJoinEvent> {
+                val player = it.player
+                val uuidPlayer = UUIDPlayer.from(player)
+                player.sendMessage(
+                    """
                 UUIDPlayer を使用: ${useUuidPlayer.contains(uuidPlayer)} (${useUuidPlayer.size})
                 Player を使用: ${usePlayer.contains(player)} (${usePlayer.size})
                 """.trimIndent()
-            )
-            useUuidPlayer.add(uuidPlayer)
-            usePlayer.add(player)
+                )
+                useUuidPlayer.add(uuidPlayer)
+                usePlayer.add(player)
+            }
         }
     }
 }
