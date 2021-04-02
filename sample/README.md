@@ -229,6 +229,38 @@ object EventListener {
 }
 ```
 
+## Inventory
+インベントリを簡単に扱うことができます。使用する場合は必ず、`CustomInventory::onEnable` を実行してください。
+
+```kotlin
+class Main : JavaPlugin() {
+    override fun onEnable() {
+        CustomInventory.onEnable(this)
+    }
+}
+
+fun open(player: Player) {
+    inventory("&9&lサンプルインベントリ", 4) {
+        item(4, Material.PUFFERFISH) {
+            onClick {
+                player.playSound(Sound.ENTITY_PLAYER_LEVELUP)
+            }
+        }
+        item(22, Material.ORANGE_STAINED_GLASS_PANE, "&a&l◀ &c&l▶") {
+            onClick(ClickType.LEFT) {
+                item(22, Material.LIME_STAINED_GLASS_PANE, "&a&l◀ &c&l▶")
+            }
+            onClick(ClickType.MIDDLE) {
+                item(22, Material.ORANGE_STAINED_GLASS_PANE, "&a&l◀ &c&l▶")
+            }
+            onClick(ClickType.RIGHT) {
+                item(22, Material.RED_STAINED_GLASS_PANE, "&a&l◀ &c&l▶")
+            }
+        }
+    }.open(player)
+}
+```
+
 ## Item
 Item 関連の便利な関数を追加します。
 

@@ -127,6 +127,68 @@ event<PlayerJoinEvent> { e ->
 }
 ```
 
+### [Inventory](sample/README.md#inventory)
+インベントリを簡単に扱うことができます。
+
+#### Without EasySpigotAPI
+```kotlin
+val inventoryTitle = "Inventory Title"
+
+@EventHandler
+fun on(event: InventoryClickEvent) {
+    if (event.inventory == event.clickedInventory && event.view.title == inventoryTitle) {
+        when (event.slot) {
+            4 -> {
+                val player = event.whoClicked as? Player ?: return
+                player.playSound(player.location, Sound.ENTITY_PLAYER_LEVELUP, 1F, 1F)
+            }
+            13 -> {
+                when (event.type) {
+                    ClickType.LEFT -> {
+                        event.inventory.setItem(13, ItemStack(Material.BUCKET))
+                    }
+                    ClickType.RIGHT -> {
+                        event.inventory.setItem(13, ItemStack(Material.WATER_BUCKET))
+                    }
+                }
+            }
+        }
+    }
+}
+
+fun open(player: Player) {
+    player.openInventory(
+        Bukkit.createInventory(null, 36, inventoryTitle).apply {
+            setItem(4, ItemStack(Material.PUFFERFISH).apply {
+                itemMeta = itemMeta?.apply {
+                    setDisplayName("§6フグだょ")
+                }
+            })
+            setItem(13, ItemStack(Material.WATER_BUCKET))
+        }
+    )
+}
+```
+
+#### With EasySpigotAPI
+```kotlin
+inventory("Inventory Title", 4) {
+    item(4, Material.PUFFERFISH, "&6フグだょ") {
+        onClick {
+            player.playSound(Sound.ENTITY_PLAYER_LEVELUP)
+        }
+    }
+    item(13, Material.WATER_BUCKET) {
+        onClick(ClickType.LEFT) {
+            item(13, Material.BUCKET)
+        }
+        onClick(ClickType.RIGHT) {
+            item(13, Material.WATER_BUCKET)
+        }
+    }
+}.open(player)
+```
+
 ### [Item](sample/README.md#item)
 アイテム関連の便利な関数を追加します。
 

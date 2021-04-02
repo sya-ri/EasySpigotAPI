@@ -7,6 +7,7 @@ include(
     "sample:component",
     "sample:config",
     "sample:event",
+    "sample:inventory",
     "sample:nms",
     "sample:scheduler",
     "sample:string",
