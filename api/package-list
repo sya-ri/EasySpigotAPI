@@ -366,6 +366,36 @@ $dokka.location:com.github.syari.spigot.api.event/Events/cancelEventIf/#org.bukk
 $dokka.location:com.github.syari.spigot.api.event/Events/cancelEventIfNot/#org.bukkit.event.EventPriority#kotlin.Function1[TypeParam(bounds=[org.bukkit.event.Event, org.bukkit.event.Cancellable]),kotlin.Boolean]/PointingToDeclaration/api/com.github.syari.spigot.api.event/-events/cancel-event-if-not.html
 $dokka.location:com.github.syari.spigot.api.event/Events/event/#org.bukkit.event.EventPriority#kotlin.Boolean#kotlin.Function1[TypeParam(bounds=[org.bukkit.event.Event]),kotlin.Unit]/PointingToDeclaration/api/com.github.syari.spigot.api.event/-events/event.html
 $dokka.location:com.github.syari.spigot.api.event/Events/plugin/#/PointingToDeclaration/api/com.github.syari.spigot.api.event/-events/plugin.html
+$dokka.location:com.github.syari.spigot.api.inventory////PointingToDeclaration/api/com.github.syari.spigot.api.inventory/index.html
+$dokka.location:com.github.syari.spigot.api.inventory//inventory/#kotlin.String#kotlin.Int#kotlin.String#kotlin.Function1[com.github.syari.spigot.api.inventory.CustomInventory,kotlin.Unit]/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/inventory.html
+$dokka.location:com.github.syari.spigot.api.inventory//inventory/#kotlin.String#kotlin.Int#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/inventory.html
+$dokka.location:com.github.syari.spigot.api.inventory//inventory/#kotlin.String#org.bukkit.event.inventory.InventoryType#kotlin.String#kotlin.Function1[com.github.syari.spigot.api.inventory.CustomInventory,kotlin.Unit]/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/inventory.html
+$dokka.location:com.github.syari.spigot.api.inventory//inventory/#kotlin.String#org.bukkit.event.inventory.InventoryType#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/inventory.html
+$dokka.location:com.github.syari.spigot.api.inventory//inventory/#org.bukkit.inventory.Inventory#kotlin.String#kotlin.Function1[com.github.syari.spigot.api.inventory.CustomInventory,kotlin.Unit]/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/inventory.html
+$dokka.location:com.github.syari.spigot.api.inventory//inventory/#org.bukkit.inventory.Inventory#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/inventory.html
+$dokka.location:com.github.syari.spigot.api.inventory//inventoryId/com.github.syari.spigot.api.uuid.UUIDPlayer#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/inventory-id.html
+$dokka.location:com.github.syari.spigot.api.inventory//inventoryId/org.bukkit.entity.Player#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/inventory-id.html
+$dokka.location:com.github.syari.spigot.api.inventory/ClickEventAction.Builder///PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-click-event-action/-builder/index.html
+$dokka.location:com.github.syari.spigot.api.inventory/ClickEventAction.Builder/onClick/#kotlin.Array[org.bukkit.event.inventory.ClickType]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-click-event-action/-builder/on-click.html
+$dokka.location:com.github.syari.spigot.api.inventory/ClickEventAction.Builder/onClick/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-click-event-action/-builder/on-click.html
+$dokka.location:com.github.syari.spigot.api.inventory/ClickEventAction///PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-click-event-action/index.html
+$dokka.location:com.github.syari.spigot.api.inventory/ClickEventAction/equals/#kotlin.Any?/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-click-event-action/equals.html
+$dokka.location:com.github.syari.spigot.api.inventory/ClickEventAction/hashCode/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-click-event-action/hash-code.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory.Companion///PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/-companion/index.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory.Companion/onEnable/#org.bukkit.plugin.java.JavaPlugin/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/-companion/on-enable.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory///PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/index.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/id/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/id.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/inventory/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/inventory.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/isCancel/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/is-cancel.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/item/#kotlin.Int#org.bukkit.Material#kotlin.String#kotlin.Array[kotlin.String]#kotlin.Function1[com.github.syari.spigot.api.inventory.ClickEventAction.Builder,kotlin.Unit]?/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/item.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/item/#kotlin.Int#org.bukkit.Material#kotlin.String#kotlin.collections.List[kotlin.String]#kotlin.Function1[com.github.syari.spigot.api.inventory.ClickEventAction.Builder,kotlin.Unit]?/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/item.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/item/#kotlin.Int#org.bukkit.inventory.ItemStack#kotlin.Function1[com.github.syari.spigot.api.inventory.ClickEventAction.Builder,kotlin.Unit]?/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/item.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/item/#kotlin.collections.Iterable[kotlin.Int]#org.bukkit.Material#kotlin.String#kotlin.Array[kotlin.String]#kotlin.Function1[com.github.syari.spigot.api.inventory.ClickEventAction.Builder,kotlin.Unit]?/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/item.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/item/#kotlin.collections.Iterable[kotlin.Int]#org.bukkit.Material#kotlin.String#kotlin.collections.List[kotlin.String]#kotlin.Function1[com.github.syari.spigot.api.inventory.ClickEventAction.Builder,kotlin.Unit]?/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/item.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/item/#kotlin.collections.Iterable[kotlin.Int]#org.bukkit.inventory.ItemStack#kotlin.Function1[com.github.syari.spigot.api.inventory.ClickEventAction.Builder,kotlin.Unit]?/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/item.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/onClick/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/on-click.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/onClose/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/on-close.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/open/#org.bukkit.entity.Player/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/open.html
 $dokka.location:com.github.syari.spigot.api.item////PointingToDeclaration/api/com.github.syari.spigot.api.item/index.html
 $dokka.location:com.github.syari.spigot.api.item//addAttributeModifier/org.bukkit.inventory.ItemStack#org.bukkit.attribute.Attribute#org.bukkit.attribute.AttributeModifier/PointingToDeclaration/api/com.github.syari.spigot.api.item/add-attribute-modifier.html
 $dokka.location:com.github.syari.spigot.api.item//addEnchant/org.bukkit.inventory.ItemStack#org.bukkit.enchantments.Enchantment#kotlin.Int#kotlin.Boolean/PointingToDeclaration/api/com.github.syari.spigot.api.item/add-enchant.html
@@ -401,6 +431,7 @@ $dokka.location:com.github.syari.spigot.api.item//removeEnchant/org.bukkit.inven
 $dokka.location:com.github.syari.spigot.api.item//removeItemFlags/org.bukkit.inventory.ItemStack#kotlin.Array[org.bukkit.inventory.ItemFlag]/PointingToDeclaration/api/com.github.syari.spigot.api.item/remove-item-flags.html
 $dokka.location:com.github.syari.spigot.api.nms////PointingToDeclaration/api/com.github.syari.spigot.api.nms/index.html
 $dokka.location:com.github.syari.spigot.api.nms//NMS_VERSION/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s_-v-e-r-s-i-o-n.html
+$dokka.location:com.github.syari.spigot.api.nms//SERVER_VERSION/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-s-e-r-v-e-r_-v-e-r-s-i-o-n.html
 $dokka.location:com.github.syari.spigot.api.nms//getNMSClass/#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.nms/get-n-m-s-class.html
 $dokka.location:com.github.syari.spigot.api.nms/CraftItemStackWrapper.Companion///PointingToDeclaration/api/com.github.syari.spigot.api.nms/-craft-item-stack-wrapper/-companion/index.html
 $dokka.location:com.github.syari.spigot.api.nms/CraftItemStackWrapper.Companion/clazz/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-craft-item-stack-wrapper/-companion/clazz.html
@@ -505,8 +536,10 @@ $dokka.location:com.github.syari.spigot.api.world/Region/pos1/#/PointingToDeclar
 $dokka.location:com.github.syari.spigot.api.world/Region/pos2/#/PointingToDeclaration/api/com.github.syari.spigot.api.world/-region/pos2.html
 $dokka.location:com.github.syari.spigot.api.world/Region/world/#/PointingToDeclaration/api/com.github.syari.spigot.api.world/-region/world.html
 $dokka.location:com.github.syari.spigot.api////PointingToDeclaration/api/com.github.syari.spigot.api/index.html
+$dokka.location:com.github.syari.spigot.api/EasySpigotAPI.Companion///PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i/-companion/index.html
 $dokka.location:com.github.syari.spigot.api/EasySpigotAPI///PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i/index.html
 $dokka.location:com.github.syari.spigot.api/EasySpigotAPI/EasySpigotAPI/#/PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i/-easy-spigot-a-p-i.html
+$dokka.location:com.github.syari.spigot.api/EasySpigotAPI/onEnable/#/PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i/on-enable.html
 $dokka.location:com.github.syari.spigot.api/UnsupportedMinecraftVersion///PointingToDeclaration/api/com.github.syari.spigot.api/-unsupported-minecraft-version/index.html
 $dokka.location:com.github.syari.spigot.api/UnsupportedMinecraftVersion/UnsupportedMinecraftVersion/#kotlin.IntArray/PointingToDeclaration/api/com.github.syari.spigot.api/-unsupported-minecraft-version/-unsupported-minecraft-version.html
 $dokka.location:com.github.syari.spigot.api/UnsupportedMinecraftVersion/version/#/PointingToDeclaration/api/com.github.syari.spigot.api/-unsupported-minecraft-version/version.html
@@ -523,6 +556,7 @@ com.github.syari.spigot.api.config.type.data
 com.github.syari.spigot.api.config.type.data.list
 com.github.syari.spigot.api.config.type.section
 com.github.syari.spigot.api.event
+com.github.syari.spigot.api.inventory
 com.github.syari.spigot.api.item
 com.github.syari.spigot.api.nms
 com.github.syari.spigot.api.particle
