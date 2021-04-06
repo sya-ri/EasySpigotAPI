@@ -289,7 +289,11 @@ fun ItemStack.getAttributeModifiers(attribute: Attribute): Collection<AttributeM
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.addAttributeModifier(attribute: Attribute, modifier: AttributeModifier): Boolean {
-    return itemMeta?.addAttributeModifier(attribute, modifier) ?: false
+    var result = false
+    editItemMeta {
+        result = addAttributeModifier(attribute, modifier)
+    }
+    return result
 }
 
 /**
@@ -301,7 +305,11 @@ fun ItemStack.addAttributeModifier(attribute: Attribute, modifier: AttributeModi
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.removeAttributeModifier(attribute: Attribute): Boolean {
-    return itemMeta?.removeAttributeModifier(attribute) ?: false
+    var result = false
+    editItemMeta {
+        result = removeAttributeModifier(attribute)
+    }
+    return result
 }
 
 /**
@@ -313,7 +321,11 @@ fun ItemStack.removeAttributeModifier(attribute: Attribute): Boolean {
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.removeAttributeModifier(slot: EquipmentSlot): Boolean {
-    return itemMeta?.removeAttributeModifier(slot) ?: false
+    var result = false
+    editItemMeta {
+        result = removeAttributeModifier(slot)
+    }
+    return result
 }
 
 /**
@@ -325,7 +337,11 @@ fun ItemStack.removeAttributeModifier(slot: EquipmentSlot): Boolean {
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12)
 fun ItemStack.removeAttributeModifier(attribute: Attribute, modifier: AttributeModifier): Boolean {
-    return itemMeta?.removeAttributeModifier(attribute, modifier) ?: false
+    var result = false
+    editItemMeta {
+        result = removeAttributeModifier(attribute, modifier)
+    }
+    return result
 }
 
 /**
