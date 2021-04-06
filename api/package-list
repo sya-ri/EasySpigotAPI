@@ -429,6 +429,10 @@ $dokka.location:com.github.syari.spigot.api.item//removeAttributeModifier/org.bu
 $dokka.location:com.github.syari.spigot.api.item//removeAttributeModifier/org.bukkit.inventory.ItemStack#org.bukkit.inventory.EquipmentSlot/PointingToDeclaration/api/com.github.syari.spigot.api.item/remove-attribute-modifier.html
 $dokka.location:com.github.syari.spigot.api.item//removeEnchant/org.bukkit.inventory.ItemStack#org.bukkit.enchantments.Enchantment/PointingToDeclaration/api/com.github.syari.spigot.api.item/remove-enchant.html
 $dokka.location:com.github.syari.spigot.api.item//removeItemFlags/org.bukkit.inventory.ItemStack#kotlin.Array[org.bukkit.inventory.ItemFlag]/PointingToDeclaration/api/com.github.syari.spigot.api.item/remove-item-flags.html
+$dokka.location:com.github.syari.spigot.api.message////PointingToDeclaration/api/com.github.syari.spigot.api.message/index.html
+$dokka.location:com.github.syari.spigot.api.message//sendActionMessage/org.bukkit.entity.Player#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.message/send-action-message.html
+$dokka.location:com.github.syari.spigot.api.message//sendChatMessage/org.bukkit.command.CommandSender#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.message/send-chat-message.html
+$dokka.location:com.github.syari.spigot.api.message//sendTitleMessage/org.bukkit.entity.Player#kotlin.String?#kotlin.String?#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/api/com.github.syari.spigot.api.message/send-title-message.html
 $dokka.location:com.github.syari.spigot.api.nms////PointingToDeclaration/api/com.github.syari.spigot.api.nms/index.html
 $dokka.location:com.github.syari.spigot.api.nms//NMS_VERSION/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s_-v-e-r-s-i-o-n.html
 $dokka.location:com.github.syari.spigot.api.nms//SERVER_VERSION/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-s-e-r-v-e-r_-v-e-r-s-i-o-n.html
@@ -446,11 +450,11 @@ $dokka.location:com.github.syari.spigot.api.nms/NBTTagCompoundWrapper/instance/#
 $dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper.Companion///PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/-companion/index.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper.Companion/clazz/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/-companion/clazz.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper///PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/index.html
+$dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper/NMSItemStackWrapper/#kotlin.Any/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/-n-m-s-item-stack-wrapper.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper/NMSItemStackWrapper/#org.bukkit.inventory.ItemStack/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/-n-m-s-item-stack-wrapper.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper/getOrCreateTag/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/get-or-create-tag.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper/getTag/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/get-tag.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper/instance/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/instance.html
-$dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper/itemStack/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/item-stack.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSItemStackWrapper/setTag/#com.github.syari.spigot.api.nms.NBTTagCompoundWrapper/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-item-stack-wrapper/set-tag.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSWrapper.Companion///PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-wrapper/-companion/index.html
 $dokka.location:com.github.syari.spigot.api.nms/NMSWrapper.Companion/clazz/#/PointingToDeclaration/api/com.github.syari.spigot.api.nms/-n-m-s-wrapper/-companion/clazz.html
@@ -558,6 +562,7 @@ com.github.syari.spigot.api.config.type.section
 com.github.syari.spigot.api.event
 com.github.syari.spigot.api.inventory
 com.github.syari.spigot.api.item
+com.github.syari.spigot.api.message
 com.github.syari.spigot.api.nms
 com.github.syari.spigot.api.particle
 com.github.syari.spigot.api.scheduler
