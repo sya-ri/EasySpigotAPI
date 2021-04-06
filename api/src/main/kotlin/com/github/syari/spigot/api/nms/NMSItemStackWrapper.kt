@@ -4,10 +4,10 @@ import org.bukkit.inventory.ItemStack
 
 /**
  * `net.minecraft.server.%s.ItemStack` を扱う。
- * @param itemStack インスタンスを生成する元のアイテム
+ * @param instance NMS の ItemStack のインスタンス
  * @since 1.8.0
  */
-class NMSItemStackWrapper(val itemStack: ItemStack) : NMSWrapper() {
+class NMSItemStackWrapper(override val instance: Any) : NMSWrapper() {
     companion object : NMSWrapper.Companion {
         /**
          * クラス。
@@ -16,7 +16,12 @@ class NMSItemStackWrapper(val itemStack: ItemStack) : NMSWrapper() {
         override val clazz = getNMSClass("net.minecraft.server.%s.ItemStack")
     }
 
-    override val instance: Any = CraftItemStackWrapper.clazz.getDeclaredMethod("asNMSCopy", ItemStack::class.java).invoke(null, itemStack)
+    /**
+     * Bukkit の ItemStack から NMS の ItemStack を操作する。
+     * @param itemStack Bukkit の ItemStack
+     * @since 1.8.0
+     */
+    constructor(itemStack: ItemStack) : this(CraftItemStackWrapper.clazz.getDeclaredMethod("asNMSCopy", ItemStack::class.java).invoke(null, itemStack))
 
     /**
      * [org.bukkit.inventory.ItemStack] から [NBTTagCompoundWrapper] のインスタンスを取得する。
