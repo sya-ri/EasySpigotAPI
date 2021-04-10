@@ -138,6 +138,7 @@ class CustomConfig internal constructor(
      * @return 取得した値
      * @since 1.3.0
      */
+    @Deprecated("不要な処理が発生する可能性があるので、エルビス演算子を直接使用した方がいい。", ReplaceWith("get(path, type, notFoundError) ?: default"))
     fun <T> get(
         path: String,
         type: ConfigDataType<T>,
