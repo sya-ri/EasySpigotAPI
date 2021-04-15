@@ -189,7 +189,11 @@ EasySpigotAPI を使用してプラグインを製作した場合は以下に追
 <!-- アルファベット順に並べてください -->
 - [SecondStoryServer/SS-Plugins](https://github.com/SecondStoryServer/SS-Plugins)
 - [sya-ri/CraftKing](https://github.com/sya-ri/CraftKing)
+- [sya-ri/imEntity](https://github.com/sya-ri/imEntity)
+- [sya-ri/IncreaseOnSee](https://github.com/sya-ri/IncreaseOnSee)
+- [sya-ri/LetsGoTogether](https://github.com/sya-ri/LetsGoTogether)
 - [sya-ri/RandomCraft](https://github.com/sya-ri/RandomCraft)
+- [sya-ri/RandomSpawnMob](https://github.com/sya-ri/RandomSpawnMob)
 - [sya-ri/TalkWithNearPlayer](https://github.com/sya-ri/TalkWithNearPlayer)
 - [sya-ri/WorldBorderTester](https://github.com/sya-ri/WorldBorderTester)
 - [sya-ri/YouAreMyDoll](https://github.com/sya-ri/YouAreMyDoll)
