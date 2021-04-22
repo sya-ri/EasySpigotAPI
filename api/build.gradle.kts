@@ -1,7 +1,7 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
-    id("org.jetbrains.dokka") version "1.4.30"
+    id("org.jetbrains.dokka") version "1.4.32"
     `maven-publish`
     signing
 }
