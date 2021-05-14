@@ -24,7 +24,7 @@ object ConfigSoundByKeyDataType : ConfigEnumDataType<Sound> {
      * @since 1.6.0
      */
     override fun stringToEnum(name: String): Sound? {
-        val lowerName = name.toLowerCase()
+        val lowerName = name.lowercase()
         return Sound.values().firstOrNull { it.key.key == lowerName }
     }
 }

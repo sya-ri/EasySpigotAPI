@@ -57,7 +57,7 @@ object ConfigEnchantmentByKeyDataType : ConfigDataType<Enchantment> {
      * @since 1.5.1.
      */
     fun stringToEnchantment(value: String): Enchantment? {
-        return Enchantment.getByKey(NamespacedKey.minecraft(value.toLowerCase()))
+        return Enchantment.getByKey(NamespacedKey.minecraft(value.lowercase()))
     }
 
     /**

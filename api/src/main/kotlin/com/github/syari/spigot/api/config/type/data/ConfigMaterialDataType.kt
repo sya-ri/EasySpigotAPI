@@ -22,6 +22,6 @@ object ConfigMaterialDataType : ConfigEnumDataType<Material> {
      * @since 1.5.0
      */
     override fun stringToEnum(name: String): Material? {
-        return Material.getMaterial(name.toUpperCase())
+        return Material.getMaterial(name.uppercase())
     }
 }

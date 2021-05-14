@@ -24,7 +24,7 @@ object ConfigParticleDataType : ConfigEnumDataType<Particle> {
      * @since 1.5.0
      */
     override fun stringToEnum(name: String): Particle? {
-        val upperName = name.toUpperCase()
+        val upperName = name.uppercase()
         return Particle.values().firstOrNull { it.name == upperName }
     }
 }

@@ -58,9 +58,9 @@ class CommandTabArgument internal constructor(
                     } else {
                         arg
                     }
-                    val joinArg = args.joinToString(" ").toLowerCase()
+                    val joinArg = args.joinToString(" ").lowercase()
                     element.filter {
-                        "$completed $it".toLowerCase().startsWith(joinArg)
+                        "$completed $it".lowercase().startsWith(joinArg)
                     }
                 } else {
                     listOf()

@@ -22,7 +22,7 @@ object ConfigSoundByNameDataType : ConfigEnumDataType<Sound> {
      * @since 1.6.0
      */
     override fun stringToEnum(name: String): Sound? {
-        val upperName = name.toUpperCase()
+        val upperName = name.uppercase()
         return Sound.values().firstOrNull { it.name == upperName }
     }
 }

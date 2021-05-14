@@ -17,5 +17,5 @@ class CommandArgument(
      * @return 取得出来た場合は小文字、出来なかった場合は null
      * @since 1.2.0
      */
-    fun lowerOrNull(index: Int) = getOrNull(index)?.toLowerCase()
+    fun lowerOrNull(index: Int) = getOrNull(index)?.lowercase()
 }

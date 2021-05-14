@@ -22,7 +22,7 @@ object ConfigEntityTypeDataType : ConfigEnumDataType<EntityType> {
      * @since 1.5.0
      */
     override fun stringToEnum(name: String): EntityType? {
-        val upperName = name.toUpperCase()
+        val upperName = name.uppercase()
         return EntityType.values().firstOrNull { it.name == upperName }
     }
 }
