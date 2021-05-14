@@ -7,6 +7,7 @@ import com.github.syari.spigot.api.item.itemStack
 import com.github.syari.spigot.api.scheduler.runTaskLater
 import com.github.syari.spigot.api.uuid.UUIDPlayer
 import org.bukkit.Material
+import org.bukkit.entity.HumanEntity
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.inventory.InventoryCloseEvent
@@ -214,5 +215,22 @@ class CustomInventory internal constructor(
     fun open(player: Player) {
         player.openInventory(inventory)
         player.inventoryPlayerData = InventoryPlayerData(id, isCancel, onClick, onClose, clickEvents)
+    }
+
+    /**
+     * プレイヤーのインベントリを閉じる。
+     * @param player 対象プレイヤー
+     * @since 2.3.2
+     */
+    fun close(player: Player) {
+        player.closeInventory()
+    }
+
+    /**
+     * このインベントリを開いている全プレイヤーのインベントリを閉じる。
+     * @since 2.3.2
+     */
+    fun closeAll() {
+        inventory.viewers.toList().forEach(HumanEntity::closeInventory)
     }
 }
