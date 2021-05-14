@@ -384,6 +384,8 @@ $dokka.location:com.github.syari.spigot.api.inventory/ClickEventAction/hashCode/
 $dokka.location:com.github.syari.spigot.api.inventory/CustomInventory.Companion///PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/-companion/index.html
 $dokka.location:com.github.syari.spigot.api.inventory/CustomInventory.Companion/onEnable/#org.bukkit.plugin.java.JavaPlugin/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/-companion/on-enable.html
 $dokka.location:com.github.syari.spigot.api.inventory/CustomInventory///PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/index.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/close/#org.bukkit.entity.Player/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/close.html
+$dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/closeAll/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/close-all.html
 $dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/id/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/id.html
 $dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/inventory/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/inventory.html
 $dokka.location:com.github.syari.spigot.api.inventory/CustomInventory/isCancel/#/PointingToDeclaration/api/com.github.syari.spigot.api.inventory/-custom-inventory/is-cancel.html
