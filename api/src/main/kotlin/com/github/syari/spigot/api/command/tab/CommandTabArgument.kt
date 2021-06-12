@@ -6,28 +6,28 @@ import org.bukkit.command.CommandSender
 
 /**
  * 入力済みの引数のみで補完内容を決める。
- * @param arg 入力済み引数の中で一致したものが存在していた場合 [action] を実行する。`*` や `**` といったワイルドカードを利用できる。
+ * @param requires 入力済み引数の中で一致したものが存在していた場合 [action] を実行する。`*` や `**` といったワイルドカードを利用できる。
  * @param action 補完する内容を決める処理
  * @see argument
  * @since 1.2.0
  */
 class CommandTabArgument internal constructor(
-    private val arg: List<String>,
+    private val requires: List<String>,
     private val action: CommandTabCompleteAction
 ) : CommandTab {
     companion object {
         /**
          * 入力済みの引数のみで補完内容を決める。
-         * @param arg 入力済み引数の中で一致したものが存在していた場合 [action] を実行する。`*` や `**` といったワイルドカードを利用できる。
+         * @param require 入力済み引数の中で一致したものが存在していた場合 [action] を実行する。`*` や `**` といったワイルドカードを利用できる。
          * @param action 補完する内容を決める処理
          * @see argument
          * @since 1.2.0
          */
         fun CommandTab.Container.argument(
-            vararg arg: String,
+            vararg require: String,
             action: CommandTabCompleteAction
         ) {
-            add(CommandTabArgument(arg.toList(), action))
+            add(CommandTabArgument(require.toList(), action))
         }
     }
 
@@ -43,31 +43,43 @@ class CommandTabArgument internal constructor(
         args: Array<out String>
     ): Iterable<String> {
         val element = CommandTab.Element(sender, CommandArgument(args.toList())).apply(action)
+
+        fun complete(line: String, transform: (String) -> String = { it }): Iterable<String> {
+            return element.filter {
+                transform(it).lowercase().startsWith(line)
+            }
+        }
+
         return when {
-            arg.isNotEmpty() -> arg.flatMap { arg ->
-                val splitArg = arg.split("\\s+".toRegex())
-                if (splitArg.size <= args.size && splitArg.last() == "**") {
-                    element
-                } else if (splitArg.size == args.lastIndex) {
-                    val completed = if (arg.contains('*')) {
-                        buildString {
-                            splitArg.forEachIndexed { index, word ->
-                                append(if (word == "*") args[index] else word)
-                                append(" ")
-                            }
-                        }.substringBeforeLast(" ")
-                    } else {
-                        arg
+            requires.isNotEmpty() -> requires.flatMap { _require ->
+                val requireSplit = _require.split("\\s+".toRegex()).toMutableList()
+                val isDoubleWildcard = requireSplit.size <= args.size && requireSplit.last() == "**"
+                when {
+                    isDoubleWildcard || requireSplit.size == args.lastIndex -> {
+                        val require = if (_require.contains('*')) {
+                            buildString {
+                                if (isDoubleWildcard) {
+                                    requireSplit.removeLast()
+                                }
+                                requireSplit.forEachIndexed { index, it ->
+                                    append(if (it == "*") args[index] else it)
+                                    append(" ")
+                                }
+                            }.substringBeforeLast(" ")
+                        } else {
+                            _require
+                        }
+                        val argsJoin = args.joinToString(" ").lowercase()
+                        when {
+                            isDoubleWildcard.not() -> complete(argsJoin) { "$require $it" }
+                            argsJoin.startsWith(require) -> complete(args.last().lowercase())
+                            else -> listOf()
+                        }
                     }
-                    val joinArg = args.joinToString(" ").lowercase()
-                    element.filter {
-                        "$completed $it".lowercase().startsWith(joinArg)
-                    }
-                } else {
-                    listOf()
+                    else -> listOf()
                 }
             }
-            args.size == 1 -> element
+            args.size == 1 -> complete(args[0].lowercase())
             else -> listOf()
         }
     }
