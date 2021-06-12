@@ -19,5 +19,6 @@ class DefaultConfigStream(val inputStream: InputStream) : DefaultConfig {
                 input.copyTo(output)
             }
         }
+        config.reload()
     }
 }

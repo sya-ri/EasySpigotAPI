@@ -35,7 +35,8 @@ class CustomConfig internal constructor(
      * [YamlConfiguration] のインスタンス。
      * @since 1.3.0
      */
-    val config: YamlConfiguration
+    var config: YamlConfiguration
+        private set
 
     init {
         val fileNotExists = file.exists().not()
@@ -263,6 +264,14 @@ class CustomConfig internal constructor(
             plugin.logger.info("[$filePath] 中身がないので削除します")
             delete()
         }
+    }
+
+    /**
+     * コンフィグファイルの再読み込みを行う。
+     * @since 2.3.3
+     */
+    fun reload() {
+        config = YamlConfiguration.loadConfiguration(file)
     }
 
     /**
