@@ -1,6 +1,6 @@
 package com.github.syari.spigot.api.inventory
 
-import com.github.syari.spigot.api.EasySpigotAPI
+import com.github.syari.spigot.api.EasySpigotAPIOption
 import com.github.syari.spigot.api.event.events
 import com.github.syari.spigot.api.inventory.InventoryPlayerData.Companion.inventoryPlayerData
 import com.github.syari.spigot.api.item.itemStack
@@ -26,17 +26,30 @@ class CustomInventory internal constructor(
     val id: String
 ) {
     companion object {
-        private var availableCustomInventory = false
+        /**
+         * [CustomInventory] を利用する場合、あらかじめ呼び出しておく必要がある。
+         * @param plugin イベントの定義に使うプラグイン
+         * @see EasySpigotAPIOption.useCustomInventory
+         * @since 2.3.0
+         */
+        @Deprecated(
+            "EasySpigotAPIOption.useCustomInventory が追加されました。v2.5.0 で削除予定。",
+            ReplaceWith(
+                "EasySpigotAPIOption.useCustomInventory(plugin)",
+                "com.github.syari.spigot.api.EasySpigotAPIOption"
+            )
+        )
+        fun onEnable(plugin: JavaPlugin) {
+            EasySpigotAPIOption.useCustomInventory(plugin)
+        }
 
         /**
          * [CustomInventory] を利用する場合、あらかじめ呼び出しておく必要がある。
          * @param plugin イベントの定義に使うプラグイン
-         * @since 2.3.0
+         * @see EasySpigotAPIOption.useCustomInventory
+         * @since 2.3.3
          */
-        fun onEnable(plugin: JavaPlugin) {
-            if (availableCustomInventory) return
-            availableCustomInventory = true
-            EasySpigotAPI.logger.info("CustomInventory is now available")
+        internal fun onEnableInternal(plugin: JavaPlugin) {
             plugin.events {
                 event<InventoryClickEvent> {
                     val player = it.whoClicked as? Player ?: return@event
@@ -69,8 +82,8 @@ class CustomInventory internal constructor(
     }
 
     init {
-        if (availableCustomInventory.not()) {
-            throw IllegalStateException("CustomInventory is not available. CustomInventory::onEnable must be called when the server started.")
+        if (EasySpigotAPIOption.isEnableCustomInventory.not()) {
+            throw IllegalStateException("CustomInventory is not available. EasySpigotAPIOption::useInventory must be called when the server started.")
         }
     }
 

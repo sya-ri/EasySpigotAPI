@@ -1,6 +1,6 @@
 package com.github.syari.spigot.api.sample.inventory
 
-import com.github.syari.spigot.api.inventory.CustomInventory
+import com.github.syari.spigot.api.EasySpigotAPIOption
 import org.bukkit.plugin.java.JavaPlugin
 
 class Main : JavaPlugin() {
@@ -13,7 +13,7 @@ class Main : JavaPlugin() {
     }
 
     override fun onEnable() {
-        CustomInventory.onEnable(this)
+        EasySpigotAPIOption.useCustomInventory(this)
         OpenInventoryCommand.register()
     }
 }

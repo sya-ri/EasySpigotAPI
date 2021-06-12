@@ -87,7 +87,7 @@ object EventListener {
 ```
 
 ## Inventory
-インベントリを簡単に扱うことができます。使用する場合は必ず、`CustomInventory::onEnable` を実行してください。
+インベントリを簡単に扱うことができます。使用する場合は必ず、`EasySpigotAPIOption::useInventory` を実行してください。
 
 ```kotlin
 class Main : JavaPlugin() {

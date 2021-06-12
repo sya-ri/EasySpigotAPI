@@ -1,6 +1,5 @@
 package com.github.syari.spigot.api
 
-import com.github.syari.spigot.api.inventory.CustomInventory
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.logging.Logger
 
@@ -19,6 +18,6 @@ class EasySpigotAPI : JavaPlugin() {
     }
 
     override fun onEnable() {
-        CustomInventory.onEnable(this)
+        EasySpigotAPIOption.useCustomInventory(this)
     }
 }
