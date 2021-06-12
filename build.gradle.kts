@@ -30,7 +30,7 @@ subprojects {
     dependencies {
         shadowImplementation(kotlin("stdlib"))
 
-        val minecraftVersion = when (16) {
+        val minecraftVersion = when (17) {
             8 -> "1.8.8"
             9 -> "1.9.4"
             10 -> "1.10.2"
@@ -40,6 +40,7 @@ subprojects {
             14 -> "1.14.4"
             15 -> "1.15.2"
             16 -> "1.16.5"
+            17 -> "1.17"
             else -> error("Unsupported Version")
         }
 
