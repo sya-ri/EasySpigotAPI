@@ -1,11 +1,11 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.github.syari.spigot.api.command.execute////PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/index.html
-$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteAction///PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-action/index.html
-$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteAction/CommandExecuteAction/#org.bukkit.command.CommandSender#kotlin.String#com.github.syari.spigot.api.command.CommandArgument/PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-action/-command-execute-action.html
-$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteAction/args/#/PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-action/args.html
-$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteAction/label/#/PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-action/label.html
-$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteAction/sender/#/PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-action/sender.html
+$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteParameter///PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-parameter/index.html
+$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteParameter/CommandExecuteParameter/#org.bukkit.command.CommandSender#kotlin.String#com.github.syari.spigot.api.command.CommandArgument/PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-parameter/-command-execute-parameter.html
+$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteParameter/args/#/PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-parameter/args.html
+$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteParameter/label/#/PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-parameter/label.html
+$dokka.location:com.github.syari.spigot.api.command.execute/CommandExecuteParameter/sender/#/PointingToDeclaration/api/com.github.syari.spigot.api.command.execute/-command-execute-parameter/sender.html
 $dokka.location:com.github.syari.spigot.api.command.tab////PointingToDeclaration/api/com.github.syari.spigot.api.command.tab/index.html
 $dokka.location:com.github.syari.spigot.api.command.tab/CommandTab.Container///PointingToDeclaration/api/com.github.syari.spigot.api.command.tab/-command-tab/-container/index.html
 $dokka.location:com.github.syari.spigot.api.command.tab/CommandTab.Container/Container/#/PointingToDeclaration/api/com.github.syari.spigot.api.command.tab/-command-tab/-container/-container.html
@@ -31,7 +31,7 @@ $dokka.location:com.github.syari.spigot.api.command/CommandCreator/CommandCreato
 $dokka.location:com.github.syari.spigot.api.command/CommandCreator/aliases/#/PointingToDeclaration/api/com.github.syari.spigot.api.command/-command-creator/aliases.html
 $dokka.location:com.github.syari.spigot.api.command/CommandCreator/create/#/PointingToDeclaration/api/com.github.syari.spigot.api.command/-command-creator/create.html
 $dokka.location:com.github.syari.spigot.api.command/CommandCreator/description/#/PointingToDeclaration/api/com.github.syari.spigot.api.command/-command-creator/description.html
-$dokka.location:com.github.syari.spigot.api.command/CommandCreator/execute/#kotlin.Function1[com.github.syari.spigot.api.command.execute.CommandExecuteAction,kotlin.Unit]/PointingToDeclaration/api/com.github.syari.spigot.api.command/-command-creator/execute.html
+$dokka.location:com.github.syari.spigot.api.command/CommandCreator/execute/#kotlin.Function1[com.github.syari.spigot.api.command.execute.CommandExecuteParameter,kotlin.Unit]/PointingToDeclaration/api/com.github.syari.spigot.api.command/-command-creator/execute.html
 $dokka.location:com.github.syari.spigot.api.command/CommandCreator/label/#/PointingToDeclaration/api/com.github.syari.spigot.api.command/-command-creator/label.html
 $dokka.location:com.github.syari.spigot.api.command/CommandCreator/permission/#/PointingToDeclaration/api/com.github.syari.spigot.api.command/-command-creator/permission.html
 $dokka.location:com.github.syari.spigot.api.command/CommandCreator/permissionMessage/#/PointingToDeclaration/api/com.github.syari.spigot.api.command/-command-creator/permission-message.html
@@ -345,6 +345,7 @@ $dokka.location:com.github.syari.spigot.api.config/CustomConfig/getUnsafe/#kotli
 $dokka.location:com.github.syari.spigot.api.config/CustomConfig/notFoundError/#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.config/-custom-config/not-found-error.html
 $dokka.location:com.github.syari.spigot.api.config/CustomConfig/nullError/#kotlin.String#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.config/-custom-config/null-error.html
 $dokka.location:com.github.syari.spigot.api.config/CustomConfig/plugin/#/PointingToDeclaration/api/com.github.syari.spigot.api.config/-custom-config/plugin.html
+$dokka.location:com.github.syari.spigot.api.config/CustomConfig/reload/#/PointingToDeclaration/api/com.github.syari.spigot.api.config/-custom-config/reload.html
 $dokka.location:com.github.syari.spigot.api.config/CustomConfig/rename/#kotlin.String/PointingToDeclaration/api/com.github.syari.spigot.api.config/-custom-config/rename.html
 $dokka.location:com.github.syari.spigot.api.config/CustomConfig/save/#/PointingToDeclaration/api/com.github.syari.spigot.api.config/-custom-config/save.html
 $dokka.location:com.github.syari.spigot.api.config/CustomConfig/section/#kotlin.String#com.github.syari.spigot.api.config.type.ConfigSectionType[TypeParam(bounds=[kotlin.Any?])]#kotlin.Boolean/PointingToDeclaration/api/com.github.syari.spigot.api.config/-custom-config/section.html
@@ -546,6 +547,8 @@ $dokka.location:com.github.syari.spigot.api/EasySpigotAPI.Companion///PointingTo
 $dokka.location:com.github.syari.spigot.api/EasySpigotAPI///PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i/index.html
 $dokka.location:com.github.syari.spigot.api/EasySpigotAPI/EasySpigotAPI/#/PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i/-easy-spigot-a-p-i.html
 $dokka.location:com.github.syari.spigot.api/EasySpigotAPI/onEnable/#/PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i/on-enable.html
+$dokka.location:com.github.syari.spigot.api/EasySpigotAPIOption///PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i-option/index.html
+$dokka.location:com.github.syari.spigot.api/EasySpigotAPIOption/useCustomInventory/#org.bukkit.plugin.java.JavaPlugin/PointingToDeclaration/api/com.github.syari.spigot.api/-easy-spigot-a-p-i-option/use-custom-inventory.html
 $dokka.location:com.github.syari.spigot.api/UnsupportedMinecraftVersion///PointingToDeclaration/api/com.github.syari.spigot.api/-unsupported-minecraft-version/index.html
 $dokka.location:com.github.syari.spigot.api/UnsupportedMinecraftVersion/UnsupportedMinecraftVersion/#kotlin.IntArray/PointingToDeclaration/api/com.github.syari.spigot.api/-unsupported-minecraft-version/-unsupported-minecraft-version.html
 $dokka.location:com.github.syari.spigot.api/UnsupportedMinecraftVersion/version/#/PointingToDeclaration/api/com.github.syari.spigot.api/-unsupported-minecraft-version/version.html
