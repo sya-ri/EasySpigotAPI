@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.github.sya-ri.spigot.api"
-version = "2.3.2"
+version = "2.3.3"
 
 bukkit {
     name = "EasySpigotAPI"
