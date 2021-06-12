@@ -9,6 +9,17 @@ import org.bukkit.event.inventory.InventoryType
 import org.bukkit.inventory.Inventory
 
 /**
+ * `CustomInventory.() -> Unit`
+ */
+typealias CustomInventoryAction = CustomInventory.() -> Unit
+
+/**
+ * `ClickEventAction.Builder.() -> Unit`
+ * @since 2.3.3
+ */
+typealias ClickEventBuilderAction = ClickEventAction.Builder.() -> Unit
+
+/**
  * [Inventory] から [CustomInventory] を生成する。
  * @param inventory [Inventory]
  * @param id インベントリの識別子 default: inventory.toString()
@@ -60,7 +71,7 @@ fun inventory(
     display: String,
     type: InventoryType,
     id: String = display,
-    action: CustomInventory.() -> Unit
+    action: CustomInventoryAction
 ) = inventory(display, type, id).apply(action)
 
 /**
@@ -90,7 +101,7 @@ fun inventory(
     display: String,
     line: Int = 3,
     id: String = display,
-    action: CustomInventory.() -> Unit
+    action: CustomInventoryAction
 ) = inventory(display, line, id).apply(action)
 
 /**

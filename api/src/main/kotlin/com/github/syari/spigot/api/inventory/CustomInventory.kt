@@ -104,7 +104,7 @@ class CustomInventory internal constructor(
     fun item(
         slot: Int,
         item: ItemStack,
-        onClick: (ClickEventAction.Builder.() -> Unit)? = null
+        onClick: ClickEventBuilderAction? = null
     ) {
         item(listOf(slot), item, onClick)
     }
@@ -119,7 +119,7 @@ class CustomInventory internal constructor(
     fun item(
         slot: Iterable<Int>,
         item: ItemStack,
-        onClick: (ClickEventAction.Builder.() -> Unit)? = null
+        onClick: ClickEventBuilderAction? = null
     ) {
         slot.filter { it in 0 until inventory.size }.let {
             it.forEach { i ->
@@ -145,7 +145,7 @@ class CustomInventory internal constructor(
         material: Material,
         display: String = "",
         lore: List<String> = listOf(),
-        onClick: (ClickEventAction.Builder.() -> Unit)? = null
+        onClick: ClickEventBuilderAction? = null
     ) {
         item(listOf(slot), material, display, lore, onClick)
     }
@@ -164,7 +164,7 @@ class CustomInventory internal constructor(
         material: Material,
         display: String = "",
         lore: List<String> = listOf(),
-        onClick: (ClickEventAction.Builder.() -> Unit)? = null
+        onClick: ClickEventBuilderAction? = null
     ) {
         item(slot, itemStack(material, display, lore), onClick)
     }
@@ -202,7 +202,7 @@ class CustomInventory internal constructor(
         material: Material,
         display: String = "",
         vararg lore: String,
-        onClick: (ClickEventAction.Builder.() -> Unit)? = null
+        onClick: ClickEventBuilderAction? = null
     ) {
         item(slot, material, display, lore.toList(), onClick)
     }

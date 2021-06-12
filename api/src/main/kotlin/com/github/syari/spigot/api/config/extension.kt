@@ -6,6 +6,12 @@ import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
 /**
+ * `CustomConfig.() -> Unit`
+ * @since 2.3.3
+ */
+typealias CustomConfigAction = CustomConfig.() -> Unit
+
+/**
  * コンフィグをロードする。
  * @param output メッセージの出力先
  * @param fileName ファイル名
@@ -32,7 +38,7 @@ fun JavaPlugin.config(
     output: CommandSender?,
     fileName: String,
     default: DefaultConfig? = null,
-    action: CustomConfig.() -> Unit
+    action: CustomConfigAction
 ) = config(output, fileName, default).apply(action)
 
 /**
@@ -74,7 +80,7 @@ fun JavaPlugin.configDirectory(
 fun JavaPlugin.configDirectory(
     output: CommandSender?,
     directoryName: String,
-    action: CustomConfig.() -> Unit
+    action: CustomConfigAction
 ) = configDirectory(output, directoryName).onEach { it.value.action() }
 
 /**

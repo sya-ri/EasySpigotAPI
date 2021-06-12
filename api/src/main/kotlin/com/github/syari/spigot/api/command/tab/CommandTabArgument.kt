@@ -1,6 +1,7 @@
 package com.github.syari.spigot.api.command.tab
 
 import com.github.syari.spigot.api.command.CommandArgument
+import com.github.syari.spigot.api.command.CommandTabCompleteAction
 import org.bukkit.command.CommandSender
 
 /**
@@ -12,7 +13,7 @@ import org.bukkit.command.CommandSender
  */
 class CommandTabArgument internal constructor(
     private val arg: List<String>,
-    private val action: CommandTab.Element.() -> Unit
+    private val action: CommandTabCompleteAction
 ) : CommandTab {
     companion object {
         /**
@@ -24,7 +25,7 @@ class CommandTabArgument internal constructor(
          */
         fun CommandTab.Container.argument(
             vararg arg: String,
-            action: CommandTab.Element.() -> Unit
+            action: CommandTabCompleteAction
         ) {
             add(CommandTabArgument(arg.toList(), action))
         }

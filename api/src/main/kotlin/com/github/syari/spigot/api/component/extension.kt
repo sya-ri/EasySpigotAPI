@@ -23,13 +23,19 @@ import org.bukkit.inventory.ItemStack
 typealias BungeeChatColor = net.md_5.bungee.api.ChatColor
 
 /**
+ * `TextComponentBuilder.() -> Unit`
+ * @since 2.3.3
+ */
+typealias TextComponentBuildAction = TextComponentBuilder.() -> Unit
+
+/**
  * [TextComponent] を生成する。
  * @see TextComponentBuilder
  * @param action [TextComponentBuilder] に対して実行する処理
  * @return [TextComponent]
  * @since 1.6.0
  */
-inline fun buildTextComponent(action: TextComponentBuilder.() -> Unit) = TextComponentBuilder().apply(action).build()
+inline fun buildTextComponent(action: TextComponentBuildAction) = TextComponentBuilder().apply(action).build()
 
 /**
  * [BaseComponent] の hoverEvent, clickEvent を設定する。

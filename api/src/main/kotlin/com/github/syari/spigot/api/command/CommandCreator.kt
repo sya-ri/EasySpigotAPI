@@ -1,6 +1,6 @@
 package com.github.syari.spigot.api.command
 
-import com.github.syari.spigot.api.command.execute.CommandExecuteAction
+import com.github.syari.spigot.api.command.execute.CommandExecuteParameter
 import com.github.syari.spigot.api.command.tab.CommandTab
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
@@ -42,14 +42,14 @@ class CommandCreator(val label: String) {
     var permissionMessage: String? = null
 
     private val tabContainer = CommandTab.Container()
-    private var executeAction: CommandExecuteAction.() -> Unit = {}
+    private var executeAction: CommandExecuteAction = {}
 
     /**
      * タブ補完の処理を設定する。
      * @param action タブ補完した時の処理
      * @since 1.2.0
      */
-    fun tab(action: CommandTab.Container.() -> Unit) {
+    fun tab(action: CommandTabAction) {
         tabContainer.action()
     }
 
@@ -58,7 +58,7 @@ class CommandCreator(val label: String) {
      * @param action コマンドを実行した時の処理
      * @since 1.2.0
      */
-    fun execute(action: CommandExecuteAction.() -> Unit) {
+    fun execute(action: CommandExecuteAction) {
         executeAction = action
     }
 
@@ -80,7 +80,7 @@ class CommandCreator(val label: String) {
                 args: Array<out String>
             ): Boolean {
                 if (testPermission(sender)) {
-                    executeAction(CommandExecuteAction(sender, commandLabel, CommandArgument(args.toList())))
+                    executeAction(CommandExecuteParameter(sender, commandLabel, CommandArgument(args.toList())))
                 }
                 return true
             }

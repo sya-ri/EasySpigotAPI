@@ -1,8 +1,34 @@
 package com.github.syari.spigot.api.command
 
+import com.github.syari.spigot.api.command.execute.CommandExecuteParameter
+import com.github.syari.spigot.api.command.tab.CommandTab
 import org.bukkit.command.Command
 import org.bukkit.command.CommandMap
 import org.bukkit.plugin.java.JavaPlugin
+
+/**
+ * `CommandCreator.() -> Unit`
+ * @since 2.3.3
+ */
+typealias CommandCreateAction = CommandCreator.() -> Unit
+
+/**
+ * `CommandTab.Container.() -> Unit`
+ * @since 2.3.3
+ */
+typealias CommandTabAction = CommandTab.Container.() -> Unit
+
+/**
+ * `CommandTab.Element.() -> Unit`
+ * @since 2.3.3
+ */
+typealias CommandTabCompleteAction = CommandTab.Element.() -> Unit
+
+/**
+ * `CommandExecuteParameter.() -> Unit`
+ * @since 2.3.3
+ */
+typealias CommandExecuteAction = CommandExecuteParameter.() -> Unit
 
 /**
  * コマンドを作成し、登録する。
@@ -10,7 +36,7 @@ import org.bukkit.plugin.java.JavaPlugin
  * @param action [CommandCreator] コマンドの設定を行う
  * @since 1.2.0
  */
-fun JavaPlugin.command(label: String, action: CommandCreator.() -> Unit) {
+fun JavaPlugin.command(label: String, action: CommandCreateAction) {
     registerCommand(this, CommandCreator(label).apply(action).create())
 }
 

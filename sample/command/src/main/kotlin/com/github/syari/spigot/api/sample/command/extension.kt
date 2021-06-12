@@ -1,10 +1,10 @@
 package com.github.syari.spigot.api.sample.command
 
-import com.github.syari.spigot.api.command.execute.CommandExecuteAction
+import com.github.syari.spigot.api.command.execute.CommandExecuteParameter
 import com.github.syari.spigot.api.sample.command.Main.Companion.plugin
 import org.bukkit.entity.Player
 
-fun CommandExecuteAction.getPlayer(index: Int): Player? {
+fun CommandExecuteParameter.getPlayer(index: Int): Player? {
     val name = args.getOrNull(index)
     return if (name != null) {
         plugin.server.getPlayer(name)
