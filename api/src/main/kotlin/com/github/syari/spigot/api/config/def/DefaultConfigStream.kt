@@ -17,6 +17,7 @@ class DefaultConfigStream(val inputStream: InputStream) : DefaultConfig {
         inputStream.use { input ->
             config.file.outputStream().use { output ->
                 input.copyTo(output)
+                output.flush()
             }
         }
         config.reload()
