@@ -29,7 +29,7 @@ class CustomConfig internal constructor(
      * コンフィグファイルの相対パス。
      * @since 1.3.0
      */
-    val filePath = file.path.substringAfter(plugin.dataFolder.path).substring(1)
+    val filePath = file.toRelativeString(plugin.dataFolder)
 
     /**
      * [YamlConfiguration] のインスタンス。
@@ -42,7 +42,7 @@ class CustomConfig internal constructor(
         val fileNotExists = file.exists().not()
         if (fileNotExists) {
             try {
-                file.parentFile.mkdirs()
+                file.parentFile?.mkdirs()
                 file.createNewFile()
             } catch (ex: IOException) {
                 throw IOException("$filePath の作成に失敗しました")

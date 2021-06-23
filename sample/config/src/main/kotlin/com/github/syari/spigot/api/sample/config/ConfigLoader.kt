@@ -18,5 +18,12 @@ object ConfigLoader {
             val intValue = get("int_value", ConfigDataType.Int)
             plugin.server.broadcastMessage("($filePath) int_value: $intValue")
         }
+        // フォルダを直接指定することで、ワールドディレクトリ下のコンフィグを操作する
+        plugin.server.worlds.forEach { world ->
+            plugin.config(sender, world.worldFolder.resolve("config.yml")) {
+                val spawn = get("spawn", ConfigDataType.Location)
+                sendMessage("spawn", spawn?.let(ConfigDataType.Location::locationToString).toString())
+            }
+        }
     }
 }
