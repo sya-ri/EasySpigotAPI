@@ -13,6 +13,7 @@ import net.md_5.bungee.api.chat.TranslatableComponent
 import net.md_5.bungee.api.chat.hover.content.Item
 import net.md_5.bungee.api.chat.hover.content.Text
 import org.bukkit.Material
+import org.bukkit.command.CommandSender
 import org.bukkit.inventory.ItemStack
 
 /**
@@ -36,6 +37,26 @@ typealias TextComponentBuildAction = TextComponentBuilder.() -> Unit
  * @since 1.6.0
  */
 inline fun buildTextComponent(action: TextComponentBuildAction) = TextComponentBuilder().apply(action).build()
+
+/**
+ * [BaseComponent] のチャットメッセージを送信する
+ * @param message 送信するメッセージ
+ * @see CommandSender.Spigot.sendMessage
+ * @since 2.3.5
+ */
+fun CommandSender.sendComponentMessage(message: BaseComponent) {
+    spigot().sendMessage(message)
+}
+
+/**
+ * [BaseComponent] のチャットメッセージを送信する
+ * @param builder TextComponent を操作する処理
+ * @see CommandSender.Spigot.sendMessage
+ * @since 2.3.5
+ */
+inline fun CommandSender.sendComponentMessage(builder: TextComponentBuildAction) {
+    sendComponentMessage(buildTextComponent(builder))
+}
 
 /**
  * [BaseComponent] の hoverEvent, clickEvent を設定する。
@@ -178,6 +199,15 @@ fun clickCopyToClipboard(text: String) = ClickEvent(ClickEvent.Action.COPY_TO_CL
  */
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13, 14, 15)
 fun hoverText(text: String) = HoverEvent(HoverEvent.Action.SHOW_TEXT, Text(text.toColor()))
+
+/**
+ * ホバーした時に文字列を表示する。
+ * @param text 表示する文字列
+ * @return [HoverEvent.Action.SHOW_TEXT] の [HoverEvent]
+ * @since 2.3.5
+ */
+@Suppress("DEPRECATION")
+fun hoverTextLegacy(text: String) = HoverEvent(HoverEvent.Action.SHOW_TEXT, arrayOf(TextComponent(text.toColor())))
 
 /**
  * ホバーした時にアイテムを表示する。
