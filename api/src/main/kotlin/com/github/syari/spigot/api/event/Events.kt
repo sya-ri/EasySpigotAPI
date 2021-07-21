@@ -13,6 +13,26 @@ import org.bukkit.plugin.java.JavaPlugin
  */
 class Events internal constructor(val plugin: JavaPlugin) : Listener {
     /**
+     * イベントの登録を行う。
+     *
+     * 以下のようなコードをエラーにするためのメソッド。
+     * ```kotlin
+     * plugin.events {
+     *     plugin.events { // ERROR
+     *
+     *     }
+     * }
+     * ```
+     *
+     * @param action イベント一覧
+     * @see com.github.syari.spigot.api.event.events
+     * @since 2.4.0
+     */
+    @Suppress("unused", "unused_parameter")
+    @Deprecated("events の中で events を使用できません", level = DeprecationLevel.ERROR)
+    fun JavaPlugin.events(action: EventsAction) = Unit
+
+    /**
      * イベントを定義する。
      * @param T イベント
      * @param priority 優先度 default: NORMAL
@@ -23,14 +43,14 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
     inline fun <reified T : Event> event(
         priority: EventPriority = EventPriority.NORMAL,
         ignoreCancelled: Boolean = false,
-        crossinline action: (T) -> Unit
+        crossinline action: EventAction.(T) -> Unit
     ) {
         plugin.server.pluginManager.registerEvent(
             T::class.java,
             this,
             priority,
             { _, event ->
-                (event as? T)?.let(action)
+                (event as? T)?.let { EventAction.action(it) }
             },
             plugin,
             ignoreCancelled
@@ -46,7 +66,7 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
      */
     inline fun <reified T> cancelEventIf(
         priority: EventPriority = EventPriority.NORMAL,
-        crossinline action: (T) -> Boolean
+        crossinline action: EventAction.(T) -> Boolean
     ) where T : Event, T : Cancellable {
         event<T>(priority, true) {
             it.isCancelled = action(it)
@@ -62,7 +82,7 @@ class Events internal constructor(val plugin: JavaPlugin) : Listener {
      */
     inline fun <reified T> cancelEventIfNot(
         priority: EventPriority = EventPriority.NORMAL,
-        crossinline action: (T) -> Boolean
+        crossinline action: EventAction.(T) -> Boolean
     ) where T : Event, T : Cancellable {
         cancelEventIf<T>(priority) {
             action(it).not()
