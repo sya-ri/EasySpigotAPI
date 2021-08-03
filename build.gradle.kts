@@ -1,7 +1,7 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "1.5.21"
     id("org.jlleitschuh.gradle.ktlint") version "10.1.0"
     id("com.github.johnrengelman.shadow") version "7.0.0" apply false
     id("net.minecrell.plugin-yml.bukkit") version "0.4.0" apply false
@@ -28,7 +28,7 @@ subprojects {
     configurations["implementation"].extendsFrom(shadowImplementation)
 
     dependencies {
-        shadowImplementation(kotlin("stdlib"))
+        shadowImplementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
 
         val minecraftVersion = when (17) {
             8 -> "1.8.8"
