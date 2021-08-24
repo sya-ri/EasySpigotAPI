@@ -28,7 +28,7 @@ subprojects {
     configurations["implementation"].extendsFrom(shadowImplementation)
 
     dependencies {
-        shadowImplementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
+        shadowImplementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.30")
 
         val minecraftVersion = when (17) {
             8 -> "1.8.8"
