@@ -28,6 +28,20 @@ data class UUIDPlayer(val uniqueId: UUID) : Comparable<UUIDPlayer> {
         get() = Bukkit.getOfflinePlayer(uniqueId)
 
     /**
+     * 同じプレイヤーであるか
+     * @return [Boolean]
+     * @since 2.5.0
+     */
+    fun match(other: UUID) = uniqueId == other
+
+    /**
+     * 同じプレイヤーであるか
+     * @return [Boolean]
+     * @since 2.5.0
+     */
+    fun match(other: OfflinePlayer) = match(other.uniqueId)
+
+    /**
      * [UUIDPlayer.uniqueId] を文字列として取得する。
      * @see [UUID.toString]
      * @since 1.1.0
@@ -47,15 +61,25 @@ data class UUIDPlayer(val uniqueId: UUID) : Comparable<UUIDPlayer> {
     companion object {
         /**
          * [OfflinePlayer] を [UUIDPlayer] に変換する。
+         * @return [UUIDPlayer]
+         * @since 2.5.0
+         */
+        val OfflinePlayer.uuidPlayer
+            get() = UUIDPlayer(uniqueId)
+
+        /**
+         * [OfflinePlayer] を [UUIDPlayer] に変換する。
          * @param player [OfflinePlayer]
          * @return [UUIDPlayer]
+         * @since 1.1.0
          */
-        fun from(player: OfflinePlayer) = UUIDPlayer(player.uniqueId)
+        fun from(player: OfflinePlayer) = player.uuidPlayer
 
         /**
          * [UUID] を表す文字列から [UUIDPlayer] に変換する。
          * @param uniqueId [UUID] の文字列
          * @return [UUIDPlayer]
+         * @since 1.1.0
          */
         fun from(uniqueId: String) = uuidOrNull(uniqueId)?.let(::UUIDPlayer)
     }
