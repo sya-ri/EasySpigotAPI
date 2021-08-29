@@ -30,23 +30,6 @@ class CustomInventory internal constructor(
          * [CustomInventory] を利用する場合、あらかじめ呼び出しておく必要がある。
          * @param plugin イベントの定義に使うプラグイン
          * @see EasySpigotAPIOption.useCustomInventory
-         * @since 2.3.0
-         */
-        @Deprecated(
-            "EasySpigotAPIOption.useCustomInventory が追加されました。v2.5.0 で削除予定。",
-            ReplaceWith(
-                "EasySpigotAPIOption.useCustomInventory(plugin)",
-                "com.github.syari.spigot.api.EasySpigotAPIOption"
-            )
-        )
-        fun onEnable(plugin: JavaPlugin) {
-            EasySpigotAPIOption.useCustomInventory(plugin)
-        }
-
-        /**
-         * [CustomInventory] を利用する場合、あらかじめ呼び出しておく必要がある。
-         * @param plugin イベントの定義に使うプラグイン
-         * @see EasySpigotAPIOption.useCustomInventory
          * @since 2.3.3
          */
         internal fun onEnableInternal(plugin: JavaPlugin) {
