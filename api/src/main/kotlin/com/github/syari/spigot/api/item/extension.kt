@@ -13,8 +13,6 @@ import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
-import com.github.syari.spigot.api.item.displayName as eDisplayName
-import com.github.syari.spigot.api.item.lore as eLore
 
 /**
  * 表示名が存在するか取得する。
@@ -22,16 +20,27 @@ import com.github.syari.spigot.api.item.lore as eLore
  * @see ItemMeta.hasDisplayName
  * @since 1.5.0
  */
+@Deprecated("ItemStack#displayNameOrNull の内部で ItemMeta#hasDisplayName にアクセスしています。")
 fun ItemStack.hasDisplayName(): Boolean = itemMeta?.hasDisplayName() ?: false
 
 /**
- * 表示名。取得する時は [hasDisplayName] が真である場合のみにする。
+ * 表示名。
  * @see ItemMeta.getDisplayName
  * @see ItemMeta.setDisplayName
  * @since 1.5.0
  */
-var ItemStack.displayName: String?
-    get() = itemMeta?.displayName
+@Deprecated("displayNameOrNull が追加されました。v2.8.0 で削除予定。", ReplaceWith("displayNameOrNull"))
+var ItemStack.displayName: String? by ItemStack::displayNameOrNull
+
+/**
+ * 表示名。
+ * @see ItemMeta.hasDisplayName
+ * @see ItemMeta.getDisplayName
+ * @see ItemMeta.setDisplayName
+ * @since 2.5.0
+ */
+var ItemStack.displayNameOrNull: String?
+    get() = itemMeta?.run { if (hasDisplayName()) displayName else null }
     set(value) {
         editItemMeta {
             setDisplayName(value?.toColor())
@@ -44,6 +53,7 @@ var ItemStack.displayName: String?
  * @see ItemMeta.hasLore
  * @since 1.5.0
  */
+@Deprecated("ItemStack#loreOrNull の内部で ItemMeta#hasLore にアクセスしています。")
 fun ItemStack.hasLore(): Boolean = itemMeta?.hasLore() ?: false
 
 /**
@@ -52,11 +62,25 @@ fun ItemStack.hasLore(): Boolean = itemMeta?.hasLore() ?: false
  * @see ItemMeta.setLore
  * @since 1.5.0
  */
+@Deprecated("loreOrNull が追加されました。v2.8.0 で削除予定。", ReplaceWith("loreOrNull"))
 var ItemStack.lore: List<String>
-    get() = itemMeta?.lore.orEmpty()
+    get() = loreOrNull.orEmpty()
+    set(value) {
+        loreOrNull = value
+    }
+
+/**
+ * 説明文。
+ * @see ItemMeta.hasLore
+ * @see ItemMeta.getLore
+ * @see ItemMeta.setLore
+ * @since 2.5.0
+ */
+var ItemStack.loreOrNull: List<String>?
+    get() = itemMeta?.run { if (hasLore()) lore else null }
     set(value) {
         editItemMeta {
-            lore = value.map(String::toColor)
+            lore = value?.map(String::toColor)
         }
     }
 
@@ -66,7 +90,7 @@ var ItemStack.lore: List<String>
  * @since 1.5.0
  */
 inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit) {
-    eLore = eLore.toMutableList().apply(action)
+    loreOrNull = loreOrNull.orEmpty().toMutableList().apply(action)
 }
 
 /**
@@ -75,6 +99,7 @@ inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit) {
  * @see ItemMeta.hasCustomModelData
  * @since 1.5.0
  */
+@Deprecated("ItemStack#customModelDataOrNull の内部で ItemMeta#hasCustomModelData にアクセスしています。")
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13)
 fun ItemStack.hasCustomModelData(): Boolean = itemMeta?.hasCustomModelData() ?: false
 
@@ -84,9 +109,20 @@ fun ItemStack.hasCustomModelData(): Boolean = itemMeta?.hasCustomModelData() ?: 
  * @see ItemMeta.setCustomModelData
  * @since 1.5.0
  */
+@Deprecated("customModelDataOrNull が追加されました。v2.8.0 で削除予定。", ReplaceWith("customModelDataOrNull"))
 @UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13)
-var ItemStack.customModelData: Int?
-    get() = itemMeta?.customModelData
+var ItemStack.customModelData: Int? by ItemStack::customModelDataOrNull
+
+/**
+ * カスタムモデルデータ。
+ * @see ItemMeta.hasCustomModelData
+ * @see ItemMeta.getCustomModelData
+ * @see ItemMeta.setCustomModelData
+ * @since 2.5.0
+ */
+@UnsupportedMinecraftVersion(8, 9, 10, 11, 12, 13)
+var ItemStack.customModelDataOrNull: Int?
+    get() = itemMeta?.run { if (hasCustomModelData()) customModelData else null }
     set(value) {
         editItemMeta {
             setCustomModelData(value)
@@ -385,8 +421,8 @@ fun itemStack(
     displayName: String? = null,
     lore: List<String> = listOf()
 ) = ItemStack(material).apply {
-    eDisplayName = displayName
-    eLore = lore
+    displayNameOrNull = displayName
+    loreOrNull = lore
 }
 
 /**
