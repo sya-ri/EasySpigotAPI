@@ -42,7 +42,7 @@ subprojects {
             14 -> "1.14.4"
             15 -> "1.15.2"
             16 -> "1.16.5"
-            17 -> "1.17"
+            17 -> "1.17.1"
             else -> error("Unsupported Version")
         }
 
