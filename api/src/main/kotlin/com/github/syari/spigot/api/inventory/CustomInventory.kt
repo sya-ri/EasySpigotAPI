@@ -43,7 +43,7 @@ class CustomInventory internal constructor(
                         }
                         if (it.inventory == it.clickedInventory) {
                             clickEvents.toList().forEach { action ->
-                                action(it.slot, it.click)
+                                action(it.slot, it.click, it)
                             }
                         }
                         onClick?.invoke(it)

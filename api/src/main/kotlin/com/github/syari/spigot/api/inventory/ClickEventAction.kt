@@ -1,6 +1,7 @@
 package com.github.syari.spigot.api.inventory
 
 import org.bukkit.event.inventory.ClickType
+import org.bukkit.event.inventory.InventoryClickEvent
 import java.util.Objects
 
 /**
@@ -13,20 +14,22 @@ import java.util.Objects
 class ClickEventAction internal constructor(
     private val slots: Iterable<Int>,
     private val types: Array<out ClickType>?,
-    private val action: () -> Unit
+    private val action: (InventoryClickEvent) -> Unit
 ) {
     /**
      * アイテムの場所とクリックの種類が一致していれば処理を実行する。
      * @param slot アイテムの場所
      * @param type クリックの種類
+     * @param event クリックイベント
      * @since 2.3.0
      */
     internal operator fun invoke(
         slot: Int,
-        type: ClickType
+        type: ClickType,
+        event: InventoryClickEvent
     ) {
         if (slots.contains(slot) && (types?.contains(type) != false)) {
-            action()
+            action(event)
         }
     }
 
@@ -64,7 +67,7 @@ class ClickEventAction internal constructor(
          */
         fun onClick(
             vararg clickType: ClickType,
-            action: () -> Unit
+            action: (InventoryClickEvent) -> Unit
         ) {
             events.add(ClickEventAction(slots, clickType, action))
         }
@@ -75,7 +78,7 @@ class ClickEventAction internal constructor(
          * @since 2.3.0
          */
         fun onClick(
-            action: () -> Unit
+            action: (InventoryClickEvent) -> Unit
         ) {
             events.add(ClickEventAction(slots, null, action))
         }
