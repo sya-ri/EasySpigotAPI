@@ -1,14 +1,16 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
-    kotlin("jvm") version "1.5.21"
-    id("org.jlleitschuh.gradle.ktlint") version "10.1.0"
+    kotlin("jvm") version "1.5.30"
+    id("org.jmailen.kotlinter") version "3.5.1"
     id("com.github.johnrengelman.shadow") version "7.0.0" apply false
-    id("net.minecrell.plugin-yml.bukkit") version "0.4.0" apply false
+    id("net.minecrell.plugin-yml.bukkit") version "0.5.0" apply false
+    id("com.github.ben-manes.versions") version "0.39.0"
 }
 
 allprojects {
-    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    apply(plugin = "org.jmailen.kotlinter")
+    apply(plugin = "com.github.ben-manes.versions")
 
     repositories {
         mavenCentral()
@@ -28,7 +30,7 @@ subprojects {
     configurations["implementation"].extendsFrom(shadowImplementation)
 
     dependencies {
-        shadowImplementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
+        shadowImplementation(kotlin("stdlib"))
 
         val minecraftVersion = when (17) {
             8 -> "1.8.8"
