@@ -53,6 +53,11 @@ subprojects {
         configurations = listOf(shadowImplementation)
         archiveClassifier.set("")
     }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 project(":api") {
