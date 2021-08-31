@@ -57,7 +57,7 @@ var ItemStack.displayNameOrNull: String?
 fun ItemStack.hasLore(): Boolean = itemMeta?.hasLore() ?: false
 
 /**
- * 説明文。取得する時は [hasLore] が真である場合でのみにする。
+ * 説明文。
  * @see ItemMeta.getLore
  * @see ItemMeta.setLore
  * @since 1.5.0
@@ -104,7 +104,7 @@ inline fun ItemStack.editLore(action: MutableList<String>.() -> Unit) {
 fun ItemStack.hasCustomModelData(): Boolean = itemMeta?.hasCustomModelData() ?: false
 
 /**
- * カスタムモデルデータ。取得する時は [hasCustomModelData] が真である場合でのみにする。
+ * カスタムモデルデータ。
  * @see ItemMeta.getCustomModelData
  * @see ItemMeta.setCustomModelData
  * @since 1.5.0
