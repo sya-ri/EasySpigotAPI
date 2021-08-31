@@ -23,7 +23,7 @@ subprojects {
         main = "com.github.syari.spigot.api.sample.${project.name.replace('-', '.')}.Main"
         author = "sya_ri"
         website = "https://github.com/sya-ri/EasySpigotAPI"
-        apiVersion = "1.16"
+        apiVersion = "1.13"
         depend = listOf("EasySpigotAPI")
     }
 

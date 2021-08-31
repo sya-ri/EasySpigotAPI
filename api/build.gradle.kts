@@ -17,7 +17,7 @@ bukkit {
     main = "com.github.syari.spigot.api.EasySpigotAPI"
     author = "sya_ri"
     website = "https://github.com/sya-ri/EasySpigotAPI"
-    apiVersion = "1.16"
+    apiVersion = "1.13"
 }
 
 tasks.withType<ShadowJar> {
