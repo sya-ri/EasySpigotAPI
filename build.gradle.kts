@@ -1,7 +1,7 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
-    kotlin("jvm") version "1.5.30"
+    kotlin("jvm") version "1.5.31"
     id("org.jmailen.kotlinter") version "3.5.1"
     id("com.github.johnrengelman.shadow") version "7.0.0" apply false
     id("net.minecrell.plugin-yml.bukkit") version "0.5.0" apply false
